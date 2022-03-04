@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
+  "id": "loriath",
+  "version": "1.0.0",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Loriath",
+  "description": "Fabric mod for Loriath server",
   "authors": [
-    "Me!"
+    "Vicen621"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Vicen621/loriath-mod"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/loriath/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.vicen621.loriath.LoriathMod"
+    ],
+    "client": [
+      "io.github.vicen621.loriath.client.LoriathModCLient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "loriath.mixins.json"
   ],
 
   "depends": {

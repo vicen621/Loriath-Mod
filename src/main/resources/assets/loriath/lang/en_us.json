@@ -1,0 +1,21 @@
+{
+  "item.loriath.maricoin": "Maricoin",
+  "item.loriath.frog_leg": "Frog Leg",
+  "item.loriath.diving_gear": "Diving Gear",
+  "item.loriath.frog_flipper": "Frog Flipper",
+  "item.loriath.hermes_boots": "Hermes Boots",
+  "item.loriath.bezoar": "Bezoar",
+  "item.loriath.adhesive_bandage": "Adhesive Bandage",
+  "item.loriath.medicated_bandage": "Medicated Bandage",
+  "item.loriath.fast_clock": "Fast Clock",
+  "item.loriath.shiny_stone": "Shiny Stone",
+  "item.loriath.lava_charm": "Lava Charm",
+  "item.loriath.titan_glove": "Titan Glove",
+  "item.loriath.shackle": "Shackle",
+  "item.loriath.destroyer_emblem": "Destroyer Emblem",
+  "item.loriath.panic_necklace": "Panic Necklace",
+
+  "itemGroup.loriath.loriath": "Loriath",
+
+  "trinkets.slot.hand.accesory": "Accessory"
+}
