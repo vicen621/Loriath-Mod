@@ -36,16 +36,11 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity {
             PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
             ClientPlayNetworking.send(new Identifier(LoriathMod.MOD_ID, "dash"), buf);
             lastDashed = world.getTime();
-        } else if (Dash.DASH_KEYBIND.isPressed() && canDash()) {
-            Vec3d target = Dash.raytraceForDash(this);
-            if (target != null) for (int i = 0; i < 10; i++) {
-                world.addParticle(new DustParticleEffect(new Vec3f(0, 0, 0), 1), target.x - 0.5 + random.nextDouble(), target.y + random.nextDouble() * 2, target.z - 0.5 + random.nextDouble(), 0.0, 0.5, 0.0);
-            }
         }
         pressedTicks = Dash.DASH_KEYBIND.isPressed() ? pressedTicks + 1 : 0;
     }
 
     private boolean canDash() {
-        return world.getTime() > lastDashed + 50;
+        return !this.isFallFlying() && world.getTime() > lastDashed + 50;
     }
 }

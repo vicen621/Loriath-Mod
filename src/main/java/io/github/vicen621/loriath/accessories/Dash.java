@@ -5,6 +5,9 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.DustParticleEffect;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -29,59 +32,32 @@ public class Dash {
         ServerPlayNetworking.registerGlobalReceiver(new Identifier(LoriathMod.MOD_ID, "dash"),
                 (server, player, handler, buf, sender) -> {
                     World world = player.world;
-                    Vec3d target = raytraceForDash(player);
 
-                    if (target != null) {
-                        Random rand = world.random;
-                        for (int i = 0; i < 3; i++) {
-                            double x = (target.x - player.getX()) * rand.nextDouble() + player.getX() - 0.5;
-                            double y = (target.y - player.getY()) * rand.nextDouble() + player.getY() + 1;
-                            double z = (target.z - player.getZ()) * rand.nextDouble() + player.getZ() - 0.5;
-                            if (world instanceof ServerWorld sv)
-                                sv.spawnParticles(DustParticleEffect.DEFAULT, x, y, z, 10,
-                                        0.5, 1.0, 0.5, 0.0);
-                        }
-                        world.playSound(null, target.x, target.y, target.z,
-                                SoundEvents.ENTITY_GHAST_SHOOT, SoundCategory.PLAYERS, 1f, 1.5f);
-
-
-                        Vec3d rotation = player.getRotationVector();
-                        player.sendMessage(new LiteralText(rotation.toString()), false);
-                        double d = 1D;
-                        double e = 0.5D;
-                        Vec3d velocity = player.getVelocity();
-                        player.setVelocity(velocity.add(rotation.x * e + (rotation.x * d - velocity.x) * e, rotation.y * e + (rotation.y * d - velocity.y) * e, rotation.z * e + (rotation.z * d - velocity.z) * e));
-                        player.velocityModified = true;
+                    Random rand = world.random;
+                    for (int i = 0; i < 3; i++) {
+                        double d0 = rand.nextGaussian() * 0.02D;
+                        double d1 = rand.nextGaussian() * 0.02D;
+                        double d2 = rand.nextGaussian() * 0.02D;
+                        double x = player.getX() + (double) (rand.nextFloat() * 2.0F) - d0 * 10.0D;
+                        double y = player.getY() + (double) (rand.nextFloat() * 2.0F) - d1 * 10.0D;
+                        double z = player.getZ() + (double) (rand.nextFloat() * 2.0F) - d2 * 10.0D;
+                        if (world instanceof ServerWorld sv)
+                            sv.spawnParticles(ParticleTypes.POOF, x, y, z, 10,
+                                    d0, d1, d2, 0.0);
                     }
+                    world.playSound(null, player.getX(), player.getY(), player.getZ(),
+                            SoundEvents.ENTITY_GHAST_SHOOT, SoundCategory.PLAYERS, 0.5f, 1.5f);
+
+                    player.setVelocity(player.getVelocity().add(calculateVector(player)));
+                    player.velocityModified = true;
                 });
     }
 
-    public static Vec3d raytraceForDash(PlayerEntity p) {
-        World world = p.world;
-
-        Vec3d eyeVec = p.getCameraPosVec(0f);
-        Vec3d dir = p.getRotationVec(0f);
-        Vec3d rayEnd = eyeVec.add(dir.x * 16, dir.y * 16, dir.z * 16);
-        BlockHitResult result = world.raycast(new RaycastContext(eyeVec, rayEnd, RaycastContext.ShapeType.COLLIDER,
-                RaycastContext.FluidHandling.NONE, p));
-
-        BlockPos dashPos = result.getSide() == Direction.DOWN ? result.getBlockPos().down(2) :
-                result.getBlockPos().offset(result.getSide());
-
-        boolean posIsFree = posIsClear(world, dashPos);
-        while (!posIsFree) {
-            dashPos = dashPos.down();
-            posIsFree = posIsClear(world, dashPos) && world.raycast(new RaycastContext(eyeVec,
-                    Vec3d.ofCenter(dashPos.up()), RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, p))
-                    .getType() == HitResult.Type.MISS;
-            if (dashPos.getY() <= 0)
-                break;
-        }
-        return posIsFree ? Vec3d.ofCenter(dashPos) : null;
-    }
-
-    private static boolean posIsClear(World world, BlockPos pos) {
-        return (world.isAir(pos) || world.getBlockState(pos).getCollisionShape(world, pos).isEmpty())
-                && (world.isAir(pos.up()) || world.getBlockState(pos.up()).getCollisionShape(world, pos.up()).isEmpty());
+    private Vec3d calculateVector(ServerPlayerEntity p) {
+        double radians = Math.toRadians(p.getYaw());
+        double x = -Math.sin(radians) * 2;
+        double y = 0.7;
+        double z = Math.cos(radians) * 2;
+        return new Vec3d(x, y, z);
     }
 }
