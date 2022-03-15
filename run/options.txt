@@ -36,9 +36,9 @@ ao:2
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:false
-resourcePacks:["Fabric Mods"]
+resourcePacks:["vanilla","Fabric Mods","file/Visual Enchantments"]
 incompatibleResourcePacks:[]
-lastServer:201.177.178.25
+lastServer:localhost
 lang:en_us
 soundDevice:
 chatVisibility:0

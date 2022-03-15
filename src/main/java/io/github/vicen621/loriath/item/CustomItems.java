@@ -93,7 +93,7 @@ public class CustomItems {
                                                                                SlotReference slot, LivingEntity entity, UUID uuid) {
             var modifiers = super.getModifiers(stack, slot, entity, uuid);
             modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid,
-                    "loriath:movement_speed", 0.07, EntityAttributeModifier.Operation.ADDITION));
+                    "loriath:movement_speed", 0.04, EntityAttributeModifier.Operation.ADDITION));
             return modifiers;
         }
     });

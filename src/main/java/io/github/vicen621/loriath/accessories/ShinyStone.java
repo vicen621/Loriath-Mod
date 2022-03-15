@@ -17,6 +17,5 @@ public class ShinyStone extends TrinketItem {
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         if (entity.getEntityWorld().isClient) return;
 
-
     }
 }
