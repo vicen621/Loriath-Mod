@@ -3,12 +3,14 @@ package io.github.vicen621.loriath.mixin;
 import com.mojang.authlib.GameProfile;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.accessories.Dash;
+import io.github.vicen621.loriath.item.CustomItems;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,6 +37,8 @@ public class DashMixin extends AbstractClientPlayerEntity {
     }
 
     private boolean canDash() {
-        return !this.isFallFlying() && world.getTime() > lastDashed + 50;
+        return !this.isFallFlying() && world.getTime() > lastDashed + 50 /*&&
+                (this.getStackInHand(Hand.MAIN_HAND).getItem().equals(CustomItems.DASH_SHIELD) &&
+                        this.getStackInHand(Hand.OFF_HAND).getItem().equals(CustomItems.DASH_SHIELD))*/;
     }
 }

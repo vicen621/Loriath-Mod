@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-//TODO Testear en server
+//TODO Fijarse porque no funciona
 public class Dash {
 
     public static KeyBinding DASH_KEYBIND;

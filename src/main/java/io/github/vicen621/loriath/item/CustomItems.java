@@ -1,5 +1,6 @@
 package io.github.vicen621.loriath.item;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotAttributes;
 import dev.emi.trinkets.api.SlotReference;
@@ -23,6 +24,7 @@ import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootTables;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -38,6 +40,7 @@ public class CustomItems {
             .build();
 
     public static final Item MARICOIN = registerItem("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
+    // FIXME public static final Item DASH_SHIELD = registerItem("dash_shield", new FabricShieldItem(new FabricItemSettings().group(ITEM_GROUP).maxDamage(2500), 5, 13, Items.GOLD_INGOT));
     public static final Item FROG_LEG = registerItem("frog_leg", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
         @Override
         public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {

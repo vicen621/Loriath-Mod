@@ -1,0 +1,14 @@
+{
+  "parent":"fabricshieldlib:item/fabric_shield",
+  "textures":{
+    "shield":"loriath:item/dash_shield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "loriath:item/dash_shield_blocking"
+    }
+  ]
+}

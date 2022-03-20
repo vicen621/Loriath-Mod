@@ -8,18 +8,16 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 
 public class LavaCharm extends TrinketItem {
-
-    int timer = 0;
-    int cooldown = 0;
 
     public LavaCharm() {
         super(new FabricItemSettings().group(CustomItems.ITEM_GROUP).maxCount(1));
 
         PlayerDamageCallback.EVENT.register((player, source, amount) -> {
-            if (source == DamageSource.LAVA && timer > 0) {
+            if (source == DamageSource.LAVA && this.getDefaultStack().getOrCreateNbt().getInt("lavaCharmTimer") > 0) {
                 player.setFireTicks(0);
                 return ActionResult.FAIL;
             }
@@ -29,24 +27,32 @@ public class LavaCharm extends TrinketItem {
     }
 
     @Override
-    public void onUnequip(ItemStack item, SlotReference reference, LivingEntity entity) {
-        timer = 0;
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        stack.getOrCreateNbt().putInt("lavaCharmTimer", 0);
     }
 
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         if (entity.getEntityWorld().isClient) return;
+        NbtCompound tag = stack.getOrCreateNbt();
+
+        int cooldown = tag.getInt("lavaCharmCooldown");
+        int timer = tag.getInt("lavaCharmTimer");
+
         if (entity.isInLava()) {
             if (cooldown <= 0)
-                cooldown = 100; // 5 secs
+                tag.putInt("lavaCharmCooldown", 100); // 5 secs
 
-            if (timer > 0)
+            if (timer > 0) {
                 timer--;
+                tag.putInt("lavaCharmTimer", timer);
+            }
         } else {
-            if (cooldown > 0)
+            if (cooldown > 0) {
                 cooldown--;
-            else if (timer != 140)
-                timer = 140; // 7 secs
+                tag.putInt("lavaCharmCooldown", cooldown);
+            } else if (timer != 140)
+                tag.putInt("lavaCharmTimer", 140); // 7 secs
         }
     }
 }
