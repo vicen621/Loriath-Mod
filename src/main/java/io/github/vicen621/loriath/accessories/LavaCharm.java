@@ -11,11 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 
-public class LavaCharm extends TrinketItem {
+public class LavaCharm extends AccesoryItem {
 
     public LavaCharm() {
-        super(new FabricItemSettings().group(CustomItems.ITEM_GROUP).maxCount(1));
-
         PlayerDamageCallback.EVENT.register((player, source, amount) -> {
             if (source == DamageSource.LAVA && this.getDefaultStack().getOrCreateNbt().getInt("lavaCharmTimer") > 0) {
                 player.setFireTicks(0);
@@ -32,8 +30,7 @@ public class LavaCharm extends TrinketItem {
     }
 
     @Override
-    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        if (entity.getEntityWorld().isClient) return;
+    public void tick(ItemStack stack, LivingEntity entity) {
         NbtCompound tag = stack.getOrCreateNbt();
 
         int cooldown = tag.getInt("lavaCharmCooldown");

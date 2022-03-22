@@ -18,6 +18,7 @@ public class LoriathMod implements ModInitializer {
     @Override
     public void onInitialize() {
         CustomItems.registerModItems();
+        CustomItems.DASH_SHIELD.getDefaultStack().getOrCreateNbt().putInt("dashShield", 1);
 
         events();
         LOGGER.info("Finished loading LoriathMod");

@@ -10,16 +10,15 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 
-public class ShinyStone extends TrinketItem {
+public class ShinyStone extends AccesoryItem {
 
-    public ShinyStone() {
-        super(new FabricItemSettings().group(CustomItems.ITEM_GROUP).maxCount(1));
+    @Override
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        stack.getOrCreateNbt().putInt("shinyStoneTicks", 0);
     }
 
     @Override
-    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        if (entity.getEntityWorld().isClient) return;
-
+    public void tick(ItemStack stack, LivingEntity entity) {
         NbtCompound tag = stack.getOrCreateNbt();
 
         int ticks = tag.getInt("shinyStoneTicks");

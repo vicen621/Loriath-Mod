@@ -1,4 +1,4 @@
-version:2865
+version:2975
 autoJump:false
 autoSuggestions:true
 chatColors:true
@@ -24,8 +24,8 @@ fov:0.75
 screenEffectScale:0.0
 fovEffectScale:0.0
 gamma:15.0
-renderDistance:2
-simulationDistance:5
+renderDistance:12
+simulationDistance:12
 entityDistanceScaling:1.0
 guiScale:2
 particles:1
@@ -67,6 +67,7 @@ mouseWheelSensitivity:1.0
 rawMouseInput:true
 glDebugVerbosity:1
 skipMultiplayerWarning:true
+skipRealms32bitWarning:false
 hideMatchedNames:true
 joinedFirstServer:true
 hideBundleTutorial:false
@@ -107,7 +108,7 @@ key_key.hotbar.6:key.keyboard.f22
 key_key.hotbar.7:key.keyboard.f21
 key_key.hotbar.8:key.keyboard.f23
 key_key.hotbar.9:key.keyboard.r
-key_key.loriath.dash:key.keyboard.world.1
+key_key.loriath.dash:key.keyboard.world.2
 soundCategory_master:1.0
 soundCategory_music:0.0
 soundCategory_record:1.0

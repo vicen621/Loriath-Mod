@@ -1,15 +1,11 @@
 package io.github.vicen621.loriath.accessories;
 
 import io.github.vicen621.loriath.LoriathMod;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.DustParticleEffect;
-import net.minecraft.particle.ParticleEffect;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -57,5 +53,12 @@ public class Dash {
         double y = 0.7;
         double z = Math.cos(radians) * 2;
         return new Vec3d(x, y, z);
+    }
+
+    public static class DashEnchantment extends Enchantment {
+
+        protected DashEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+            super(weight, type, slotTypes);
+        }
     }
 }

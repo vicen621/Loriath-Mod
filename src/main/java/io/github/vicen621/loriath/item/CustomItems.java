@@ -2,32 +2,22 @@ package io.github.vicen621.loriath.item;
 
 import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import com.google.common.collect.Multimap;
-import dev.emi.trinkets.api.SlotAttributes;
 import dev.emi.trinkets.api.SlotReference;
-import dev.emi.trinkets.api.TrinketItem;
 import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.accessories.AccesoryItem;
 import io.github.vicen621.loriath.accessories.LavaCharm;
+import io.github.vicen621.loriath.accessories.ShinyStone;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootTables;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 
 import java.util.UUID;
@@ -40,8 +30,8 @@ public class CustomItems {
             .build();
 
     public static final Item MARICOIN = registerItem("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
-    // FIXME public static final Item DASH_SHIELD = registerItem("dash_shield", new FabricShieldItem(new FabricItemSettings().group(ITEM_GROUP).maxDamage(2500), 5, 13, Items.GOLD_INGOT));
-    public static final Item FROG_LEG = registerItem("frog_leg", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item DASH_SHIELD = registerItem("dash_shield", new FabricShieldItem(new FabricItemSettings().group(ITEM_GROUP).maxDamage(1200), 5, 13, Items.OAK_PLANKS));
+    public static final Item FROG_LEG = registerItem("frog_leg", new AccesoryItem() {
         @Override
         public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, Integer.MAX_VALUE, 1));
@@ -52,31 +42,42 @@ public class CustomItems {
             entity.removeStatusEffect(StatusEffects.JUMP_BOOST);
         }
     });
-    public static final Item DIVING_GEAR = registerItem("diving_gear", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
-        int cooldown = 0;
+    public static final Item DIVING_GEAR = registerItem("diving_gear", new AccesoryItem() {
+
         @Override
-        public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            if (entity.getEntityWorld().isClient) return;
+        public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+            stack.getOrCreateNbt().putInt("divingGearCooldown", 0);
+        }
+
+        @Override
+        public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.getAir() < 100 && entity.isInsideWaterOrBubbleColumn()) {
+                NbtCompound nbt = stack.getOrCreateNbt();
+                int cooldown = nbt.getInt("divingGearCooldown");
                 if (cooldown <= 0) {
                     entity.setAir(entity.getAir() + 30);
-                    cooldown = 60; // 3 seconds
-                } else
+                    nbt.putInt("divingGearCooldown", 60); // 3 seconds
+                } else {
                     cooldown--;
+                    nbt.putInt("divingGearCooldown", cooldown);
+                }
             }
         }
     });
-    public static final Item FROG_FLIPPER = registerItem("frog_flipper", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
-        int cooldown = 0;
+    public static final Item FROG_FLIPPER = registerItem("frog_flipper", new AccesoryItem() {
+
         @Override
-        public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            if (entity.getEntityWorld().isClient) return;
-            if (entity.getAir() > 100 && entity.isInsideWaterOrBubbleColumn()) {
+        public void tick(ItemStack stack, LivingEntity entity) {
+            if (entity.getAir() < 100 && entity.isInsideWaterOrBubbleColumn()) {
+                NbtCompound nbt = stack.getOrCreateNbt();
+                int cooldown = nbt.getInt("frogFlipperCooldown");
                 if (cooldown <= 0) {
                     entity.setAir(entity.getAir() + 30);
-                    cooldown = 60;
-                } else
+                    nbt.putInt("frogFlipperCooldown", 60); // 3 seconds
+                } else {
                     cooldown--;
+                    nbt.putInt("frogFlipperCooldown", cooldown);
+                }
             }
         }
 
@@ -87,10 +88,11 @@ public class CustomItems {
 
         @Override
         public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+            stack.getOrCreateNbt().putInt("frogFlipperCooldown", 0);
             entity.removeStatusEffect(StatusEffects.JUMP_BOOST);
         }
     });
-    public static final Item HERMES_BOOTS = registerItem("hermes_boots", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item HERMES_BOOTS = registerItem("hermes_boots", new AccesoryItem() {
         @Override
         public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack,
                                                                                SlotReference slot, LivingEntity entity, UUID uuid) {
@@ -100,28 +102,25 @@ public class CustomItems {
             return modifiers;
         }
     });
-    public static final Item BEZOAR = registerItem("bezoar", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item BEZOAR = registerItem("bezoar", new AccesoryItem() {
         @Override
-        public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            if (entity.getEntityWorld().isClient) return;
+        public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.POISON) && entity.getStatusEffect(StatusEffects.POISON).getAmplifier() == 0) {
                 entity.removeStatusEffect(StatusEffects.POISON);
             }
         }
     });
-    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AccesoryItem() {
         @Override
-        public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            if (entity.getEntityWorld().isClient) return;
+        public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.WITHER) && entity.getStatusEffect(StatusEffects.WITHER).getAmplifier() == 0) {
                 entity.removeStatusEffect(StatusEffects.WITHER);
             }
         }
     });
-    public static final Item MEDICATED_BANDAGE = registerItem("medicated_bandage", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item MEDICATED_BANDAGE = registerItem("medicated_bandage", new AccesoryItem() {
         @Override
-        public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            if (entity.getEntityWorld().isClient) return;
+        public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.WITHER) && entity.getStatusEffect(StatusEffects.WITHER).getAmplifier() == 0) {
                 entity.removeStatusEffect(StatusEffects.WITHER);
             }
@@ -130,37 +129,17 @@ public class CustomItems {
             }
         }
     });
-    public static final Item FAST_CLOCK = registerItem("fast_clock", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item FAST_CLOCK = registerItem("fast_clock", new AccesoryItem() {
         @Override
-        public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            if (entity.getEntityWorld().isClient) return;
+        public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.SLOWNESS) && entity.getStatusEffect(StatusEffects.SLOWNESS).getAmplifier() == 0) {
                 entity.removeStatusEffect(StatusEffects.SLOWNESS);
             }
         }
     });
-    //TODO
-    public static final Item SHINY_STONE = registerItem("shiny_stone", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
-        int timer = 0;
-        @Override
-        public void tick(ItemStack stack, SlotReference reference, LivingEntity entity) {
-            if (entity.getEntityWorld().isClient) return;
-            Vec3d velocity = entity.getVelocity();
-            if (velocity.getY() <= 0 && velocity.getX() == 0 && velocity.getY() == 0) { //Fixme Ver como fijarse si el jugador esta quieto
-                LoriathMod.LOGGER.info("isStill");
-                timer++;
-                if (timer >= 3*20) //3 secs
-                    entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 20*4, 2));
-                if (timer >= 6*20) //6 secs
-                    entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 25, 1));
-            } else if (timer != 0) {
-                LoriathMod.LOGGER.info("timer == 0");
-                timer = 0;
-            }
-        }
-    });
+    public static final Item SHINY_STONE = registerItem("shiny_stone", new ShinyStone());
     public static final Item LAVA_CHARM = registerItem("lava_charm", new LavaCharm());
-    public static final Item TITAN_GLOVE = registerItem("titan_glove", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item TITAN_GLOVE = registerItem("titan_glove", new AccesoryItem() {
         @Override
         public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack,
                                                                                SlotReference slot, LivingEntity entity, UUID uuid) {
@@ -172,7 +151,7 @@ public class CustomItems {
             return modifiers;
         }
     });
-    public static final Item SHACKLE = registerItem("shackle", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)) {
+    public static final Item SHACKLE = registerItem("shackle", new AccesoryItem() {
         @Override
         public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack,
                                                                                SlotReference slot, LivingEntity entity, UUID uuid) {
@@ -183,9 +162,9 @@ public class CustomItems {
         }
     });
     //TODO
-    public static final Item DESTROYER_EMBLEM = registerItem("destroyer_emblem", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
+    public static final Item DESTROYER_EMBLEM = registerItem("destroyer_emblem", new AccesoryItem());
     //TODO
-    public static final Item PANIC_NECKLACE = registerItem("panic_necklace", new TrinketItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
+    public static final Item PANIC_NECKLACE = registerItem("panic_necklace", new AccesoryItem());
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(LoriathMod.MOD_ID, name), item);

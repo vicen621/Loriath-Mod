@@ -1,7 +1,8 @@
 {
   "parent":"fabricshieldlib:item/fabric_shield",
   "textures":{
-    "shield":"loriath:item/dash_shield"
+    "shield":"loriath:item/dash_shield",
+    "particle": "#shield"
   },
   "overrides": [
     {
