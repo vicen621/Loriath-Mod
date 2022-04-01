@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "loriath:item/mistery_boxes/rare_mistery_box"
+  }
+}

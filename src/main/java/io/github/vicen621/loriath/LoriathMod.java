@@ -3,6 +3,7 @@ package io.github.vicen621.loriath;
 import io.github.vicen621.loriath.accessories.Dash;
 import io.github.vicen621.loriath.item.CustomItems;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
@@ -11,6 +12,8 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static net.minecraft.server.command.CommandManager.literal;
+
 public class LoriathMod implements ModInitializer {
     public static final String MOD_ID = "loriath";
     public static final Logger LOGGER = LoggerFactory.getLogger("Loriath");
@@ -18,7 +21,7 @@ public class LoriathMod implements ModInitializer {
     @Override
     public void onInitialize() {
         CustomItems.registerModItems();
-        CustomItems.DASH_SHIELD.getDefaultStack().getOrCreateNbt().putInt("dashShield", 1);
+        //CustomItems.DASH_SHIELD.getDefaultStack().getOrCreateNbt().putInt("dashShield", 1);
 
         events();
         LOGGER.info("Finished loading LoriathMod");

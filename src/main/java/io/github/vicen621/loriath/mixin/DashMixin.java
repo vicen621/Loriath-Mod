@@ -1,6 +1,5 @@
 package io.github.vicen621.loriath.mixin;
 
-import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import com.mojang.authlib.GameProfile;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.accessories.Dash;
@@ -38,8 +37,6 @@ public class DashMixin extends AbstractClientPlayerEntity {
     }
 
     private boolean canDash() {
-        return !this.isFallFlying() && world.getTime() > lastDashed + 50 &&
-                (this.getStackInHand(Hand.MAIN_HAND).getItem() instanceof FabricShieldItem ||
-                        this.getStackInHand(Hand.OFF_HAND).getItem() instanceof FabricShieldItem);
+        return !this.isFallFlying() && world.getTime() > lastDashed + 50; //&&(this.getStackInHand(Hand.MAIN_HAND).getItem() instanceof FabricShieldItem || this.getStackInHand(Hand.OFF_HAND).getItem() instanceof FabricShieldItem);
     }
 }

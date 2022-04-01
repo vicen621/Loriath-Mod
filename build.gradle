@@ -14,6 +14,7 @@ repositories {
     maven { url = 'https://jitpack.io' }
     maven { url = "https://maven.shedaniel.me/" }			//Cloth
     maven { url = "https://maven.terraformersmc.com/" }		//Modmenu
+    maven { url 'https://maven.nucleoid.xyz' }
     maven {
         name = "TerraformersMC"
         url = "https://maven.terraformersmc.com/"
@@ -42,16 +43,17 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // CottonMC/LibGui
-    modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
+    // modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
+    modImplementation include("eu.pb4:sgui:${project.sgui_version}")
 
     //emilyploszaj/trinkets (Accessories API)
     modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
     //fabric-shield-lib
-    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+    //modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
 
-    modImplementation "de.guntram.mcmod:crowdin-translate:${project.crowdin_version}"
-    include "de.guntram.mcmod:crowdin-translate:${project.crowdin_version}"
+   // modImplementation "de.guntram.mcmod:crowdin-translate:${project.crowdin_version}"
+    //include "de.guntram.mcmod:crowdin-translate:${project.crowdin_version}"
 }
 
 processResources {

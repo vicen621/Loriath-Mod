@@ -1,12 +1,13 @@
 package io.github.vicen621.loriath.item;
 
-import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.accessories.AccesoryItem;
 import io.github.vicen621.loriath.accessories.LavaCharm;
 import io.github.vicen621.loriath.accessories.ShinyStone;
+import io.github.vicen621.loriath.item.misteryBoxes.MisteryBoxItem;
+import io.github.vicen621.loriath.item.misteryBoxes.MisteryBoxRarity;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
@@ -30,7 +31,11 @@ public class CustomItems {
             .build();
 
     public static final Item MARICOIN = registerItem("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
-    public static final Item DASH_SHIELD = registerItem("dash_shield", new FabricShieldItem(new FabricItemSettings().group(ITEM_GROUP).maxDamage(1200), 5, 13, Items.OAK_PLANKS));
+    public static final Item COMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.COMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item UNCOMMON_MISTERY_BOX = registerItem("uncommon_mistery_box", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
+    public static final Item RARE_MISTERY_BOX = registerItem("rare_mistery_box", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
+
+    //public static final Item DASH_SHIELD = registerItem("dash_shield", new FabricShieldItem(new FabricItemSettings().group(ITEM_GROUP).maxDamage(1200), 5, 13, Items.OAK_PLANKS));
     public static final Item FROG_LEG = registerItem("frog_leg", new AccesoryItem() {
         @Override
         public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
