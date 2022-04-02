@@ -4,18 +4,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public enum MisteryBoxRarity {
     COMMON(new ArrayList<>() {
         {
-            add(Items.IRON_SWORD.getDefaultStack());
+            /*add(Items.IRON_SWORD.getDefaultStack());
             add(Items.IRON_AXE.getDefaultStack());
             add(Items.DIAMOND_SWORD.getDefaultStack());
             add(Items.NETHERITE_SWORD.getDefaultStack());
             add(Items.DIAMOND_AXE.getDefaultStack());
             add(Items.NETHERITE_AXE.getDefaultStack());
-            add(new ItemStack(Items.GOLDEN_APPLE, new Random().nextInt(5) + 1));
+            add(new ItemStack(Items.GOLDEN_APPLE, new Random().nextInt(5) + 1));*/
+            add(new ItemStack(Items.STICK, 1));
+            add(new ItemStack(Items.STICK, 2));
+            add(new ItemStack(Items.STICK, 3));
+            add(new ItemStack(Items.STICK, 4));
+            add(new ItemStack(Items.STICK, 5));
         }
     });
 

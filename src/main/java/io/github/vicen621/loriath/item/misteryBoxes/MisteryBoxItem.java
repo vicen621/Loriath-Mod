@@ -65,10 +65,10 @@ public class MisteryBoxItem extends Item {
                 @Override
                 public void onClose() {
                     if (!spinning) {
-                        if (!player.getInventory().insertStack(getSlot(4).getItemStack()))
+                        if (!player.getInventory().insertStack(getSlot(4).getItemStack().copy()))
                             player.getWorld().spawnEntity(new ItemEntity(player.getWorld(), player.getX(), player.getY(), player.getZ(), getSlot(4).getItemStack()));
                     } else {
-                        ItemStack stack = items.get(new Random().nextInt(items.size()));
+                        ItemStack stack = items.get(new Random().nextInt(items.size())).copy();
                         if (!player.getInventory().insertStack(stack))
                             player.getWorld().spawnEntity(new ItemEntity(player.getWorld(), player.getX(), player.getY(), player.getZ(), stack));
                     }
