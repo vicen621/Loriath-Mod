@@ -5,6 +5,7 @@ import net.minecraft.item.Items;
 
 import java.util.ArrayList;
 
+// TODO Hacer las listas de items
 public enum MisteryBoxRarity {
     COMMON(new ArrayList<>() {
         {

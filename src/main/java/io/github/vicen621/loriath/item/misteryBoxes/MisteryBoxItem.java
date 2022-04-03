@@ -46,7 +46,6 @@ public class MisteryBoxItem extends Item {
         Registry.register(Registry.ITEM, new Identifier(LoriathMod.MOD_ID, rarity.toString().toLowerCase() + "_mistery_box"), this);
     }
 
-    //FIXME Ver porque se borran los items cuando se abre el mistery box, capaz es por el rarity
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (world.isClient) return super.use(world, user, hand);

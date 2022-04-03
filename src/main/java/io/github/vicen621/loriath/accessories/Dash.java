@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-//TODO Fijarse porque no funciona
+//TODO Hacerlo un trinket/encantamiento
 public class Dash {
 
     public static KeyBinding DASH_KEYBIND;

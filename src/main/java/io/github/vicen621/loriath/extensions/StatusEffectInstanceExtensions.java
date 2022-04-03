@@ -1,5 +1,8 @@
-package io.github.vicen621.loriath.mixin.effects;
+package io.github.vicen621.loriath.extensions;
 
+/**
+ * @author florensie
+ */
 public interface StatusEffectInstanceExtensions {
 
 	/**

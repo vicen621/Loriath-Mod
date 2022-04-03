@@ -6,7 +6,10 @@
   "mixins": [
     "DashMixin",
     "ServerPlayerEntityMixin",
-    "effects.StatusEffectInstanceMixin"
+    "effects.LivingEntityMixin",
+    "effects.StatusEffectInstanceMixin",
+    "effects.client.LivingEntityMixin",
+    "effects.client.StatusEffectUtilMixin"
   ],
   "client": [],
   "injectors": {

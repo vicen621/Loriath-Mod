@@ -3,7 +3,7 @@ package io.github.vicen621.loriath.item;
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
 import io.github.vicen621.loriath.LoriathMod;
-import io.github.vicen621.loriath.accessories.AccesoryItem;
+import io.github.vicen621.loriath.accessories.AccessoryItem;
 import io.github.vicen621.loriath.accessories.LavaCharm;
 import io.github.vicen621.loriath.accessories.ShinyStone;
 import io.github.vicen621.loriath.item.misteryBoxes.MisteryBoxItem;
@@ -36,18 +36,13 @@ public class CustomItems {
     public static final Item RARE_MISTERY_BOX = registerItem("rare_mistery_box", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
 
     //public static final Item DASH_SHIELD = registerItem("dash_shield", new FabricShieldItem(new FabricItemSettings().group(ITEM_GROUP).maxDamage(1200), 5, 13, Items.OAK_PLANKS));
-    public static final Item FROG_LEG = registerItem("frog_leg", new AccesoryItem() {
+    public static final Item FROG_LEG = registerItem("frog_leg", new AccessoryItem() {
         @Override
-        public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, Integer.MAX_VALUE, 1));
-        }
-
-        @Override
-        public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            entity.removeStatusEffect(StatusEffects.JUMP_BOOST);
+        public StatusEffectInstance getPermanentEffect() {
+            return new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20, 1, true, false);
         }
     });
-    public static final Item DIVING_GEAR = registerItem("diving_gear", new AccesoryItem() {
+    public static final Item DIVING_GEAR = registerItem("diving_gear", new AccessoryItem() {
 
         @Override
         public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
@@ -69,7 +64,7 @@ public class CustomItems {
             }
         }
     });
-    public static final Item FROG_FLIPPER = registerItem("frog_flipper", new AccesoryItem() {
+    public static final Item FROG_FLIPPER = registerItem("frog_flipper", new AccessoryItem() {
 
         @Override
         public void tick(ItemStack stack, LivingEntity entity) {
@@ -87,17 +82,16 @@ public class CustomItems {
         }
 
         @Override
-        public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, Integer.MAX_VALUE, 1));
+        public StatusEffectInstance getPermanentEffect() {
+            return new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20, 1, true, false);
         }
 
         @Override
         public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
             stack.getOrCreateNbt().putInt("frogFlipperCooldown", 0);
-            entity.removeStatusEffect(StatusEffects.JUMP_BOOST);
         }
     });
-    public static final Item HERMES_BOOTS = registerItem("hermes_boots", new AccesoryItem() {
+    public static final Item HERMES_BOOTS = registerItem("hermes_boots", new AccessoryItem() {
         @Override
         public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack,
                                                                                SlotReference slot, LivingEntity entity, UUID uuid) {
@@ -107,7 +101,7 @@ public class CustomItems {
             return modifiers;
         }
     });
-    public static final Item BEZOAR = registerItem("bezoar", new AccesoryItem() {
+    public static final Item BEZOAR = registerItem("bezoar", new AccessoryItem() {
         @Override
         public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.POISON) && entity.getStatusEffect(StatusEffects.POISON).getAmplifier() == 0) {
@@ -115,7 +109,7 @@ public class CustomItems {
             }
         }
     });
-    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AccesoryItem() {
+    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AccessoryItem() {
         @Override
         public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.WITHER) && entity.getStatusEffect(StatusEffects.WITHER).getAmplifier() == 0) {
@@ -123,7 +117,7 @@ public class CustomItems {
             }
         }
     });
-    public static final Item MEDICATED_BANDAGE = registerItem("medicated_bandage", new AccesoryItem() {
+    public static final Item MEDICATED_BANDAGE = registerItem("medicated_bandage", new AccessoryItem() {
         @Override
         public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.WITHER) && entity.getStatusEffect(StatusEffects.WITHER).getAmplifier() == 0) {
@@ -134,7 +128,7 @@ public class CustomItems {
             }
         }
     });
-    public static final Item FAST_CLOCK = registerItem("fast_clock", new AccesoryItem() {
+    public static final Item FAST_CLOCK = registerItem("fast_clock", new AccessoryItem() {
         @Override
         public void tick(ItemStack stack, LivingEntity entity) {
             if (entity.hasStatusEffect(StatusEffects.SLOWNESS) && entity.getStatusEffect(StatusEffects.SLOWNESS).getAmplifier() == 0) {
@@ -144,7 +138,7 @@ public class CustomItems {
     });
     public static final Item SHINY_STONE = registerItem("shiny_stone", new ShinyStone());
     public static final Item LAVA_CHARM = registerItem("lava_charm", new LavaCharm());
-    public static final Item TITAN_GLOVE = registerItem("titan_glove", new AccesoryItem() {
+    public static final Item TITAN_GLOVE = registerItem("titan_glove", new AccessoryItem() {
         @Override
         public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack,
                                                                                SlotReference slot, LivingEntity entity, UUID uuid) {
@@ -156,7 +150,7 @@ public class CustomItems {
             return modifiers;
         }
     });
-    public static final Item SHACKLE = registerItem("shackle", new AccesoryItem() {
+    public static final Item SHACKLE = registerItem("shackle", new AccessoryItem() {
         @Override
         public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack,
                                                                                SlotReference slot, LivingEntity entity, UUID uuid) {
@@ -167,9 +161,8 @@ public class CustomItems {
         }
     });
     //TODO
-    public static final Item DESTROYER_EMBLEM = registerItem("destroyer_emblem", new AccesoryItem());
-    //TODO
-    public static final Item PANIC_NECKLACE = registerItem("panic_necklace", new AccesoryItem());
+    public static final Item DESTROYER_EMBLEM = registerItem("destroyer_emblem", new AccessoryItem());
+    //TODO public static final Item PANIC_NECKLACE = registerItem("panic_necklace", new AccessoryItem());
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(LoriathMod.MOD_ID, name), item);

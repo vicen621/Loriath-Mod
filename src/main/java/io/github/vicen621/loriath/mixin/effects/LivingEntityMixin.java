@@ -1,7 +1,7 @@
 package io.github.vicen621.loriath.mixin.effects;
 
 import io.github.vicen621.loriath.LoriathMod;
-import io.github.vicen621.loriath.accessories.AccesoryItem;
+import io.github.vicen621.loriath.accessories.AccessoryItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -24,7 +24,8 @@ public abstract class LivingEntityMixin extends Entity {
 	@Shadow
 	public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
-	@Shadow public abstract boolean addStatusEffect(StatusEffectInstance effect, @Nullable Entity source);
+	@Shadow
+	public abstract boolean addStatusEffect(StatusEffectInstance effect, @Nullable Entity source);
 
 	/**
 	 * Applies permanent status effects added by trinkets every 15 ticks
@@ -33,8 +34,8 @@ public abstract class LivingEntityMixin extends Entity {
 	private void applyPermanentEffects(CallbackInfo info) {
 		if (!this.world.isClient && this.age % 15 == 0) {
 
-			LoriathMod.getAllEquipped((LivingEntity) (Object) this).forEach(stack -> {
-				StatusEffectInstance effect = ((AccesoryItem) stack.getItem()).getPermanentEffect(); //FIXME
+			LoriathMod.getEquippedAccessories((LivingEntity) (Object) this).forEach(stack -> {
+				StatusEffectInstance effect = ((AccessoryItem) stack.getItem()).getPermanentEffect();
 
 				if (effect != null) {
 					this.addStatusEffect(effect);

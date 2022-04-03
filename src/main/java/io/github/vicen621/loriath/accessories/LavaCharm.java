@@ -1,21 +1,21 @@
 package io.github.vicen621.loriath.accessories;
 
 import dev.emi.trinkets.api.SlotReference;
-import dev.emi.trinkets.api.TrinketItem;
+import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.events.PlayerDamageCallback;
-import io.github.vicen621.loriath.item.CustomItems;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 
-public class LavaCharm extends AccesoryItem {
+public class LavaCharm extends AccessoryItem {
+
+    int timer = 0;
 
     public LavaCharm() {
         PlayerDamageCallback.EVENT.register((player, source, amount) -> {
-            if (source == DamageSource.LAVA && this.getDefaultStack().getOrCreateNbt().getInt("lavaCharmTimer") > 0) {
+            if (source == DamageSource.LAVA && timer > 0) {
                 player.setFireTicks(0);
                 return ActionResult.FAIL;
             }
@@ -27,6 +27,7 @@ public class LavaCharm extends AccesoryItem {
     @Override
     public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
         stack.getOrCreateNbt().putInt("lavaCharmTimer", 0);
+        this.timer = 0;
     }
 
     @Override
@@ -43,13 +44,16 @@ public class LavaCharm extends AccesoryItem {
             if (timer > 0) {
                 timer--;
                 tag.putInt("lavaCharmTimer", timer);
+                this.timer = timer;
             }
         } else {
             if (cooldown > 0) {
                 cooldown--;
                 tag.putInt("lavaCharmCooldown", cooldown);
-            } else if (timer != 140)
+            } else if (timer != 140) {
                 tag.putInt("lavaCharmTimer", 140); // 7 secs
+                this.timer = 140;
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -16,9 +17,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class AccesoryItem extends TrinketItem {
+public class AccessoryItem extends TrinketItem {
 
-    public AccesoryItem() {
+    public AccessoryItem() {
         super(new FabricItemSettings().group(CustomItems.ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
     }
 
@@ -35,4 +36,14 @@ public class AccesoryItem extends TrinketItem {
     }
 
     public void tick(ItemStack stack, LivingEntity entity) {}
+
+    /**
+     * Used to give a Trinket a permanent status effect while wearing it.
+     * The StatusEffectInstance is applied every 15 ticks so a duration greater than that is required.
+     *
+     * @return The {@link StatusEffectInstance} to be applied while wearing this artifact
+     */
+    public StatusEffectInstance getPermanentEffect() {
+        return null;
+    }
 }

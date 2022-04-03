@@ -1,11 +1,10 @@
 package io.github.vicen621.loriath;
 
 import dev.emi.trinkets.api.TrinketsApi;
-import io.github.vicen621.loriath.accessories.AccesoryItem;
+import io.github.vicen621.loriath.accessories.AccessoryItem;
 import io.github.vicen621.loriath.accessories.Dash;
 import io.github.vicen621.loriath.item.CustomItems;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.entity.LivingEntity;
@@ -19,8 +18,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static net.minecraft.server.command.CommandManager.literal;
 
 public class LoriathMod implements ModInitializer {
     public static final String MOD_ID = "loriath";
@@ -49,11 +46,11 @@ public class LoriathMod implements ModInitializer {
         new Dash();
     }
 
-    public static List<ItemStack> getAllEquipped(LivingEntity entity) {
+    public static List<ItemStack> getEquippedAccessories(LivingEntity entity) {
         return TrinketsApi.getTrinketComponent(entity).stream()
                 .flatMap(comp -> comp.getAllEquipped().stream())
                 .map(Pair::getRight)
-                .filter(stack -> !stack.isEmpty() && stack.getItem() instanceof AccesoryItem)
+                .filter(stack -> !stack.isEmpty() && stack.getItem() instanceof AccessoryItem)
                 .collect(Collectors.toList());
     }
 }
