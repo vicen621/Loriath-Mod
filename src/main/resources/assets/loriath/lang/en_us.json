@@ -17,6 +17,12 @@
   "item.loriath.panic_necklace": "Panic Necklace",
 
   "item.loriath.common_mistery_box": "Common Mistery Box",
+  "item.loriath.uncommon_mistery_box": "Uncommon Mistery Box",
+  "item.loriath.rare_mistery_box": "Rare Mistery Box",
+  "item.loriath.epic_mistery_box": "Epic Mistery Box",
+  "item.loriath.legendary_mistery_box": "Legendary Mistery Box",
+
+  "key.loriath.dash": "Dash",
 
   "itemGroup.loriath.loriath": "Loriath",
 

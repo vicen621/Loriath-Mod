@@ -1,7 +1,7 @@
 package io.github.vicen621.loriath.mixin.effects.client;
 
-import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.accessories.AccessoryItem;
+import io.github.vicen621.loriath.utils.TrinketsHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -19,7 +19,7 @@ public abstract class StatusEffectUtilMixin {
 		ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
 		if (player != null && effect.isPermanent()) {
-			LoriathMod.getEquippedAccessories(player).forEach(stack -> {
+			TrinketsHelper.getEquippedAccessories(player).forEach(stack -> {
 				StatusEffectInstance trinketEffect = ((AccessoryItem) stack.getItem()).getPermanentEffect();
 
 				if (trinketEffect != null && trinketEffect.getEffectType() == effect.getEffectType()) {

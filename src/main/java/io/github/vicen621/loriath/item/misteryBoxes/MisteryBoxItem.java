@@ -43,7 +43,7 @@ public class MisteryBoxItem extends Item {
     public MisteryBoxItem(MisteryBoxRarity rarity, Settings settings) {
         super(settings);
         this.rarity = rarity;
-        Registry.register(Registry.ITEM, new Identifier(LoriathMod.MOD_ID, rarity.toString().toLowerCase() + "_mistery_box"), this);
+        Registry.register(Registry.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mistery_box"), this);
     }
 
     @Override

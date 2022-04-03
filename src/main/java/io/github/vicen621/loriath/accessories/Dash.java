@@ -23,7 +23,7 @@ public class Dash {
     public static KeyBinding DASH_KEYBIND;
 
     public Dash() {
-        ServerPlayNetworking.registerGlobalReceiver(new Identifier(LoriathMod.MOD_ID, "dash"),
+        ServerPlayNetworking.registerGlobalReceiver(LoriathMod.id("dash"),
                 (server, player, handler, buf, sender) -> {
                     World world = player.world;
 

@@ -1,4 +1,4 @@
-package io.github.vicen621.loriath.mixin;
+package io.github.vicen621.loriath.mixin.events;
 
 import io.github.vicen621.loriath.events.PlayerDamageCallback;
 import net.minecraft.entity.damage.DamageSource;

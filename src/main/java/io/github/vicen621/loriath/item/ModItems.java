@@ -5,6 +5,7 @@ import dev.emi.trinkets.api.SlotReference;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.accessories.AccessoryItem;
 import io.github.vicen621.loriath.accessories.LavaCharm;
+import io.github.vicen621.loriath.accessories.PanicNecklaceItem;
 import io.github.vicen621.loriath.accessories.ShinyStone;
 import io.github.vicen621.loriath.item.misteryBoxes.MisteryBoxItem;
 import io.github.vicen621.loriath.item.misteryBoxes.MisteryBoxRarity;
@@ -23,17 +24,20 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.UUID;
 
-public class CustomItems {
+public class ModItems {
 
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
-            new Identifier(LoriathMod.MOD_ID, "loriath"))
-            .icon(() -> new ItemStack(CustomItems.MARICOIN))
+            LoriathMod.id("loriath"))
+            .icon(() -> new ItemStack(ModItems.MARICOIN))
             .build();
 
     public static final Item MARICOIN = registerItem("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
+
     public static final Item COMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.COMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item UNCOMMON_MISTERY_BOX = registerItem("uncommon_mistery_box", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
-    public static final Item RARE_MISTERY_BOX = registerItem("rare_mistery_box", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
+    public static final Item UNCOMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.UNCOMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item RARE_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.RARE, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item EPIC_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.EPIC, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item LEGENDARY_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.LEGENDARY, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
 
     //public static final Item DASH_SHIELD = registerItem("dash_shield", new FabricShieldItem(new FabricItemSettings().group(ITEM_GROUP).maxDamage(1200), 5, 13, Items.OAK_PLANKS));
     public static final Item FROG_LEG = registerItem("frog_leg", new AccessoryItem() {
@@ -162,13 +166,13 @@ public class CustomItems {
     });
     //TODO
     public static final Item DESTROYER_EMBLEM = registerItem("destroyer_emblem", new AccessoryItem());
-    //TODO public static final Item PANIC_NECKLACE = registerItem("panic_necklace", new AccessoryItem());
+    public static final Item PANIC_NECKLACE = registerItem("panic_necklace", new PanicNecklaceItem());
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registry.ITEM, new Identifier(LoriathMod.MOD_ID, name), item);
+        return Registry.register(Registry.ITEM, LoriathMod.id(name), item);
     }
 
     public static void registerModItems() {
-        LoriathMod.LOGGER.info("Registering Mod Items for " + LoriathMod.MOD_ID);
+        LoriathMod.LOGGER.info("Registering Mod Items for " + LoriathMod.MODID);
     }
 }

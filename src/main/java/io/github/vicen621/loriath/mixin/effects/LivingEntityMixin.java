@@ -2,6 +2,7 @@ package io.github.vicen621.loriath.mixin.effects;
 
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.accessories.AccessoryItem;
+import io.github.vicen621.loriath.utils.TrinketsHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -34,7 +35,7 @@ public abstract class LivingEntityMixin extends Entity {
 	private void applyPermanentEffects(CallbackInfo info) {
 		if (!this.world.isClient && this.age % 15 == 0) {
 
-			LoriathMod.getEquippedAccessories((LivingEntity) (Object) this).forEach(stack -> {
+			TrinketsHelper.getEquippedAccessories((LivingEntity) (Object) this).forEach(stack -> {
 				StatusEffectInstance effect = ((AccessoryItem) stack.getItem()).getPermanentEffect();
 
 				if (effect != null) {

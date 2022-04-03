@@ -2,7 +2,7 @@ package io.github.vicen621.loriath.accessories;
 
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
-import io.github.vicen621.loriath.item.CustomItems;
+import io.github.vicen621.loriath.item.ModItems;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -20,7 +20,7 @@ import java.util.List;
 public class AccessoryItem extends TrinketItem {
 
     public AccessoryItem() {
-        super(new FabricItemSettings().group(CustomItems.ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
+        super(new FabricItemSettings().group(ModItems.ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
     }
 
     @Override
@@ -35,7 +35,9 @@ public class AccessoryItem extends TrinketItem {
         this.tick(stack, entity);
     }
 
-    public void tick(ItemStack stack, LivingEntity entity) {}
+    public void tick(ItemStack stack, LivingEntity entity) {
+
+    }
 
     /**
      * Used to give a Trinket a permanent status effect while wearing it.

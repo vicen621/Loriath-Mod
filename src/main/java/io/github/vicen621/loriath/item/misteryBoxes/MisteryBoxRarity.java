@@ -22,6 +22,42 @@ public enum MisteryBoxRarity {
             add(new ItemStack(Items.STICK, 4));
             add(new ItemStack(Items.STICK, 5));
         }
+    }),
+    UNCOMMON(new ArrayList<>() {
+        {
+            add(new ItemStack(Items.STICK, 1));
+            add(new ItemStack(Items.STICK, 2));
+            add(new ItemStack(Items.STICK, 3));
+            add(new ItemStack(Items.STICK, 4));
+            add(new ItemStack(Items.STICK, 5));
+        }
+    }),
+    RARE(new ArrayList<>() {
+        {
+            add(new ItemStack(Items.STICK, 1));
+            add(new ItemStack(Items.STICK, 2));
+            add(new ItemStack(Items.STICK, 3));
+            add(new ItemStack(Items.STICK, 4));
+            add(new ItemStack(Items.STICK, 5));
+        }
+    }),
+    EPIC(new ArrayList<>() {
+        {
+            add(new ItemStack(Items.STICK, 1));
+            add(new ItemStack(Items.STICK, 2));
+            add(new ItemStack(Items.STICK, 3));
+            add(new ItemStack(Items.STICK, 4));
+            add(new ItemStack(Items.STICK, 5));
+        }
+    }),
+    LEGENDARY(new ArrayList<>() {
+        {
+            add(new ItemStack(Items.STICK, 1));
+            add(new ItemStack(Items.STICK, 2));
+            add(new ItemStack(Items.STICK, 3));
+            add(new ItemStack(Items.STICK, 4));
+            add(new ItemStack(Items.STICK, 5));
+        }
     });
 
     private final ArrayList<ItemStack> items;

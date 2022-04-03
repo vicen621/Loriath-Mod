@@ -3,14 +3,12 @@ package io.github.vicen621.loriath.mixin;
 import com.mojang.authlib.GameProfile;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.accessories.Dash;
-import io.github.vicen621.loriath.item.CustomItems;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,7 +28,7 @@ public class DashMixin extends AbstractClientPlayerEntity {
     void dash(CallbackInfo ci) {
         if (pressedTicks > 0 && !Dash.DASH_KEYBIND.isPressed() && canDash()) {
             PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-            ClientPlayNetworking.send(new Identifier(LoriathMod.MOD_ID, "dash"), buf);
+            ClientPlayNetworking.send(LoriathMod.id("dash"), buf);
             lastDashed = world.getTime();
         }
         pressedTicks = Dash.DASH_KEYBIND.isPressed() ? pressedTicks + 1 : 0;

@@ -5,11 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "DashMixin",
-    "ServerPlayerEntityMixin",
     "effects.LivingEntityMixin",
     "effects.StatusEffectInstanceMixin",
     "effects.client.LivingEntityMixin",
-    "effects.client.StatusEffectUtilMixin"
+    "effects.client.StatusEffectUtilMixin",
+    "events.LivingEntitiesMixin",
+    "events.ServerPlayerEntityMixin"
   ],
   "client": [],
   "injectors": {
