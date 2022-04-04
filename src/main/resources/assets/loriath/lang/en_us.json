@@ -15,16 +15,21 @@
   "item.loriath.shackle": "Shackle",
   "item.loriath.destroyer_emblem": "Destroyer Emblem",
   "item.loriath.panic_necklace": "Panic Necklace",
-
   "item.loriath.common_mistery_box": "Common Mistery Box",
   "item.loriath.uncommon_mistery_box": "Uncommon Mistery Box",
   "item.loriath.rare_mistery_box": "Rare Mistery Box",
   "item.loriath.epic_mistery_box": "Epic Mistery Box",
   "item.loriath.legendary_mistery_box": "Legendary Mistery Box",
-
+  "item.loriath.eternal_steak": "Eternal Steak",
+  "item.loriath.everlasting_beef": "Everlasting Beef",
+  "item.loriath.cloak_of_invisibility": "Cloak of Invisibility",
+  "item.loriath.digging_claws": "Diggings Claws",
+  "item.loriath.pocket_piston": "Pocket Piston",
+  "item.loriath.frog_flipper.tooltip": "Test",
+  "item.loriath.frog_leg.tooltip": "Test\nTest2",
   "key.loriath.dash": "Dash",
-
   "itemGroup.loriath.loriath": "Loriath",
-
-  "trinkets.slot.hand.accesory": "Accessory"
+  "trinkets.slot.hand.accesory": "Accessory",
+  "subtitles.mistery_box.open": "Mistery box opens",
+  "subtitles.mistery_box.pickup": "Item plops"
 }

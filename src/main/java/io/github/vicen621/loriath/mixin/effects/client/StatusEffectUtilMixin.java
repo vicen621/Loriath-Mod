@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.mixin.effects.client;
 
-import io.github.vicen621.loriath.accessories.AccessoryItem;
+import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.utils.TrinketsHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

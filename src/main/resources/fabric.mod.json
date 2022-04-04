@@ -31,10 +31,18 @@
   "depends": {
     "fabricloader": ">=0.13.3",
     "fabric": "*",
+    "trinkets": ">=3.0.0",
     "minecraft": "1.18.x",
     "java": ">=17"
   },
   "suggests": {
     "another-mod": "*"
+  },
+
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_1429": ["io/github/vicen621/loriath/extensions/AnimalExtensions"],
+      "net/minecraft/class_1293": ["io/github/vicen621/loriath/extensions/StatusEffectInstanceExtensions"]
+    }
   }
 }

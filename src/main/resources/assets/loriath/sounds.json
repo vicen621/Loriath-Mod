@@ -1,0 +1,14 @@
+{
+  "item.mistery_box.open": {
+    "subtitle": "subtitles.item.mistery_box.open",
+    "sounds": [
+      "loriath:mistery_box_open"
+    ]
+  },
+  "item.mistery_box.pickup": {
+    "subtitle": "subtitles.item.mistery_box.pickup",
+    "sounds": [
+      "loriath:mistery_box_pickup"
+    ]
+  }
+}

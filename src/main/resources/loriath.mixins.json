@@ -10,7 +10,11 @@
     "effects.client.LivingEntityMixin",
     "effects.client.StatusEffectUtilMixin",
     "events.LivingEntitiesMixin",
-    "events.ServerPlayerEntityMixin"
+    "item.diggingclaws.PlayerEntityMixin",
+    "item.everlastingfood.AnimalEntityMixin",
+    "item.everlastingfood.LivingEntityMixin",
+    "item.everlastingfood.WolfEntityMixin",
+    "item.pocketpiston.EnchantmentHelperMixin"
   ],
   "client": [],
   "injectors": {

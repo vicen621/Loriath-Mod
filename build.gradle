@@ -11,25 +11,14 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-    maven { url = 'https://jitpack.io' }
-    maven { url = "https://maven.shedaniel.me/" }			//Cloth
-    maven { url = "https://maven.terraformersmc.com/" }		//Modmenu
     maven { url 'https://maven.nucleoid.xyz' }
     maven {
         name = "TerraformersMC"
         url = "https://maven.terraformersmc.com/"
     }
     maven {
-        name = "CottonMC"
-        url = "https://server.bbkr.space/artifactory/libs-release"
-    }
-    maven {
         name = "Ladysnake Mods"
         url = "https://ladysnake.jfrog.io/artifactory/mods"
-    }
-    maven {
-        name = 'CrowdinTranslate source'
-        url = "https://minecraft.guntram.de/maven/"
     }
 }
 
@@ -42,18 +31,10 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // CottonMC/LibGui
-    // modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
     modImplementation include("eu.pb4:sgui:${project.sgui_version}")
 
     //emilyploszaj/trinkets (Accessories API)
     modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-
-    //fabric-shield-lib
-    //modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
-
-   // modImplementation "de.guntram.mcmod:crowdin-translate:${project.crowdin_version}"
-    //include "de.guntram.mcmod:crowdin-translate:${project.crowdin_version}"
 }
 
 processResources {
@@ -67,6 +48,7 @@ processResources {
 tasks.withType(JavaCompile).configureEach {
     // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
     it.options.release = 17
+    it.options.encoding = "UTF-8"
 }
 
 java {

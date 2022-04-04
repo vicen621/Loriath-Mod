@@ -1,7 +1,7 @@
 package io.github.vicen621.loriath.utils;
 
 import dev.emi.trinkets.api.TrinketsApi;
-import io.github.vicen621.loriath.accessories.AccessoryItem;
+import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

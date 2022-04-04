@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.mixin.events;
 
-import io.github.vicen621.loriath.events.LivingEntityHurtCallback;
+import io.github.vicen621.loriath.common.events.LivingEntityHurtCallback;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

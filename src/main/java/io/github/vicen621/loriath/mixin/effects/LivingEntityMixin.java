@@ -1,7 +1,6 @@
 package io.github.vicen621.loriath.mixin.effects;
 
-import io.github.vicen621.loriath.LoriathMod;
-import io.github.vicen621.loriath.accessories.AccessoryItem;
+import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.utils.TrinketsHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

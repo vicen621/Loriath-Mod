@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "loriath:everlasting_beef"
+  },
+  "result": "loriath:eternal_steak",
+  "experience": 0.35,
+  "cookingtime": 100
+}
