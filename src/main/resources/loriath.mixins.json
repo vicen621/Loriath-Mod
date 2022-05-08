@@ -11,9 +11,6 @@
     "effects.client.StatusEffectUtilMixin",
     "events.LivingEntitiesMixin",
     "item.diggingclaws.PlayerEntityMixin",
-    "item.everlastingfood.AnimalEntityMixin",
-    "item.everlastingfood.LivingEntityMixin",
-    "item.everlastingfood.WolfEntityMixin",
     "item.pocketpiston.EnchantmentHelperMixin"
   ],
   "client": [],

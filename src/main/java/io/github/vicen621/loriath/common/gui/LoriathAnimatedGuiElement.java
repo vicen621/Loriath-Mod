@@ -2,8 +2,9 @@ package io.github.vicen621.loriath.common.gui;
 
 import eu.pb4.sgui.api.elements.GuiElementInterface;
 import eu.pb4.sgui.api.gui.GuiInterface;
-import java.util.WeakHashMap;
 import net.minecraft.item.ItemStack;
+
+import java.util.WeakHashMap;
 
 /**
  * Animated Gui Element
@@ -11,19 +12,19 @@ import net.minecraft.item.ItemStack;
  * Animated gui elements are a GuiElement constructed of
  * multiple different {@link ItemStack} frames, which cycle
  * (optionally randomly) on a set cycle time.
- *
+ * <p>
  * Gui elements are typically constructed via their respective builder.
- * @see eu.pb4.sgui.api.elements.AnimatedGuiElementBuilder
  *
+ * @see eu.pb4.sgui.api.elements.AnimatedGuiElementBuilder
  * @see GuiElementInterface
  */
 public class LoriathAnimatedGuiElement implements GuiElementInterface {
     protected final ClickCallback callback;
+    protected final boolean random;
     protected ItemStack[] items;
     protected int frame = 0;
     protected int tick = 0;
     protected int changeEvery;
-    protected final boolean random;
     protected WeakHashMap<GuiInterface, TickAndFrame> ticks = new WeakHashMap<>();
 
     /**

@@ -9,20 +9,20 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(StatusEffectInstance.class)
 public abstract class StatusEffectInstanceMixin implements StatusEffectInstanceExtensions {
 
-	@Shadow
-	private int duration;
+    @Shadow
+    private int duration;
 
-	@Shadow
-	private StatusEffectInstance hiddenEffect;
+    @Shadow
+    private StatusEffectInstance hiddenEffect;
 
-	@Unique
-	@Override
-	public void loriath$setDuration(int duration) {
-		// Recursively set duration for hidden effects
-		if (this.hiddenEffect != null) {
-			((StatusEffectInstanceExtensions)this.hiddenEffect).loriath$setDuration(duration);
-		}
+    @Unique
+    @Override
+    public void loriath$setDuration(int duration) {
+        // Recursively set duration for hidden effects
+        if (this.hiddenEffect != null) {
+            ((StatusEffectInstanceExtensions) this.hiddenEffect).loriath$setDuration(duration);
+        }
 
-		this.duration = duration;
-	}
+        this.duration = duration;
+    }
 }

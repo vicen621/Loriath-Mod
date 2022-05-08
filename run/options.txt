@@ -36,7 +36,7 @@ ao:0
 prioritizeChunkUpdates:0
 biomeBlendRadius:0
 renderClouds:false
-resourcePacks:["vanilla","Fabric Mods"]
+resourcePacks:[]
 incompatibleResourcePacks:[]
 lastServer:localhost
 lang:en_us

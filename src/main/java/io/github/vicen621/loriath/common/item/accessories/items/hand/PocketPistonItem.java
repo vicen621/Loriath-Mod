@@ -5,8 +5,8 @@ import net.minecraft.sound.SoundEvents;
 
 public class PocketPistonItem extends AccessoryItem {
 
-	@Override
-	protected AccessoryItem.SoundInfo getEquipSoundInfo() {
-		return new AccessoryItem.SoundInfo(SoundEvents.BLOCK_PISTON_EXTEND);
-	}
+    @Override
+    protected AccessoryItem.SoundInfo getEquipSoundInfo() {
+        return new AccessoryItem.SoundInfo(SoundEvents.BLOCK_PISTON_EXTEND);
+    }
 }

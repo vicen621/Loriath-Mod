@@ -10,12 +10,12 @@ import net.minecraft.entity.damage.DamageSource;
  */
 public interface LivingEntityHurtCallback {
 
-	Event<LivingEntityHurtCallback> EVENT = EventFactory.createArrayBacked(LivingEntityHurtCallback.class,
-			(listeners) -> (user, source, amount) -> {
-				for (LivingEntityHurtCallback listener : listeners) {
-					listener.hurt(user, source, amount);
-				}
-			});
+    Event<LivingEntityHurtCallback> EVENT = EventFactory.createArrayBacked(LivingEntityHurtCallback.class,
+            (listeners) -> (user, source, amount) -> {
+                for (LivingEntityHurtCallback listener : listeners) {
+                    listener.hurt(user, source, amount);
+                }
+            });
 
-	void hurt(LivingEntity user, DamageSource source, float amount);
+    void hurt(LivingEntity user, DamageSource source, float amount);
 }

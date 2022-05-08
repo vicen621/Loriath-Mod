@@ -14,18 +14,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(StatusEffectUtil.class)
 public abstract class StatusEffectUtilMixin {
 
-	@Inject(method = "durationToString", at = @At("HEAD"), cancellable = true)
-	private static void setFromArtifactString(StatusEffectInstance effect, float multiplier, CallbackInfoReturnable<String> info) {
-		ClientPlayerEntity player = MinecraftClient.getInstance().player;
+    @Inject(method = "durationToString", at = @At("HEAD"), cancellable = true)
+    private static void setFromArtifactString(StatusEffectInstance effect, float multiplier, CallbackInfoReturnable<String> info) {
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
-		if (player != null && effect.isPermanent()) {
-			TrinketsHelper.getEquippedAccessories(player).forEach(stack -> {
-				StatusEffectInstance trinketEffect = ((AccessoryItem) stack.getItem()).getPermanentEffect();
+        if (player != null && effect.isPermanent()) {
+            TrinketsHelper.getEquippedAccessories(player).forEach(stack -> {
+                StatusEffectInstance trinketEffect = ((AccessoryItem) stack.getItem()).getPermanentEffect();
 
-				if (trinketEffect != null && trinketEffect.getEffectType() == effect.getEffectType()) {
-					info.setReturnValue(stack.getName().getString());
-				}
-			});
-		}
-	}
+                if (trinketEffect != null && trinketEffect.getEffectType() == effect.getEffectType()) {
+                    info.setReturnValue(stack.getName().getString());
+                }
+            });
+        }
+    }
 }

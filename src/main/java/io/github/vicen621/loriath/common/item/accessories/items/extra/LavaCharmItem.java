@@ -1,8 +1,8 @@
 package io.github.vicen621.loriath.common.item.accessories.items.extra;
 
-import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.common.events.LivingEntityHurtCallback;
 import io.github.vicen621.loriath.common.init.ModItems;
+import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.utils.TrinketsHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;

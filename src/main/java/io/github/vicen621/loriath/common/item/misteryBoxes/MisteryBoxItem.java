@@ -1,7 +1,8 @@
 package io.github.vicen621.loriath.common.item.misteryBoxes;
 
-import eu.pb4.sgui.api.elements.*;
-import eu.pb4.sgui.api.gui.*;
+import eu.pb4.sgui.api.elements.GuiElementBuilder;
+import eu.pb4.sgui.api.elements.GuiElementInterface;
+import eu.pb4.sgui.api.gui.SimpleGui;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.gui.LoriathAnimatedGuiElement;
 import net.minecraft.entity.ItemEntity;
@@ -19,7 +20,9 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class MisteryBoxItem extends Item {
 
@@ -93,7 +96,8 @@ public class MisteryBoxItem extends Item {
                     } else if (tick == 215) {
                         for (int i = 2; i < 7; i++)
                             ((LoriathAnimatedGuiElement) getSlot(i)).setInterval(30);
-                    } if (tick == 245) {
+                    }
+                    if (tick == 245) {
                         ItemStack item = getSlot(4).getItemStack();
 
                         this.setSlot(0, new LoriathAnimatedGuiElement(PANES, 3, true, GuiElementInterface.EMPTY_CALLBACK));

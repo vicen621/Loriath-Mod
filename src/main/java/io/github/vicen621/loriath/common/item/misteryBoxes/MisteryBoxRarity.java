@@ -1,26 +1,32 @@
 package io.github.vicen621.loriath.common.item.misteryBoxes;
 
+import io.github.vicen621.loriath.common.init.ModItems;
+import io.github.vicen621.loriath.common.item.accessories.AccessoryRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 // TODO Hacer las listas de items
 public enum MisteryBoxRarity {
     COMMON(new ArrayList<>() {
         {
-            /*add(Items.IRON_SWORD.getDefaultStack());
-            add(Items.IRON_AXE.getDefaultStack());
-            add(Items.DIAMOND_SWORD.getDefaultStack());
-            add(Items.NETHERITE_SWORD.getDefaultStack());
-            add(Items.DIAMOND_AXE.getDefaultStack());
-            add(Items.NETHERITE_AXE.getDefaultStack());
-            add(new ItemStack(Items.GOLDEN_APPLE, new Random().nextInt(5) + 1));*/
-            add(new ItemStack(Items.STICK, 1));
-            add(new ItemStack(Items.STICK, 2));
-            add(new ItemStack(Items.STICK, 3));
-            add(new ItemStack(Items.STICK, 4));
-            add(new ItemStack(Items.STICK, 5));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.COMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.UNCOMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.UNCOMMON.getItems()));
+            add(MisteryBoxRarity.getFromRarity(AccessoryRarity.RARE.getItems()));
+            Collections.shuffle(this);
         }
     }),
     UNCOMMON(new ArrayList<>() {
@@ -30,6 +36,7 @@ public enum MisteryBoxRarity {
             add(new ItemStack(Items.STICK, 3));
             add(new ItemStack(Items.STICK, 4));
             add(new ItemStack(Items.STICK, 5));
+            Collections.shuffle(this);
         }
     }),
     RARE(new ArrayList<>() {
@@ -39,6 +46,7 @@ public enum MisteryBoxRarity {
             add(new ItemStack(Items.STICK, 3));
             add(new ItemStack(Items.STICK, 4));
             add(new ItemStack(Items.STICK, 5));
+            Collections.shuffle(this);
         }
     }),
     EPIC(new ArrayList<>() {
@@ -48,6 +56,7 @@ public enum MisteryBoxRarity {
             add(new ItemStack(Items.STICK, 3));
             add(new ItemStack(Items.STICK, 4));
             add(new ItemStack(Items.STICK, 5));
+            Collections.shuffle(this);
         }
     }),
     LEGENDARY(new ArrayList<>() {
@@ -57,6 +66,7 @@ public enum MisteryBoxRarity {
             add(new ItemStack(Items.STICK, 3));
             add(new ItemStack(Items.STICK, 4));
             add(new ItemStack(Items.STICK, 5));
+            Collections.shuffle(this);
         }
     });
 
@@ -68,5 +78,9 @@ public enum MisteryBoxRarity {
 
     public ArrayList<ItemStack> getItems() {
         return items;
+    }
+
+    public static ItemStack getFromRarity(List<Item> list) {
+        return list.get(new Random().nextInt(list.size())).getDefaultStack();
     }
 }

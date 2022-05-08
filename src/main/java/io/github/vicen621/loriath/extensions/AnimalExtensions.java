@@ -5,5 +5,5 @@ import net.minecraft.item.ItemStack;
 
 public interface AnimalExtensions {
 
-	boolean loriath$isBreedingItemWithCooldown(ItemStack stack, PlayerEntity player);
+    boolean loriath$isBreedingItemWithCooldown(ItemStack stack, PlayerEntity player);
 }

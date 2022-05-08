@@ -4,23 +4,15 @@ import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.TrinketsApi;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class AccessoryItem extends AbstractAccessoryItem implements Trinket {
 
@@ -48,7 +40,8 @@ public class AccessoryItem extends AbstractAccessoryItem implements Trinket {
         this.tick(stack, entity);
     }
 
-    public void tick(ItemStack stack, LivingEntity entity) {}
+    public void tick(ItemStack stack, LivingEntity entity) {
+    }
 
     /**
      * Used to give a Trinket a permanent status effect while wearing it.
@@ -71,7 +64,8 @@ public class AccessoryItem extends AbstractAccessoryItem implements Trinket {
 
         // Changes access modifier to public
         @SuppressWarnings({"RedundantRecordConstructor", "RedundantSuppression"})
-        public SoundInfo {}
+        public SoundInfo {
+        }
 
         public SoundInfo(SoundEvent soundEvent) {
             this(soundEvent, 1f, 1f);

@@ -14,10 +14,11 @@ import net.minecraft.util.Language;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class AbstractAccessoryItem extends Item {
+public abstract class AbstractAccessoryItem extends Item implements ExtendableTooltipProvider {
 
     public AbstractAccessoryItem() {
         this(new FabricItemSettings().group(ModItems.ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
@@ -30,15 +31,18 @@ public abstract class AbstractAccessoryItem extends Item {
     @Override
     @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext flags) {
-        appendTooltipDescription(tooltip, this.getTranslationKey() + ".tooltip");
+        append(tooltip);
     }
 
-    protected void appendTooltipDescription(List<Text> tooltip, String translKey) {
-        String[] lines = String.format(Language.getInstance().get(translKey), getTooltipDescriptionArguments().toArray()).split("\n");
+    @Override
+    public List<Text> getExtendedTooltip() {
+        List<Text> tooltip = new ArrayList<>();
+        String[] lines = String.format(Language.getInstance().get(this.getTranslationKey() + ".tooltip"), getTooltipDescriptionArguments().toArray()).split("\n");
 
-        for (String line : lines) {
+        for (String line : lines)
             tooltip.add(new LiteralText(line).formatted(Formatting.GRAY));
-        }
+
+        return tooltip;
     }
 
     protected List<String> getTooltipDescriptionArguments() {

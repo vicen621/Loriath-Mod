@@ -1,6 +1,5 @@
 package io.github.vicen621.loriath.common.item.accessories.items.head;
 
-import dev.emi.trinkets.api.SlotReference;
 import io.github.vicen621.loriath.common.init.ModItems;
 import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import net.minecraft.entity.LivingEntity;
