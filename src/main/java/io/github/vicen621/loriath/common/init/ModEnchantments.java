@@ -1,10 +1,8 @@
 package io.github.vicen621.loriath.common.init;
 
 import io.github.vicen621.loriath.LoriathMod;
-import io.github.vicen621.loriath.common.enchantment.DeathWishEnchantment;
-import net.minecraft.enchantment.EfficiencyEnchantment;
+import io.github.vicen621.loriath.common.enchantment.types.DeathWishEnchantment;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.registry.Registry;
 
 public class ModEnchantments {

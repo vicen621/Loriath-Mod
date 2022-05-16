@@ -12,12 +12,12 @@ import net.minecraft.entity.effect.StatusEffects;
 public class PanicNecklaceItem extends AccessoryItem {
 
     public PanicNecklaceItem() {
-        LivingEntityHurtCallback.EVENT.register(PanicNecklaceItem::applyEffects);
+        LivingEntityHurtCallback.EVENT.register(this::applyEffects);
     }
 
-    private static void applyEffects(LivingEntity user, DamageSource source, float amount) {
-        if (!user.world.isClient && amount >= 1 && TrinketsHelper.isEquipped(ModItems.PANIC_NECKLACE, user)) {
+    private boolean applyEffects(LivingEntity user, DamageSource source, float amount) {
+        if (!user.world.isClient && amount >= 1 && TrinketsHelper.isEquipped(ModItems.PANIC_NECKLACE, user))
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 160, 0, false, false));
-        }
+        return true;
     }
 }

@@ -1,6 +1,5 @@
 package io.github.vicen621.loriath.common.item.misteryBoxes;
 
-import io.github.vicen621.loriath.common.init.ModItems;
 import io.github.vicen621.loriath.common.item.accessories.AccessoryRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -76,11 +75,11 @@ public enum MisteryBoxRarity {
         this.items = items;
     }
 
-    public ArrayList<ItemStack> getItems() {
-        return items;
-    }
-
     public static ItemStack getFromRarity(List<Item> list) {
         return list.get(new Random().nextInt(list.size())).getDefaultStack();
+    }
+
+    public ArrayList<ItemStack> getItems() {
+        return items;
     }
 }

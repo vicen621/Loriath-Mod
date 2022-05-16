@@ -18,12 +18,13 @@ public class LavaCharmItem extends AccessoryItem {
         LivingEntityHurtCallback.EVENT.register(this::onHurt);
     }
 
-    private void onHurt(LivingEntity wearer, DamageSource source, float amount) {
+    private boolean onHurt(LivingEntity wearer, DamageSource source, float amount) {
         if (!wearer.world.isClient && amount >= 1 && source == DamageSource.LAVA &&
                 wearer instanceof PlayerEntity player && TrinketsHelper.isEquipped(ModItems.LAVA_CHARM, wearer) &&
                 !player.getItemCooldownManager().isCoolingDown(ModItems.LAVA_CHARM)) {
             wearer.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 140, 0, false, true));
             player.getItemCooldownManager().set(ModItems.LAVA_CHARM, 100);
         }
+        return true;
     }
 }

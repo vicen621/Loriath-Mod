@@ -1,21 +1,15 @@
 package io.github.vicen621.loriath;
 
+import io.github.vicen621.loriath.common.init.ModEnchantments;
 import io.github.vicen621.loriath.common.init.ModItems;
 import io.github.vicen621.loriath.common.init.ModSoundEvents;
 import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
-import net.minecraft.loot.condition.EntityPropertiesLootCondition;
-import net.minecraft.loot.condition.KilledByPlayerLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.FurnaceSmeltLootFunction;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.predicate.entity.EntityFlagsPredicate;
-import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +26,7 @@ public class LoriathMod implements ModInitializer {
     public void onInitialize() {
         ModItems.registerModItems();
         ModSoundEvents.registerModSounds();
+        ModEnchantments.registerModSounds();
 
         events();
         LOGGER.info("Finished loading LoriathMod");

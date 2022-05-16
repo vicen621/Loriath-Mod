@@ -20,14 +20,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ClientPlayerEntity.class)
 public abstract class DashMixin extends AbstractClientPlayerEntity {
 
-    @Shadow public abstract Hand getActiveHand();
-
     private int pressedTicks = 0;
     private long lastDashed = -24000;
-
     public DashMixin(ClientWorld world, GameProfile profile) {
         super(world, profile);
     }
+
+    @Shadow
+    public abstract Hand getActiveHand();
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/AbstractClientPlayerEntity;tick()V"))
     void dash(CallbackInfo ci) {

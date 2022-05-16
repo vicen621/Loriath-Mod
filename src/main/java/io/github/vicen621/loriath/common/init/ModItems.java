@@ -25,15 +25,12 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
+    public static final Item TEST_SHIELD = register("test_shield", new FabricShieldItem(new FabricItemSettings().maxCount(1).maxDamage(500)
+            .group(ItemGroup.COMBAT), 100, 5, Items.IRON_INGOT));    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
                     LoriathMod.id("loriath"))
             .icon(() -> new ItemStack(ModItems.MARICOIN))
             .build();
-
-    public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
-    public static final Item TEST_SHIELD = register("test_shield", new FabricShieldItem(new FabricItemSettings().maxCount(1).maxDamage(500)
-            .group(ItemGroup.COMBAT), 100, 5, Items.IRON_INGOT));
-    public static final Item CLOAK_OF_INVISIBILITY = register("cloak_of_invisibility", new InvisibilityCloakItem());
+    public static final Item CLOAK_OF_INVISIBILITY = register("cloak_of_invisibility", new InvisibilityCloakItem());    public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
     public static final Item ADHESIVE_BANDAGE = register("adhesive_bandage", new AdhesiveBandageItem());
     public static final Item BEZOAR = register("bezoar", new BezoarItem());
     //TODO
@@ -52,12 +49,6 @@ public class ModItems {
     public static final Item FROG_FLIPPER = register("frog_flipper", new FrogFlipperItem());
     public static final Item PANIC_NECKLACE = register("panic_necklace", new PanicNecklaceItem());
 
-    public static final Item COMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.COMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item UNCOMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.UNCOMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item RARE_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.RARE, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item EPIC_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.EPIC, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item LEGENDARY_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.LEGENDARY, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, LoriathMod.id(name), item);
     }
@@ -66,10 +57,11 @@ public class ModItems {
         LoriathMod.LOGGER.info("Registering Items for " + LoriathMod.MODID);
     }
 
-
-
-
-
+    public static final Item COMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.COMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item UNCOMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.UNCOMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item RARE_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.RARE, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item EPIC_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.EPIC, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
+    public static final Item LEGENDARY_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.LEGENDARY, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
 
 
 

@@ -9,6 +9,7 @@
     "effects.StatusEffectInstanceMixin",
     "effects.client.LivingEntityMixin",
     "effects.client.StatusEffectUtilMixin",
+    "enchantments.EnchantmentTargetMixin",
     "events.LivingEntitiesMixin",
     "item.diggingclaws.PlayerEntityMixin",
     "item.pocketpiston.EnchantmentHelperMixin"
