@@ -1,5 +1,6 @@
 package io.github.vicen621.loriath.common.init;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.common.item.accessories.items.cape.InvisibilityCloakItem;
@@ -19,10 +20,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.registry.Registry;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ModItems {
 
@@ -32,6 +31,8 @@ public class ModItems {
             .build();
 
     public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
+    public static final Item TEST_SHIELD = register("test_shield", new FabricShieldItem(new FabricItemSettings().maxCount(1).maxDamage(500)
+            .group(ItemGroup.COMBAT), 100, 5, Items.IRON_INGOT));
     public static final Item CLOAK_OF_INVISIBILITY = register("cloak_of_invisibility", new InvisibilityCloakItem());
     public static final Item ADHESIVE_BANDAGE = register("adhesive_bandage", new AdhesiveBandageItem());
     public static final Item BEZOAR = register("bezoar", new BezoarItem());

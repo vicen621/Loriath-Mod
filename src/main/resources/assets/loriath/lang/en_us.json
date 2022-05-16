@@ -42,7 +42,11 @@
   "item.loriath.epic_mistery_box": "Epic Mistery Box",
   "item.loriath.legendary_mistery_box": "Legendary Mistery Box",
 
+  "item.loriath.test_shield": "Test Shield",
+
   "item.loriath.tooltip_hint": "§7Hold §6SHIFT §7for info",
+
+  "enchantment.loriath.death_wish": "Death Wish",
 
   "key.loriath.dash": "Dash",
   "itemGroup.loriath.loriath": "Loriath",

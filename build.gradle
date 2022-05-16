@@ -12,6 +12,7 @@ group = project.maven_group
 
 repositories {
     maven { url 'https://maven.nucleoid.xyz' }
+    maven { url = "https://jitpack.io" }
     maven {
         name = "TerraformersMC"
         url = "https://maven.terraformersmc.com/"
@@ -35,6 +36,9 @@ dependencies {
 
     //emilyploszaj/trinkets (Accessories API)
     modImplementation "dev.emi:trinkets:${project.trinkets_version}"
+    modImplementation ("com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}") {
+        exclude(group: "me.shedaniel.cloth")
+    }
 }
 
 processResources {

@@ -1,5 +1,6 @@
 package io.github.vicen621.loriath.mixin;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import com.mojang.authlib.GameProfile;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
@@ -9,13 +10,17 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientPlayerEntity.class)
-public class DashMixin extends AbstractClientPlayerEntity {
+public abstract class DashMixin extends AbstractClientPlayerEntity {
+
+    @Shadow public abstract Hand getActiveHand();
 
     private int pressedTicks = 0;
     private long lastDashed = -24000;
@@ -29,12 +34,14 @@ public class DashMixin extends AbstractClientPlayerEntity {
         if (pressedTicks > 0 && !Dash.DASH_KEYBIND.isPressed() && canDash()) {
             PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
             ClientPlayNetworking.send(LoriathMod.id("dash"), buf);
+            this.getItemCooldownManager().set(this.getStackInHand(this.getActiveHand()).getItem(), 50);
             lastDashed = world.getTime();
         }
         pressedTicks = Dash.DASH_KEYBIND.isPressed() ? pressedTicks + 1 : 0;
     }
 
     private boolean canDash() {
-        return !this.isFallFlying() && world.getTime() > lastDashed + 50; //&&(this.getStackInHand(Hand.MAIN_HAND).getItem() instanceof FabricShieldItem || this.getStackInHand(Hand.OFF_HAND).getItem() instanceof FabricShieldItem);
+        return !this.isFallFlying() && world.getTime() > lastDashed + 50 &&
+                this.getStackInHand(this.getActiveHand()).getItem() instanceof FabricShieldItem;
     }
 }
