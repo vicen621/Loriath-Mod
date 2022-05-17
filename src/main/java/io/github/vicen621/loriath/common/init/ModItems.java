@@ -1,6 +1,5 @@
 package io.github.vicen621.loriath.common.init;
 
-import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.common.item.accessories.items.cape.InvisibilityCloakItem;
@@ -25,9 +24,9 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
-    public static final Item TEST_SHIELD = register("test_shield", new FabricShieldItem(new FabricItemSettings().maxCount(1).maxDamage(500)
-            .group(ItemGroup.COMBAT), 100, 5, Items.IRON_INGOT));    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
-                    LoriathMod.id("loriath"))
+    /*public static final Item TEST_SHIELD = register("test_shield", new FabricShieldItem(new FabricItemSettings().maxCount(1).maxDamage(500)
+            .group(ItemGroup.COMBAT), 100, 5, Items.IRON_INGOT));*/
+    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(LoriathMod.id("loriath"))
             .icon(() -> new ItemStack(ModItems.MARICOIN))
             .build();
     public static final Item CLOAK_OF_INVISIBILITY = register("cloak_of_invisibility", new InvisibilityCloakItem());    public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));

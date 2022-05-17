@@ -11,8 +11,10 @@
     "effects.client.StatusEffectUtilMixin",
     "enchantments.EnchantmentTargetMixin",
     "events.LivingEntitiesMixin",
+    "events.PlayerEntityMixin",
     "item.diggingclaws.PlayerEntityMixin",
-    "item.pocketpiston.EnchantmentHelperMixin"
+    "item.pocketpiston.EnchantmentHelperMixin",
+    "nbt.LivingEntityNbtMixin"
   ],
   "client": [],
   "injectors": {

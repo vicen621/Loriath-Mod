@@ -1,81 +1,104 @@
 package io.github.vicen621.loriath.common.enchantment.types;
 
+import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.enchantment.ExtendedEnchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
+import io.github.vicen621.loriath.common.events.LivingEntityHurtCallback;
+import io.github.vicen621.loriath.common.events.LivingEntityUpdateCallback;
+import io.github.vicen621.loriath.extensions.LivingEntityExtensions;
+import io.github.vicen621.loriath.utils.WorldUtils;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Vec3d;
 
 /**
  * Enchantment which after successful hit attacks enemy with laser beam that cannot be dodged or blocked.
  */
 
-//TODO: Terminar
 public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
-    private static final String LINK_TAG = "ElderGuardianFavorLinkedEntityID";
-    private static final String LINK_COUNTER_TAG = "ElderGuardianFavorCounter";
-    protected final double beamCooldown = 4.0;
-    protected final double beamDamage = 6.0;
-    protected final double waterMultiplier = 1.5;
+    protected final int BEAM_COOLDOWN = 80; //4 secs
+    protected final double BEAM_DAMAGE = 6.0;
+    protected final double WATER_MULTIPLIER = 1.5;
 
     public ElderGuardianFavorEnchantment() {
         super("elder_guardian_favor", Rarity.RARE, EnchantmentTarget.TRIDENT, EquipmentSlot.MAINHAND);
+
+        setDifferenceBetweenMinimumAndMaximum(20);
+
+        // Event that links entities together on hit.
+        LivingEntityHurtCallback.EVENT.register((user, source, amount) -> {
+            if (!(source.getAttacker() instanceof LivingEntity attacker) || !(source.getSource() instanceof LivingEntity))
+                return true;
+
+            int enchantmentLevel = this.getEnchantmentLevel(attacker.getMainHandStack());
+            connectEntities(attacker, user, enchantmentLevel);
+            return true;
+        });
+
+        //Event that updates link between entities and damage target after some time.
+        LivingEntityUpdateCallback.EVENT.register(entity -> {
+            int counter = entity.loriath$getEGFCounter() - 1;
+
+            if (counter < 0 || !(entity.world instanceof ServerWorld world))
+                return;
+
+            entity.loriath$setEGFCounter(counter);
+            LoriathMod.LOGGER.info("set EGF counter to " + counter);
+
+            int targetID = entity.loriath$getEGFLinkedEntityID();
+            Entity targetEntity = world.getEntityById(targetID);
+            LoriathMod.LOGGER.info("get TargetEntity");
+            if (!(targetEntity instanceof LivingEntity target))
+                return;
+            LoriathMod.LOGGER.info("livingEntity isn't null");
+
+            if (counter > 0) {
+                LoriathMod.LOGGER.info("counter is 0");
+                spawnParticles(entity, target, world);
+            } else {
+                boolean areEntitiesInWater = (target.isTouchingWater() || WorldUtils.isEntityOutsideWhenItIsRaining(target)
+                ) && (entity.isTouchingWater() || WorldUtils.isEntityOutsideWhenItIsRaining(entity));
+
+                world.playSound(null, target.getX(), target.getEyeY(), target.getZ(), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.AMBIENT,
+                        0.5f, 1.8f
+                );
+                target.damage(DamageSource.MAGIC,
+                        (float) ((areEntitiesInWater ? this.WATER_MULTIPLIER : 1.0) * this.BEAM_DAMAGE)
+                );
+                entity.loriath$setEGFLinkedEntityID(0);
+                LoriathMod.LOGGER.info("counter <= 0");
+            }
+        });
     }
 
     /**
-     * Event that links entities together on hit.
+     * Spawning particles between entities when they are linked.
+     *
+     * @param attacker Attacker.
+     * @param target   Target.
+     * @param world    Level at which particles will be spawned.
      */
-    @SubscribeEvent
-    public static void onHit(LivingHurtEvent event) {
-        DamageSource damageSource = event.getSource();
+    protected static void spawnParticles(LivingEntity attacker, LivingEntity target, ServerWorld world) {
+        Vec3d difference = new Vec3d(attacker.getX() - target.getX(), attacker.getBodyY(0.5) - target.getBodyY(0.5),
+                attacker.getZ() - target.getZ()
+        );
+        Vec3d normalized = difference.normalize();
+        double factor = 0.0;
 
-        if (!(damageSource.getEntity() instanceof LivingEntity) || !(damageSource.getDirectEntity() instanceof LivingEntity))
-            return;
+        while (factor < difference.length()) {
+            double x = attacker.getX() - normalized.x * factor;
+            double y = attacker.getBodyY(0.5) - normalized.y * factor;
+            double z = attacker.getZ() - normalized.z * factor;
+            world.spawnParticles(ParticleTypes.BUBBLE, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
+            world.spawnParticles(ParticleTypes.BUBBLE_POP, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
 
-        LivingEntity attacker = (LivingEntity) damageSource.getEntity();
-        LivingEntity target = event.getEntityLiving();
-        int enchantmentLevel = EnchantmentHelper.getItemEnchantmentLevel(Instances.ELDER_GAURDIAN_FAVOR, attacker.getMainHandItem());
-
-        connectEntities(attacker, target, enchantmentLevel);
-    }
-
-    /**
-     * Event that updates link between entities and damage target after some time.
-     */
-    @SubscribeEvent
-    public static void onUpdate(LivingEvent.LivingUpdateEvent event) {
-        LivingEntity attacker = event.getEntityLiving();
-        CompoundTag data = attacker.getPersistentData();
-        int counter = data.getInt(LINK_COUNTER_TAG) - 1;
-
-        if (counter < 0 || !(attacker.level instanceof ServerLevel))
-            return;
-
-        data.putInt(LINK_COUNTER_TAG, counter);
-
-        ElderGuardianFavorEnchantment enchantment = Instances.ELDER_GAURDIAN_FAVOR;
-        int targetID = data.getInt(LINK_TAG);
-        ServerLevel world = (ServerLevel) attacker.level;
-        Entity targetEntity = world.getEntity(targetID);
-        if (!(targetEntity instanceof LivingEntity))
-            return;
-
-        LivingEntity target = (LivingEntity) targetEntity;
-        if (counter > 0) {
-            spawnParticles(attacker, target, world);
-        } else {
-            boolean areEntitiesInWater = (target.isInWater() || LevelHelper.isEntityOutsideWhenItIsRaining(target)
-            ) && (attacker.isInWater() || LevelHelper.isEntityOutsideWhenItIsRaining(attacker));
-
-            world.playSound(null, target.getX(), target.getEyeY(), target.getZ(), SoundEvents.GLASS_BREAK, SoundSource.AMBIENT,
-                    0.5f, 1.8f
-            );
-            target.hurt(DamageSource.MAGIC,
-                    (float) ((areEntitiesInWater ? enchantment.waterMultiplier.get() : 1.0) * enchantment.beamDamage.get())
-            );
+            factor += 1.8 - 0.8 + world.getRandom().nextDouble() * (1.7 - 0.8);
         }
     }
 
@@ -86,38 +109,12 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
      * @param target           Entity that was damaged and will be damaged second time later.
      * @param enchantmentLevel Attacker's level of 'Favor of Elder Guardian'.
      */
-    protected static void connectEntities(LivingEntity attacker, LivingEntity target, int enchantmentLevel) {
-        CompoundTag data = attacker.getPersistentData();
+    protected void connectEntities(LivingEntity attacker, LivingEntity target, int enchantmentLevel) {
 
-        if (data.getInt(LINK_COUNTER_TAG) > 0 || enchantmentLevel == 0)
+        if (attacker.loriath$getEGFLinkedEntityID() > 0 || enchantmentLevel == 0)
             return;
 
-        data.putInt(LINK_TAG, target.getId());
-        data.putInt(LINK_COUNTER_TAG, Instances.ELDER_GAURDIAN_FAVOR.beamCooldown.getDuration());
-    }
-
-    /**
-     * Spawning particles between entities when they are linked.
-     *
-     * @param attacker Attacker.
-     * @param target   Target.
-     * @param world    Level at which particles will be spawned.
-     */
-    protected static void spawnParticles(LivingEntity attacker, LivingEntity target, ServerLevel world) {
-        Vec3 difference = new Vec3(attacker.getX() - target.getX(), attacker.getY(0.5) - target.getY(0.5),
-                attacker.getZ() - target.getZ()
-        );
-        Vec3 normalized = difference.normalize();
-        double factor = 0.0;
-
-        while (factor < difference.length()) {
-            double x = attacker.getX() - normalized.x * factor;
-            double y = attacker.getY(0.5) - normalized.y * factor;
-            double z = attacker.getZ() - normalized.z * factor;
-            world.sendParticles(ParticleTypes.BUBBLE, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
-            world.sendParticles(ParticleTypes.BUBBLE_POP, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
-
-            factor += 1.8 - 0.8 + MajruszLibrary.RANDOM.nextDouble() * (1.7 - 0.8);
-        }
+        attacker.loriath$setEGFLinkedEntityID(target.getId());
+        attacker.loriath$setEGFCounter(BEAM_COOLDOWN);
     }
 }

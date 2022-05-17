@@ -2,10 +2,10 @@ package io.github.vicen621.loriath.common.enchantment.types;
 
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.enchantment.ExtendedEnchantment;
-import io.github.vicen621.loriath.common.enchantment.target.LoriathEnchantmentTarget;
 import io.github.vicen621.loriath.common.events.LivingEntityHurtCallback;
 import io.github.vicen621.loriath.common.init.ModEnchantments;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -16,11 +16,11 @@ import net.minecraft.util.math.MathHelper;
 public class DeathWishEnchantment extends ExtendedEnchantment {
 
     public DeathWishEnchantment() {
-        super("death_wish", Rarity.RARE, LoriathEnchantmentTarget.MELEE_WEAPON, EquipmentSlot.MAINHAND);
+        super("death_wish", Rarity.RARE, EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND);
+
+        setDifferenceBetweenMinimumAndMaximum(40);
 
         LivingEntityHurtCallback.EVENT.register((user, source, amount) -> {
-            Enchantment deathWish = ModEnchantments.DEATH_WISH;
-
             LivingEntity attacker = source.getAttacker() instanceof LivingEntity ? (LivingEntity) source.getAttacker() : null;
             if (attacker != null && hasEnchantment(attacker)) {
                 float dmg = (amount * getDamageMultiplier(attacker)) - amount;

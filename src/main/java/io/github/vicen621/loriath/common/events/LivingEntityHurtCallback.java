@@ -13,7 +13,10 @@ public interface LivingEntityHurtCallback {
     Event<LivingEntityHurtCallback> EVENT = EventFactory.createArrayBacked(LivingEntityHurtCallback.class,
             (listeners) -> (user, source, amount) -> {
                 for (LivingEntityHurtCallback listener : listeners) {
-                    return listener.hurt(user, source, amount);
+                    boolean list = listener.hurt(user, source, amount);
+
+                    if (!list)
+                        return false;
                 }
 
                 return true;
