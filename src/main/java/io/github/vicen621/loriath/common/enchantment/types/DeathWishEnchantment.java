@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 public class DeathWishEnchantment extends ExtendedEnchantment {
 
     public DeathWishEnchantment() {
-        super(Rarity.RARE, LoriathEnchantmentTarget.MELEE_WEAPON, EquipmentSlot.MAINHAND);
+        super("death_wish", Rarity.RARE, LoriathEnchantmentTarget.MELEE_WEAPON, EquipmentSlot.MAINHAND);
 
         LivingEntityHurtCallback.EVENT.register((user, source, amount) -> {
             Enchantment deathWish = ModEnchantments.DEATH_WISH;
