@@ -1,16 +1,15 @@
 package io.github.vicen621.loriath.common.enchantment.types;
 
-import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.enchantment.ExtendedEnchantment;
-import io.github.vicen621.loriath.common.events.LivingEntityHurtCallback;
-import io.github.vicen621.loriath.common.events.LivingEntityUpdateCallback;
-import io.github.vicen621.loriath.extensions.LivingEntityExtensions;
+import io.github.vicen621.loriath.common.events.LivingEvent;
 import io.github.vicen621.loriath.utils.WorldUtils;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -30,36 +29,40 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
         super("elder_guardian_favor", Rarity.RARE, EnchantmentTarget.TRIDENT, EquipmentSlot.MAINHAND);
 
         setDifferenceBetweenMinimumAndMaximum(20);
+        setMinimumEnchantabilityCalculator(level -> (14 * level));
 
         // Event that links entities together on hit.
-        LivingEntityHurtCallback.EVENT.register((user, source, amount) -> {
+        LivingEvent.LivingEntityHurtCallback.EVENT.register((user, source, amount) -> {
+            if (source.getAttacker() instanceof PlayerEntity || source.getSource() instanceof PlayerEntity) {
+                PlayerEntity player = (PlayerEntity) source.getAttacker();
+                int enchantmentLevel = this.getEnchantmentLevel(player.getMainHandStack());
+                connectEntities(player, user, enchantmentLevel);
+                return amount;
+            }
+
             if (!(source.getAttacker() instanceof LivingEntity attacker) || !(source.getSource() instanceof LivingEntity))
-                return true;
+                return amount;
 
             int enchantmentLevel = this.getEnchantmentLevel(attacker.getMainHandStack());
             connectEntities(attacker, user, enchantmentLevel);
-            return true;
+            return amount;
         });
 
         //Event that updates link between entities and damage target after some time.
-        LivingEntityUpdateCallback.EVENT.register(entity -> {
+        LivingEvent.LivingEntityUpdateCallback.EVENT.register(entity -> {
             int counter = entity.loriath$getEGFCounter() - 1;
 
             if (counter < 0 || !(entity.world instanceof ServerWorld world))
                 return;
 
             entity.loriath$setEGFCounter(counter);
-            LoriathMod.LOGGER.info("set EGF counter to " + counter);
 
             int targetID = entity.loriath$getEGFLinkedEntityID();
             Entity targetEntity = world.getEntityById(targetID);
-            LoriathMod.LOGGER.info("get TargetEntity");
             if (!(targetEntity instanceof LivingEntity target))
                 return;
-            LoriathMod.LOGGER.info("livingEntity isn't null");
 
             if (counter > 0) {
-                LoriathMod.LOGGER.info("counter is 0");
                 spawnParticles(entity, target, world);
             } else {
                 boolean areEntitiesInWater = (target.isTouchingWater() || WorldUtils.isEntityOutsideWhenItIsRaining(target)
@@ -72,7 +75,6 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
                         (float) ((areEntitiesInWater ? this.WATER_MULTIPLIER : 1.0) * this.BEAM_DAMAGE)
                 );
                 entity.loriath$setEGFLinkedEntityID(0);
-                LoriathMod.LOGGER.info("counter <= 0");
             }
         });
     }
@@ -110,6 +112,9 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
      * @param enchantmentLevel Attacker's level of 'Favor of Elder Guardian'.
      */
     protected void connectEntities(LivingEntity attacker, LivingEntity target, int enchantmentLevel) {
+
+        if (attacker.loriath$getEGFLinkedEntityID() > 0 && attacker.world.getEntityById(attacker.loriath$getEGFLinkedEntityID()) == null)
+            attacker.loriath$setEGFLinkedEntityID(0);
 
         if (attacker.loriath$getEGFLinkedEntityID() > 0 || enchantmentLevel == 0)
             return;

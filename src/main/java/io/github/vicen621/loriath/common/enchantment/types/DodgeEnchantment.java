@@ -1,10 +1,7 @@
 package io.github.vicen621.loriath.common.enchantment.types;
 
-import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.enchantment.ExtendedEnchantment;
-import io.github.vicen621.loriath.common.events.LivingEntityHurtCallback;
-import io.github.vicen621.loriath.common.events.LivingEntityUpdateCallback;
-import io.github.vicen621.loriath.extensions.LivingEntityExtensions;
+import io.github.vicen621.loriath.common.events.LivingEvent;
 import io.github.vicen621.loriath.utils.AttributeHandler;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -33,30 +30,13 @@ public class DodgeEnchantment extends ExtendedEnchantment {
 
         setMaximumEnchantmentLevel(2);
         setDifferenceBetweenMinimumAndMaximum(20);
+        setMinimumEnchantabilityCalculator(level -> (14 * level));
 
-        LivingEntityHurtCallback.EVENT.register(this::onHurt);
+        LivingEvent.LivingEntityHurtCallback.EVENT.register(this::onHurt);
 
-        LivingEntityUpdateCallback.EVENT.register(user -> {
+        LivingEvent.LivingEntityUpdateCallback.EVENT.register(user -> {
             updateImmunity(user, user.loriath$getKbImmunityCounter() - 1);
         });
-    }
-
-    private boolean onHurt(LivingEntity user, DamageSource source, float amount) {
-        ItemStack pants = user.getEquippedStack(EquipmentSlot.LEGS);
-        int dodgeLevel = getEnchantmentLevel(pants);
-
-        if (dodgeLevel <= 0 || !(user.world instanceof ServerWorld))
-            return true;
-
-        if (!(user.world.getRandom().nextDouble() <= dodgeLevel * DODGE_CHANCE_PER_LEVEL))
-            return true;
-
-        updateImmunity(user, IMMUNITY_TIME);
-        spawnParticlesAndPlaySounds(user);
-        pants.damage(Math.max((int) (amount * DAMAGE_AMOUNT_FACTOR), 1), user,
-                owner -> owner.sendEquipmentBreakStatus(EquipmentSlot.LEGS)
-        );
-        return false;
     }
 
     /**
@@ -80,5 +60,23 @@ public class DodgeEnchantment extends ExtendedEnchantment {
         world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE,
                 SoundCategory.AMBIENT, 1.0f, 1.0f
         );
+    }
+
+    private float onHurt(LivingEntity user, DamageSource source, float amount) {
+        ItemStack pants = user.getEquippedStack(EquipmentSlot.LEGS);
+        int dodgeLevel = getEnchantmentLevel(pants);
+
+        if (dodgeLevel <= 0 || !(user.world instanceof ServerWorld))
+            return amount;
+
+        if (!(user.world.getRandom().nextDouble() <= dodgeLevel * DODGE_CHANCE_PER_LEVEL))
+            return amount;
+
+        updateImmunity(user, IMMUNITY_TIME);
+        spawnParticlesAndPlaySounds(user);
+        pants.damage(Math.max((int) (amount * DAMAGE_AMOUNT_FACTOR), 1), user,
+                owner -> owner.sendEquipmentBreakStatus(EquipmentSlot.LEGS)
+        );
+        return 0;
     }
 }

@@ -21,6 +21,7 @@ public abstract class DashMixin extends AbstractClientPlayerEntity {
 
     private int pressedTicks = 0;
     private long lastDashed = -24000;
+
     public DashMixin(ClientWorld world, GameProfile profile) {
         super(world, profile);
     }

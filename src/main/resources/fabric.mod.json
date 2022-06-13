@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "loriath",
   "version": "1.0",
-
   "name": "Loriath",
   "description": "Fabric mod for Loriath server",
   "authors": [
@@ -11,10 +10,8 @@
   "contact": {
     "sources": "https://github.com/Vicen621/loriath-mod"
   },
-
   "license": "CC0-1.0",
   "icon": "assets/loriath/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -27,7 +24,6 @@
   "mixins": [
     "loriath.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.14.5",
     "fabric": "*",
@@ -38,11 +34,14 @@
   "suggests": {
     "another-mod": "*"
   },
-
   "custom": {
     "loom:injected_interfaces": {
-      "net/minecraft/class_1293": ["io/github/vicen621/loriath/extensions/StatusEffectInstanceExtensions"],
-      "net/minecraft/class_1309": ["io/github/vicen621/loriath/extensions/LivingEntityExtensions"]
+      "net/minecraft/class_1293": [
+        "io/github/vicen621/loriath/extensions/StatusEffectInstanceExtensions"
+      ],
+      "net/minecraft/class_1309": [
+        "io/github/vicen621/loriath/extensions/LivingEntityExtensions"
+      ]
     }
   }
 }

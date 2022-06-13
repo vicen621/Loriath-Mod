@@ -2,8 +2,10 @@ package io.github.vicen621.loriath;
 
 import io.github.vicen621.loriath.common.init.ModEnchantments;
 import io.github.vicen621.loriath.common.init.ModItems;
+import io.github.vicen621.loriath.common.init.ModParticles;
 import io.github.vicen621.loriath.common.init.ModSoundEvents;
 import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
+import io.github.vicen621.loriath.utils.TimeHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
@@ -18,6 +20,8 @@ public class LoriathMod implements ModInitializer {
     public static final String MODID = "loriath";
     public static final Logger LOGGER = LoggerFactory.getLogger("Loriath");
 
+    public static final boolean DEBUG = true;
+
     public static Identifier id(String path) {
         return new Identifier(MODID, path);
     }
@@ -27,7 +31,9 @@ public class LoriathMod implements ModInitializer {
         ModItems.registerModItems();
         ModSoundEvents.registerModSounds();
         ModEnchantments.registerModSounds();
+        ModParticles.registerModParticles();
 
+        new TimeHelper();
         events();
         LOGGER.info("Finished loading LoriathMod");
     }

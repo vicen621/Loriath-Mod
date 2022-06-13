@@ -1,7 +1,6 @@
 package io.github.vicen621.loriath.common.item.accessories.items.extra;
 
-import io.github.vicen621.loriath.LoriathMod;
-import io.github.vicen621.loriath.common.events.LivingEntityHurtCallback;
+import io.github.vicen621.loriath.common.events.LivingEvent;
 import io.github.vicen621.loriath.common.init.ModItems;
 import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.utils.TrinketsHelper;
@@ -16,18 +15,17 @@ public class LavaCharmItem extends AccessoryItem {
     int timer = 0;
 
     public LavaCharmItem() {
-        LivingEntityHurtCallback.EVENT.register(this::onHurt);
+        LivingEvent.LivingEntityHurtCallback.EVENT.register(this::onHurt);
     }
 
-    private boolean onHurt(LivingEntity wearer, DamageSource source, float amount) {
-        LoriathMod.LOGGER.info("Hurt");
+    private float onHurt(LivingEntity wearer, DamageSource source, float amount) {
         if (!wearer.world.isClient && amount >= 1 && source == DamageSource.LAVA &&
                 wearer instanceof PlayerEntity player && TrinketsHelper.isEquipped(ModItems.LAVA_CHARM, wearer) &&
                 !player.getItemCooldownManager().isCoolingDown(ModItems.LAVA_CHARM)) {
             wearer.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 140, 0, false, true));
             player.getItemCooldownManager().set(ModItems.LAVA_CHARM, 100);
-            return false;
+            return 0;
         }
-        return true;
+        return amount;
     }
 }

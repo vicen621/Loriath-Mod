@@ -19,21 +19,16 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.registry.Registry;
 
 public class ModItems {
-
-    /*public static final Item TEST_SHIELD = register("test_shield", new FabricShieldItem(new FabricItemSettings().maxCount(1).maxDamage(500)
-            .group(ItemGroup.COMBAT), 100, 5, Items.IRON_INGOT));*/
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(LoriathMod.id("loriath"))
+    public static final Item ADHESIVE_BANDAGE = register("adhesive_bandage", new AdhesiveBandageItem());    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(LoriathMod.id("loriath"))
             .icon(() -> new ItemStack(ModItems.MARICOIN))
             .build();
-    public static final Item CLOAK_OF_INVISIBILITY = register("cloak_of_invisibility", new InvisibilityCloakItem());    public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
-    public static final Item ADHESIVE_BANDAGE = register("adhesive_bandage", new AdhesiveBandageItem());
     public static final Item BEZOAR = register("bezoar", new BezoarItem());
     //TODO
     public static final Item DESTROYER_EMBLEM = register("destroyer_emblem", new AccessoryItem());
+    public static final Item CLOAK_OF_INVISIBILITY = register("cloak_of_invisibility", new InvisibilityCloakItem());    public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
     public static final Item FAST_CLOCK = register("fast_clock", new FastClockItem());
     public static final Item LAVA_CHARM = register("lava_charm", new LavaCharmItem());
     public static final Item MEDICATED_BANDAGE = register("medicated_bandage", new MedicatedBandageItem());
@@ -56,15 +51,16 @@ public class ModItems {
         LoriathMod.LOGGER.info("Registering Items for " + LoriathMod.MODID);
     }
 
+
+
+
+
+
     public static final Item COMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.COMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
     public static final Item UNCOMMON_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.UNCOMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
     public static final Item RARE_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.RARE, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
     public static final Item EPIC_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.EPIC, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
     public static final Item LEGENDARY_MISTERY_BOX = new MisteryBoxItem(MisteryBoxRarity.LEGENDARY, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-
-
-
-
 
 
 }

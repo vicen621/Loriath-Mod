@@ -15,9 +15,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityNbtMixin extends Entity implements LivingEntityExtensions {
 
-    private int EGFLinkedEntityID;
-    private int EGFCounter;
-    private int KBImmunityCounter;
+    @Unique
+    private int loriath$EGFLinkedEntityID;
+    @Unique
+    private int loriath$EGFCounter;
+    @Unique
+    private int loriath$KBImmunityCounter;
 
     public LivingEntityNbtMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -25,51 +28,51 @@ public abstract class LivingEntityNbtMixin extends Entity implements LivingEntit
 
     @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
     public void writeCustomDataToNbt(NbtCompound tag, CallbackInfo ci) {
-        tag.putInt("EGFLinkedEntityID", this.EGFLinkedEntityID);
-        tag.putInt("EGFCounter", this.EGFCounter);
-        tag.putInt("KBImmunityCounter", this.KBImmunityCounter);
+        tag.putInt("loriath$EGFLinkedEntityID", this.loriath$EGFLinkedEntityID);
+        tag.putInt("loriath$EGFCounter", this.loriath$EGFCounter);
+        tag.putInt("loriath$KBImmunityCounter", this.loriath$KBImmunityCounter);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void readCustomDataFromNbt(NbtCompound tag, CallbackInfo ci) {
-        this.EGFLinkedEntityID = tag.getInt("EGFLinkedEntityID");
-        this.EGFCounter = tag.getInt("EGFCounter");
-        this.KBImmunityCounter = tag.getInt("KBImmunityCounter");
+        this.loriath$EGFLinkedEntityID = tag.getInt("loriath$EGFLinkedEntityID");
+        this.loriath$EGFCounter = tag.getInt("loriath$EGFCounter");
+        this.loriath$KBImmunityCounter = tag.getInt("loriath$KBImmunityCounter");
     }
 
     @Unique
     @Override
     public int loriath$getEGFLinkedEntityID() {
-        return this.EGFLinkedEntityID;
+        return this.loriath$EGFLinkedEntityID;
     }
 
     @Unique
     @Override
     public void loriath$setEGFLinkedEntityID(int id) {
-        this.EGFLinkedEntityID = id;
+        this.loriath$EGFLinkedEntityID = id;
     }
 
     @Unique
     @Override
     public int loriath$getEGFCounter() {
-        return this.EGFCounter;
+        return this.loriath$EGFCounter;
     }
 
     @Unique
     @Override
     public void loriath$setEGFCounter(int counter) {
-        this.EGFCounter = counter;
+        this.loriath$EGFCounter = counter;
     }
 
     @Unique
     @Override
     public int loriath$getKbImmunityCounter() {
-        return this.KBImmunityCounter;
+        return this.loriath$KBImmunityCounter;
     }
 
     @Unique
     @Override
     public void loriath$setKbImmunityCounter(int counter) {
-        this.KBImmunityCounter = counter;
+        this.loriath$KBImmunityCounter = counter;
     }
 }

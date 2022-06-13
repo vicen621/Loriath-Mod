@@ -9,15 +9,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 
-public class ExtendedEnchantment extends Enchantment {
+public abstract class ExtendedEnchantment extends Enchantment {
 
     private final String registerName;
-    private int differenceBetweenMinimumAndMaximum = 10;
-    private int maximumEnchantmentLevel = 1;
+    private int differenceBetweenMinimumAndMaximum;
+    private int maximumEnchantmentLevel;
+    private MinimumEnchantabilityCalculator minimumEnchantabilityCalculator;
 
     protected ExtendedEnchantment(String registerName, Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         this.registerName = registerName;
+        this.differenceBetweenMinimumAndMaximum = 10;
+        this.maximumEnchantmentLevel = 1;
+        this.minimumEnchantabilityCalculator = (level) -> level;
     }
 
     protected ExtendedEnchantment(String registerName, Rarity rarity, EnchantmentTarget enchantmentCategory, EquipmentSlot equipmentSlot) {
@@ -97,7 +101,16 @@ public class ExtendedEnchantment extends Enchantment {
         this.maximumEnchantmentLevel = Math.max(1, enchantmentLevel);
     }
 
+    protected void setMinimumEnchantabilityCalculator(MinimumEnchantabilityCalculator minimumEnchantabilityCalculator) {
+        this.minimumEnchantabilityCalculator = minimumEnchantabilityCalculator;
+    }
+
     public String getRegisterName() {
-    	return this.registerName;
+        return this.registerName;
+    }
+
+    @FunctionalInterface
+    protected interface MinimumEnchantabilityCalculator {
+        int getMinimumLevel(int var1);
     }
 }
