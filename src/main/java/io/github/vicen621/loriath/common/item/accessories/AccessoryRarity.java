@@ -28,7 +28,6 @@ public enum AccessoryRarity {
             add(ModItems.MEDICATED_BANDAGE);
             add(ModItems.SHACKLE);
             add(ModItems.SHINY_STONE);
-            add(ModItems.POCKET_PISTON);
             add(ModItems.PANIC_NECKLACE);
         }
     }),
