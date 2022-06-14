@@ -8,6 +8,9 @@ import net.minecraft.util.registry.Registry;
 public class ModParticles {
 
     public static DefaultParticleType PHOENIX = register("phoenix");
+    public static DefaultParticleType OVERSPEED = register("overspeed");
+    public static DefaultParticleType SECOND_OVERSPEED = register("second_overspeed");
+    public static DefaultParticleType MISTERY_BOX = register("mistery_box");
 
     private static DefaultParticleType register(String name) {
         return Registry.register(Registry.PARTICLE_TYPE, LoriathMod.id(name), FabricParticleTypes.simple());
