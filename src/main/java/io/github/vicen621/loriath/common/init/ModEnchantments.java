@@ -14,6 +14,8 @@ public class ModEnchantments {
     public static Enchantment ELDER_GUARDIAN_FAVOR = register(new ElderGuardianFavorEnchantment());
     public static Enchantment PHOENIX_DIVE = register(new PhoenixDiveEnchantment());
     public static Enchantment SMELTER = register(new SmelterEnchantment());
+    public static Enchantment VITALITY = register(new VitalityEnchantment());
+    public static Enchantment IMMORTALITY = register(new ImmortalityEnchantment());
     public static Enchantment INCOMPATIBILITY_CURSE = register(new IncompatibilityCurseEnchantment());
 
     private static Enchantment register(ExtendedEnchantment ench) {
