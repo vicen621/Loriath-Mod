@@ -7,6 +7,8 @@ import io.github.vicen621.loriath.common.init.ModParticles;
 import io.github.vicen621.loriath.utils.AttributeHandler;
 import io.github.vicen621.loriath.utils.StringUtils;
 import io.github.vicen621.loriath.utils.TimeHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
