@@ -3,8 +3,10 @@ package io.github.vicen621.loriath.mixin.events;
 import io.github.vicen621.loriath.common.events.LivingEvent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -14,6 +16,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
+import java.util.Map;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntitiesMixin extends Entity {
@@ -40,6 +45,11 @@ public abstract class LivingEntitiesMixin extends Entity {
         return LivingEvent.LivingEntityHurtCallback.EVENT.invoker().hurt(get(), source, amount);
     }
 
+    @ModifyVariable(method = "applyDamage", at = @At(value = "LOAD", ordinal = 6), argsOnly = true)
+    private float fireLivingEntityDamageEvent(float amount, DamageSource source) {
+        return LivingEvent.LivingEntityDamageCallback.EVENT.invoker().damage(get(), source, amount);
+    }
+
     @Inject(method = "handleFallDamage", at = @At("HEAD"), cancellable = true)
     private void causeFallDamage(float fallDistance, float damageMultiplier, DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
         if (!LivingEvent.LivingEntityFallCallback.EVENT.invoker().fall(get(), fallDistance, damageMultiplier))
@@ -49,5 +59,12 @@ public abstract class LivingEntitiesMixin extends Entity {
     @Inject(method = "jump", at = @At("TAIL"))
     private void onJump(CallbackInfo info) {
         LivingEvent.LivingEntityJumpCallback.EVENT.invoker().jump(get());
+    }
+
+    @Inject(method = "getEquipmentChanges", at = @At(value = "INVOKE",
+            target = "Ljava/util/Map;put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"),
+            locals = LocalCapture.CAPTURE_FAILHARD)
+    private void onItemEquip(CallbackInfoReturnable<Map<EquipmentSlot, ItemStack>> cir, Map<EquipmentSlot, ItemStack> map, EquipmentSlot[] var2, int var3, int var4, EquipmentSlot equipmentSlot, ItemStack itemStack, ItemStack itemStack2) {
+        LivingEvent.LivingEntityEquipmentChangeCallback.EVENT.invoker().changeEquipment(get(), equipmentSlot, itemStack, itemStack2);
     }
 }

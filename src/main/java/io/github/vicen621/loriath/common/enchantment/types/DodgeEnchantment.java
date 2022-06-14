@@ -32,11 +32,9 @@ public class DodgeEnchantment extends ExtendedEnchantment {
         setDifferenceBetweenMinimumAndMaximum(20);
         setMinimumEnchantabilityCalculator(level -> (14 * level));
 
-        LivingEvent.LivingEntityHurtCallback.EVENT.register(this::onHurt);
+        LivingEvent.LivingEntityDamageCallback.EVENT.register(this::onHurt);
 
-        LivingEvent.LivingEntityUpdateCallback.EVENT.register(user -> {
-            updateImmunity(user, user.loriath$getKbImmunityCounter() - 1);
-        });
+        LivingEvent.LivingEntityUpdateCallback.EVENT.register(user -> updateImmunity(user, user.loriath$getKbImmunityCounter() - 1));
     }
 
     /**

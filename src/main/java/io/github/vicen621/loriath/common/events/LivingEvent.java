@@ -2,8 +2,10 @@ package io.github.vicen621.loriath.common.events;
 
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.item.ItemStack;
 
 public class LivingEvent {
     public interface LivingEntityFallCallback {
@@ -40,6 +42,22 @@ public class LivingEvent {
         float hurt(LivingEntity user, DamageSource source, float amount);
     }
 
+    public interface LivingEntityDamageCallback {
+        Event<LivingEntityDamageCallback> EVENT = EventFactory.createArrayBacked(LivingEntityDamageCallback.class,
+                (listeners) -> (user, source, amount) -> {
+                    for (LivingEntityDamageCallback listener : listeners) {
+                        float list = listener.damage(user, source, amount);
+
+                        if (list != amount)
+                            return list;
+                    }
+
+                    return amount;
+                });
+
+        float damage(LivingEntity user, DamageSource source, float amount);
+    }
+
     public interface LivingEntityUpdateCallback {
         Event<LivingEntityUpdateCallback> EVENT = EventFactory.createArrayBacked(LivingEntityUpdateCallback.class,
                 (listeners) -> (entity) -> {
@@ -60,5 +78,16 @@ public class LivingEvent {
                 });
 
         void jump(LivingEntity entity);
+    }
+
+    public interface LivingEntityEquipmentChangeCallback {
+        Event<LivingEntityEquipmentChangeCallback> EVENT = EventFactory.createArrayBacked(LivingEntityEquipmentChangeCallback.class,
+                (listeners) -> (entity, slot, from, to) -> {
+                    for (LivingEntityEquipmentChangeCallback listener : listeners) {
+                        listener.changeEquipment(entity, slot, from, to);
+                    }
+                });
+
+        void changeEquipment(LivingEntity entity, EquipmentSlot slot, ItemStack from, ItemStack to);
     }
 }

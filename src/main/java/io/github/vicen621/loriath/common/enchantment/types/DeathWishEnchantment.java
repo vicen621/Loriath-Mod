@@ -5,6 +5,7 @@ import io.github.vicen621.loriath.common.events.LivingEvent;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.*;
 import net.minecraft.util.math.MathHelper;
 
@@ -16,16 +17,18 @@ public class DeathWishEnchantment extends ExtendedEnchantment {
         setDifferenceBetweenMinimumAndMaximum(40);
         setMinimumEnchantabilityCalculator(level -> 12);
 
-        LivingEvent.LivingEntityHurtCallback.EVENT.register((user, source, amount) -> {
-            LivingEntity attacker = source.getAttacker() instanceof LivingEntity ? (LivingEntity) source.getAttacker() : null;
-            if (attacker != null && hasEnchantment(attacker))
-                return amount * getDamageMultiplier(attacker);
+        LivingEvent.LivingEntityHurtCallback.EVENT.register(this::onHurt);
+    }
 
-            if (hasEnchantment(user))
-                return amount * getVulnerabilityMultiplier();
+    protected float onHurt(LivingEntity user, DamageSource source, float amount) {
+        LivingEntity attacker = source.getAttacker() instanceof LivingEntity ? (LivingEntity) source.getAttacker() : null;
+        if (attacker != null && hasEnchantment(attacker))
+            return amount * getDamageMultiplier(attacker);
 
-            return amount;
-        });
+        if (hasEnchantment(user))
+            return amount * getVulnerabilityMultiplier();
+
+        return amount;
     }
 
     @Override
