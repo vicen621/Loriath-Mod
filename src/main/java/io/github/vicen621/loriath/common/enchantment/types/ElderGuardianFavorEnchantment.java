@@ -32,51 +32,55 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
         setMinimumEnchantabilityCalculator(level -> (14 * level));
 
         // Event that links entities together on hit.
-        LivingEvent.LivingEntityHurtCallback.EVENT.register((user, source, amount) -> {
-            if (source.getAttacker() instanceof PlayerEntity || source.getSource() instanceof PlayerEntity) {
-                PlayerEntity player = (PlayerEntity) source.getAttacker();
-                int enchantmentLevel = this.getEnchantmentLevel(player.getMainHandStack());
-                connectEntities(player, user, enchantmentLevel);
-                return amount;
-            }
-
-            if (!(source.getAttacker() instanceof LivingEntity attacker) || !(source.getSource() instanceof LivingEntity))
-                return amount;
-
-            int enchantmentLevel = this.getEnchantmentLevel(attacker.getMainHandStack());
-            connectEntities(attacker, user, enchantmentLevel);
-            return amount;
-        });
+        LivingEvent.LivingEntityHurtCallback.EVENT.register(this::onDamage);
 
         //Event that updates link between entities and damage target after some time.
-        LivingEvent.LivingEntityUpdateCallback.EVENT.register(entity -> {
-            int counter = entity.loriath$getEGFCounter() - 1;
+        LivingEvent.LivingEntityUpdateCallback.EVENT.register(this::entityUpdate);
+    }
 
-            if (counter < 0 || !(entity.world instanceof ServerWorld world))
-                return;
+    protected void entityUpdate(LivingEntity entity) {
+        int counter = entity.loriath$getEGFCounter() - 1;
 
-            entity.loriath$setEGFCounter(counter);
+        if (counter < 0 || !(entity.world instanceof ServerWorld world))
+            return;
 
-            int targetID = entity.loriath$getEGFLinkedEntityID();
-            Entity targetEntity = world.getEntityById(targetID);
-            if (!(targetEntity instanceof LivingEntity target))
-                return;
+        entity.loriath$setEGFCounter(counter);
 
-            if (counter > 0) {
-                spawnParticles(entity, target, world);
-            } else {
-                boolean areEntitiesInWater = (target.isTouchingWater() || WorldUtils.isEntityOutsideWhenItIsRaining(target)
-                ) && (entity.isTouchingWater() || WorldUtils.isEntityOutsideWhenItIsRaining(entity));
+        int targetID = entity.loriath$getEGFLinkedEntityID();
+        Entity targetEntity = world.getEntityById(targetID);
+        if (!(targetEntity instanceof LivingEntity target))
+            return;
 
-                world.playSound(null, target.getX(), target.getEyeY(), target.getZ(), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.AMBIENT,
-                        0.5f, 1.8f
-                );
-                target.damage(DamageSource.MAGIC,
-                        (float) ((areEntitiesInWater ? this.WATER_MULTIPLIER : 1.0) * this.BEAM_DAMAGE)
-                );
-                entity.loriath$setEGFLinkedEntityID(0);
-            }
-        });
+        if (counter > 0) {
+            spawnParticles(entity, target, world);
+        } else {
+            boolean areEntitiesInWater = (target.isTouchingWater() || WorldUtils.isEntityOutsideWhenItIsRaining(target)
+            ) && (entity.isTouchingWater() || WorldUtils.isEntityOutsideWhenItIsRaining(entity));
+
+            world.playSound(null, target.getX(), target.getEyeY(), target.getZ(), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.AMBIENT,
+                    0.5f, 1.8f
+            );
+            target.damage(DamageSource.MAGIC,
+                    (float) ((areEntitiesInWater ? this.WATER_MULTIPLIER : 1.0) * this.BEAM_DAMAGE)
+            );
+            entity.loriath$setEGFLinkedEntityID(0);
+        }
+    }
+
+    protected float onDamage(LivingEntity user, DamageSource source, float amount) {
+        if (source.getAttacker() instanceof PlayerEntity || source.getSource() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) source.getAttacker();
+            int enchantmentLevel = this.getEnchantmentLevel(player.getMainHandStack());
+            connectEntities(player, user, enchantmentLevel);
+            return amount;
+        }
+
+        if (!(source.getAttacker() instanceof LivingEntity attacker) || !(source.getSource() instanceof LivingEntity))
+            return amount;
+
+        int enchantmentLevel = this.getEnchantmentLevel(attacker.getMainHandStack());
+        connectEntities(attacker, user, enchantmentLevel);
+        return amount;
     }
 
     /**
