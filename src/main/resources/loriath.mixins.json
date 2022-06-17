@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "DashMixin",
+    "client.render.PlayerEntityRendererMixin",
     "effects.LivingEntityMixin",
     "effects.StatusEffectInstanceMixin",
     "effects.client.LivingEntityMixin",
