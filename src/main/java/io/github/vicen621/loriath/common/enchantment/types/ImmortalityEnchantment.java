@@ -1,6 +1,5 @@
 package io.github.vicen621.loriath.common.enchantment.types;
 
-import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.enchantment.ExtendedEnchantment;
 import io.github.vicen621.loriath.common.events.LivingEvent;
 import net.minecraft.enchantment.EnchantmentTarget;

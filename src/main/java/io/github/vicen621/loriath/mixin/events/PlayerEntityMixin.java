@@ -24,11 +24,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
 
-    @Shadow public abstract PlayerInventory getInventory();
-
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
+
+    @Shadow
+    public abstract PlayerInventory getInventory();
 
     @Unique
     private PlayerEntity get() {

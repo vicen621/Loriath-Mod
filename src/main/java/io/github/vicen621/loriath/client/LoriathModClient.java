@@ -1,6 +1,5 @@
 package io.github.vicen621.loriath.client;
 
-import com.mojang.bridge.game.PackType;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.client.render.accessory.AccessoryRenderers;
 import io.github.vicen621.loriath.common.init.ModLayerDefinitions;

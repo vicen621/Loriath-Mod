@@ -20,26 +20,26 @@ import java.util.List;
 @Mixin(PlayerEntityRenderer.class)
 public abstract class PlayerEntityRendererMixin {
 
-	@Inject(method = "renderLeftArm", at = @At("TAIL"))
-	private void renderLeftGlove(MatrixStack matrixStack, VertexConsumerProvider buffer, int light, AbstractClientPlayerEntity player, CallbackInfo callbackInfo) {
-		renderArm(matrixStack, buffer, light, player, Arm.LEFT);
-	}
+    @Unique
+    private static void renderArm(MatrixStack matrixStack, VertexConsumerProvider buffer, int light, AbstractClientPlayerEntity player, Arm handSide) {
+        List<ItemStack> allEquippedGloves = TrinketsHelper.getAllEquippedForSlot(player, "hand", "accessory");
 
-	@Inject(method = "renderRightArm", at = @At("TAIL"))
-	private void renderRightGlove(MatrixStack matrixStack, VertexConsumerProvider buffer, int light, AbstractClientPlayerEntity player, CallbackInfo callbackInfo) {
-		renderArm(matrixStack, buffer, light, player, Arm.RIGHT);
-	}
+        for (ItemStack stack : allEquippedGloves) {
+            TrinketRendererRegistry.getRenderer(stack.getItem()).ifPresent(renderer -> {
+                if (renderer instanceof GloveAccessoryRenderer gloveRenderer) {
+                    gloveRenderer.renderFirstPersonArm(matrixStack, buffer, light, player, handSide, stack.hasGlint());
+                }
+            });
+        }
+    }
 
-	@Unique
-	private static void renderArm(MatrixStack matrixStack, VertexConsumerProvider buffer, int light, AbstractClientPlayerEntity player, Arm handSide) {
-		List<ItemStack> allEquippedGloves = TrinketsHelper.getAllEquippedForSlot(player, "hand", "accessory");
+    @Inject(method = "renderLeftArm", at = @At("TAIL"))
+    private void renderLeftGlove(MatrixStack matrixStack, VertexConsumerProvider buffer, int light, AbstractClientPlayerEntity player, CallbackInfo callbackInfo) {
+        renderArm(matrixStack, buffer, light, player, Arm.LEFT);
+    }
 
-		for (ItemStack stack : allEquippedGloves) {
-			TrinketRendererRegistry.getRenderer(stack.getItem()).ifPresent(renderer -> {
-				if (renderer instanceof GloveAccessoryRenderer gloveRenderer) {
-					gloveRenderer.renderFirstPersonArm(matrixStack, buffer, light, player, handSide, stack.hasGlint());
-				}
-			});
-		}
-	}
+    @Inject(method = "renderRightArm", at = @At("TAIL"))
+    private void renderRightGlove(MatrixStack matrixStack, VertexConsumerProvider buffer, int light, AbstractClientPlayerEntity player, CallbackInfo callbackInfo) {
+        renderArm(matrixStack, buffer, light, player, Arm.RIGHT);
+    }
 }

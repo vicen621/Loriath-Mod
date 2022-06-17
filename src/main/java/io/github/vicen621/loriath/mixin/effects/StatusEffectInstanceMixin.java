@@ -20,7 +20,7 @@ public abstract class StatusEffectInstanceMixin implements StatusEffectInstanceE
     public void loriath$setDuration(int duration) {
         // Recursively set duration for hidden effects
         if (this.hiddenEffect != null) {
-            ((StatusEffectInstanceExtensions) this.hiddenEffect).loriath$setDuration(duration);
+            this.hiddenEffect.loriath$setDuration(duration);
         }
 
         this.duration = duration;

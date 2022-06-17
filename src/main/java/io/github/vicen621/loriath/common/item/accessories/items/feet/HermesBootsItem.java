@@ -1,25 +1,18 @@
 package io.github.vicen621.loriath.common.item.accessories.items.feet;
 
-import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
 import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.common.particle.HermesBootsParticles;
-import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttribute;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import java.util.UUID;
-
 public class HermesBootsItem extends AccessoryItem {
 
-    double value = 1.0;
     final double DefaultValue = 1.0;
+    double value = 1.0;
     int a = 0;
 
     void resetTimer() {

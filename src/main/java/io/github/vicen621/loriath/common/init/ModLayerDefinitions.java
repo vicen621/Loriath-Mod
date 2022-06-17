@@ -1,7 +1,9 @@
 package io.github.vicen621.loriath.common.init;
 
 import io.github.vicen621.loriath.client.render.accessory.AccessoryLayers;
-import io.github.vicen621.loriath.client.render.accessory.model.*;
+import io.github.vicen621.loriath.client.render.accessory.model.ArmsModel;
+import io.github.vicen621.loriath.client.render.accessory.model.HeadModel;
+import io.github.vicen621.loriath.client.render.accessory.model.NecklaceModel;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.model.ModelData;
 import net.minecraft.client.model.TexturedModelData;

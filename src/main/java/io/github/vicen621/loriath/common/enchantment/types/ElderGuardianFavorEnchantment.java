@@ -9,7 +9,6 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -36,6 +35,31 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
 
         //Event that updates link between entities and damage target after some time.
         LivingEvent.LivingEntityUpdateCallback.EVENT.register(this::entityUpdate);
+    }
+
+    /**
+     * Spawning particles between entities when they are linked.
+     *
+     * @param attacker Attacker.
+     * @param target   Target.
+     * @param world    Level at which particles will be spawned.
+     */
+    protected static void spawnParticles(LivingEntity attacker, LivingEntity target, ServerWorld world) {
+        Vec3d difference = new Vec3d(attacker.getX() - target.getX(), attacker.getBodyY(0.5) - target.getBodyY(0.5),
+                attacker.getZ() - target.getZ()
+        );
+        Vec3d normalized = difference.normalize();
+        double factor = 0.0;
+
+        while (factor < difference.length()) {
+            double x = attacker.getX() - normalized.x * factor;
+            double y = attacker.getBodyY(0.5) - normalized.y * factor;
+            double z = attacker.getZ() - normalized.z * factor;
+            world.spawnParticles(ParticleTypes.BUBBLE, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
+            world.spawnParticles(ParticleTypes.BUBBLE_POP, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
+
+            factor += 1.8 - 0.8 + world.getRandom().nextDouble() * (1.7 - 0.8);
+        }
     }
 
     protected void entityUpdate(LivingEntity entity) {
@@ -81,31 +105,6 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
         int enchantmentLevel = this.getEnchantmentLevel(attacker.getMainHandStack());
         connectEntities(attacker, user, enchantmentLevel);
         return amount;
-    }
-
-    /**
-     * Spawning particles between entities when they are linked.
-     *
-     * @param attacker Attacker.
-     * @param target   Target.
-     * @param world    Level at which particles will be spawned.
-     */
-    protected static void spawnParticles(LivingEntity attacker, LivingEntity target, ServerWorld world) {
-        Vec3d difference = new Vec3d(attacker.getX() - target.getX(), attacker.getBodyY(0.5) - target.getBodyY(0.5),
-                attacker.getZ() - target.getZ()
-        );
-        Vec3d normalized = difference.normalize();
-        double factor = 0.0;
-
-        while (factor < difference.length()) {
-            double x = attacker.getX() - normalized.x * factor;
-            double y = attacker.getBodyY(0.5) - normalized.y * factor;
-            double z = attacker.getZ() - normalized.z * factor;
-            world.spawnParticles(ParticleTypes.BUBBLE, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
-            world.spawnParticles(ParticleTypes.BUBBLE_POP, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
-
-            factor += 1.8 - 0.8 + world.getRandom().nextDouble() * (1.7 - 0.8);
-        }
     }
 
     /**
