@@ -38,6 +38,11 @@ public abstract class ExtendedEnchantment extends Enchantment {
         return this.getMinPower(level) + this.differenceBetweenMinimumAndMaximum;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return false;
+    }
+
     public int getEnchantmentLevel(ItemStack itemStack) {
         return EnchantmentHelper.getLevel(this, itemStack);
     }

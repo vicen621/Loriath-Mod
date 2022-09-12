@@ -5,33 +5,66 @@ import io.github.vicen621.loriath.common.item.accessories.AccessoryRarity;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.tag.TagKey;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class LoriathItemProvider extends FabricTagProvider<Item> {
-    TagKey<Item> COMMON_ACCESSORIES = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("common_accessories"));
-    TagKey<Item> UNCOMMON_ACCESSORIES = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("uncommon_accessories"));
-    TagKey<Item> RARE_ACCESSORIES = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("rare_accessories"));
-    TagKey<Item> EPIC_ACCESSORIES = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("epic_accessories"));
-    TagKey<Item> LEGENDARY_ACCESSORIES = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("legendary_accessories"));
+    private static final TagKey<Item> COMMON_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("common_accessory"));
+    private static final TagKey<Item> UNCOMMON_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("uncommon_accessory"));
+    private static final TagKey<Item> RARE_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("rare_accessory"));
+    private static final TagKey<Item> EPIC_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("epic_accessory"));
+    private static final TagKey<Item> LEGENDARY_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("legendary_accessory"));
+    private static final TagKey<Item> CONCRETE_POWDER = TagKey.of(Registry.ITEM_KEY, new Identifier("concrete_powder"));
+    private static final TagKey<Item> GLAZED_TERRACOTTA = TagKey.of(Registry.ITEM_KEY, new Identifier("glazed_terracotta"));
 
-    /**
-     * Construct a new {@link FabricTagProvider} with the default computed path.
-     *
-     * <p>Common implementations of this class are provided. For example @see BlockTagProvider
-     *
-     * @param dataGenerator The data generator instance
-     */
     public LoriathItemProvider(FabricDataGenerator dataGenerator) {
         super(dataGenerator, Registry.ITEM);
     }
 
     @Override
     protected void generateTags() {
-        getOrCreateTagBuilder(COMMON_ACCESSORIES).add(AccessoryRarity.COMMON.getItems().toArray(Item[]::new));
-        getOrCreateTagBuilder(UNCOMMON_ACCESSORIES).add(AccessoryRarity.UNCOMMON.getItems().toArray(Item[]::new));
-        getOrCreateTagBuilder(RARE_ACCESSORIES).add(AccessoryRarity.RARE.getItems().toArray(Item[]::new));
-        getOrCreateTagBuilder(EPIC_ACCESSORIES).add(AccessoryRarity.EPIC.getItems().toArray(Item[]::new));
-        getOrCreateTagBuilder(LEGENDARY_ACCESSORIES).add(AccessoryRarity.LEGENDARY.getItems().toArray(Item[]::new));
+        getOrCreateTagBuilder(COMMON_ACCESSORY).add(AccessoryRarity.COMMON.getItems().toArray(Item[]::new));
+        getOrCreateTagBuilder(UNCOMMON_ACCESSORY).add(AccessoryRarity.UNCOMMON.getItems().toArray(Item[]::new));
+        getOrCreateTagBuilder(RARE_ACCESSORY).add(AccessoryRarity.RARE.getItems().toArray(Item[]::new));
+        getOrCreateTagBuilder(EPIC_ACCESSORY).add(AccessoryRarity.EPIC.getItems().toArray(Item[]::new));
+        getOrCreateTagBuilder(LEGENDARY_ACCESSORY).add(AccessoryRarity.LEGENDARY.getItems().toArray(Item[]::new));
+        getOrCreateTagBuilder(CONCRETE_POWDER)
+                .add(Items.BLACK_CONCRETE_POWDER)
+                .add(Items.BLUE_CONCRETE_POWDER)
+                .add(Items.BROWN_CONCRETE_POWDER)
+                .add(Items.CYAN_CONCRETE_POWDER)
+                .add(Items.GRAY_CONCRETE_POWDER)
+                .add(Items.GREEN_CONCRETE_POWDER)
+                .add(Items.LIGHT_BLUE_CONCRETE_POWDER)
+                .add(Items.LIGHT_GRAY_CONCRETE_POWDER)
+                .add(Items.LIME_CONCRETE_POWDER)
+                .add(Items.MAGENTA_CONCRETE_POWDER)
+                .add(Items.ORANGE_CONCRETE_POWDER)
+                .add(Items.PINK_CONCRETE_POWDER)
+                .add(Items.PURPLE_CONCRETE_POWDER)
+                .add(Items.RED_CONCRETE_POWDER)
+                .add(Items.WHITE_CONCRETE_POWDER)
+                .add(Items.YELLOW_CONCRETE_POWDER);
+
+
+        getOrCreateTagBuilder(GLAZED_TERRACOTTA)
+                .add(Items.BLACK_GLAZED_TERRACOTTA)
+                .add(Items.BLUE_GLAZED_TERRACOTTA)
+                .add(Items.BROWN_GLAZED_TERRACOTTA)
+                .add(Items.CYAN_GLAZED_TERRACOTTA)
+                .add(Items.GRAY_GLAZED_TERRACOTTA)
+                .add(Items.GREEN_GLAZED_TERRACOTTA)
+                .add(Items.LIGHT_BLUE_GLAZED_TERRACOTTA)
+                .add(Items.LIGHT_GRAY_GLAZED_TERRACOTTA)
+                .add(Items.LIME_GLAZED_TERRACOTTA)
+                .add(Items.MAGENTA_GLAZED_TERRACOTTA)
+                .add(Items.ORANGE_GLAZED_TERRACOTTA)
+                .add(Items.PINK_GLAZED_TERRACOTTA)
+                .add(Items.PURPLE_GLAZED_TERRACOTTA)
+                .add(Items.RED_GLAZED_TERRACOTTA)
+                .add(Items.WHITE_GLAZED_TERRACOTTA)
+                .add(Items.YELLOW_GLAZED_TERRACOTTA);
     }
 }

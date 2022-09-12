@@ -22,4 +22,9 @@ public abstract class ExtendedCurse extends ExtendedEnchantment {
     public boolean isCursed() {
         return true;
     }
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return false;
+    }
 }

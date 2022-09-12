@@ -2,13 +2,61 @@
   "item.mistery_box.open": {
     "subtitle": "subtitles.item.mistery_box.open",
     "sounds": [
-      "loriath:mistery_box_open"
+      "loriath:mistery_boxes/open/open"
     ]
   },
-  "item.mistery_box.pickup": {
-    "subtitle": "subtitles.item.mistery_box.pickup",
+  "item.mistery_box.open_legendary": {
+    "subtitle": "subtitles.item.mistery_box.open",
     "sounds": [
-      "loriath:mistery_box_pickup"
+      "loriath:mistery_boxes/open/open_legendary"
+    ]
+  },
+  "item.mistery_box.switch": {
+    "subtitle": "subtitles.item.mistery_box.switch",
+    "sounds": [
+      "loriath:mistery_boxes/switch/switch"
+    ]
+  },
+  "item.mistery_box.switch_plus": {
+    "subtitle": "subtitles.item.mistery_box.switch",
+    "sounds": [
+      "loriath:mistery_boxes/switch/switch_plus"
+    ]
+  },
+  "item.mistery_box.theme": {
+    "subtitle": "subtitles.item.mistery_box.theme",
+    "sounds": [
+      "loriath:mistery_boxes/theme/theme"
+    ]
+  },
+  "item.mistery_box.theme_rare": {
+    "subtitle": "subtitles.item.mistery_box.theme",
+    "sounds": [
+      "loriath:mistery_boxes/theme/theme_rare"
+    ]
+  },
+  "item.mistery_box.theme_epic": {
+    "subtitle": "subtitles.item.mistery_box.theme",
+    "sounds": [
+      "loriath:mistery_boxes/theme/theme_epic"
+    ]
+  },
+  "item.mistery_box.theme_legendary": {
+    "subtitle": "subtitles.item.mistery_box.theme",
+    "sounds": [
+      "loriath:mistery_boxes/theme/theme_legendary"
+    ]
+  },
+  "item.mistery_box.finish": {
+    "subtitle": "subtitles.item.mistery_box.finish",
+    "sounds": [
+      "loriath:mistery_boxes/finish/finish"
+    ]
+  },
+  "item.mistery_box.finish_legendary": {
+    "subtitle": "subtitles.item.mistery_box.finish",
+    "sounds": [
+      "loriath:mistery_boxes/finish/finish_legendary"
     ]
   }
 }

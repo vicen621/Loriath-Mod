@@ -22,7 +22,7 @@ public class ModEnchantments {
         return Registry.register(Registry.ENCHANTMENT, LoriathMod.id(ench.getRegisterName()), ench);
     }
 
-    public static void registerModSounds() {
+    public static void registerModEnchantments() {
         LoriathMod.LOGGER.info("Registering Enchantments for " + LoriathMod.MODID);
     }
 }

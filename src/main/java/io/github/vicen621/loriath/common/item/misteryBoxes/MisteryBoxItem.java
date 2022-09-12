@@ -5,6 +5,7 @@ import eu.pb4.sgui.api.elements.GuiElementInterface;
 import eu.pb4.sgui.api.gui.SimpleGui;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.gui.LoriathAnimatedGuiElement;
+import io.github.vicen621.loriath.common.init.ModSoundEvents;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -19,7 +20,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.Registry;
@@ -119,7 +119,8 @@ public class MisteryBoxItem extends Item {
                         this.setSlot(7, new LoriathAnimatedGuiElement(PANES, 3, true, GuiElementInterface.EMPTY_CALLBACK));
                         this.setSlot(8, new LoriathAnimatedGuiElement(PANES, 3, true, GuiElementInterface.EMPTY_CALLBACK));
 
-                        player.playSound(SoundEvents.BLOCK_BEACON_POWER_SELECT, SoundCategory.MASTER, 1, 1);
+                        if (rarity.getFinishSound() != null)
+                            world.playSound(null, player.getBlockPos(), rarity.getFinishSound(), SoundCategory.NEUTRAL, 1, 1);
                         spinning = false;
                     }
 
@@ -134,12 +135,18 @@ public class MisteryBoxItem extends Item {
             gui.setSlot(7, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(Text.literal(" ")));
             gui.setSlot(8, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(Text.literal(" ")));
 
-            for (int i = 2; i < 7; i++) {
+
+            gui.setSlot(2, new LoriathAnimatedGuiElement(items.toArray(ItemStack[]::new), 2, false, rarity.getSwitchSound(), GuiElementInterface.EMPTY_CALLBACK));
+            Collections.rotate(items, 1);
+
+            for (int i = 3; i < 7; i++) {
                 gui.setSlot(i, new LoriathAnimatedGuiElement(items.toArray(ItemStack[]::new), 2, false, GuiElementInterface.EMPTY_CALLBACK));
                 Collections.rotate(items, 1);
             }
 
             gui.open();
+            world.playSound(null, player.getBlockPos(), rarity.getOpenSound(), SoundCategory.NEUTRAL, 1, 1);
+            world.playSound(null, player.getBlockPos(), rarity.getThemeSound(), SoundCategory.NEUTRAL, 1, 1);
             stack.decrement(1);
         } catch (Exception e) {
             e.printStackTrace();

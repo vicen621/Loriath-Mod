@@ -1,9 +1,6 @@
 package io.github.vicen621.loriath;
 
-import io.github.vicen621.loriath.common.init.ModEnchantments;
-import io.github.vicen621.loriath.common.init.ModItems;
-import io.github.vicen621.loriath.common.init.ModParticles;
-import io.github.vicen621.loriath.common.init.ModSoundEvents;
+import io.github.vicen621.loriath.common.init.*;
 import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
 import io.github.vicen621.loriath.utils.TimeHelper;
 import net.fabricmc.api.ModInitializer;
@@ -28,10 +25,12 @@ public class LoriathMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModLootFunctions.registerLootFunctions();
         ModSoundEvents.registerModSounds();
-        ModEnchantments.registerModSounds();
+        ModEnchantments.registerModEnchantments();
         ModParticles.registerModParticles();
         ModItems.registerModItems();
+        ModSoundEvents.registerModSounds();
 
         new TimeHelper();
         events();

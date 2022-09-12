@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 10,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "loriath:hats",
+          "expand": true
+        }
+      ]
+    }
+  ]
+}

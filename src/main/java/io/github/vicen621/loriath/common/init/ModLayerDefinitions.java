@@ -1,5 +1,6 @@
 package io.github.vicen621.loriath.common.init;
 
+import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.client.render.accessory.AccessoryLayers;
 import io.github.vicen621.loriath.client.render.accessory.model.ArmsModel;
 import io.github.vicen621.loriath.client.render.accessory.model.HeadModel;
@@ -26,5 +27,10 @@ public class ModLayerDefinitions {
 
     private static void register(EntityModelLayer location, EntityModelLayerRegistry.TexturedModelDataProvider provider) {
         EntityModelLayerRegistry.registerModelLayer(location, provider);
+    }
+
+
+    public static void registerModLayerDefinitions() {
+        LoriathMod.LOGGER.info("Registering Layer Definitions for " + LoriathMod.MODID);
     }
 }
