@@ -7,7 +7,7 @@ import net.minecraft.entity.EquipmentSlot;
 
 public class IncompatibilityCurseEnchantment extends ExtendedCurse {
     public IncompatibilityCurseEnchantment() {
-        super("incompatibility_curse", Enchantment.Rarity.RARE, EnchantmentTarget.BREAKABLE,
+        super("incompatibility_curse", Rarity.RARE, EnchantmentTarget.BREAKABLE,
                 new EquipmentSlot[]{
                         EquipmentSlot.HEAD,
                         EquipmentSlot.CHEST,

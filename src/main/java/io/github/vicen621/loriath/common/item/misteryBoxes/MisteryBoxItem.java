@@ -10,19 +10,24 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
+import java.util.List;
 
 public class MisteryBoxItem extends Item {
 
@@ -40,6 +45,8 @@ public class MisteryBoxItem extends Item {
             Items.RED_STAINED_GLASS_PANE.getDefaultStack(),
     };
 
+    private final Random RANDOM = Random.create();
+
     private final MisteryBoxRarity rarity;
 
     public MisteryBoxItem(MisteryBoxRarity rarity, Settings settings) {
@@ -56,7 +63,9 @@ public class MisteryBoxItem extends Item {
         ItemStack stack = player.getStackInHand(hand);
 
         try {
-            ArrayList<ItemStack> items = new ArrayList<>(rarity.getItems());
+            LootContext.Builder builder = new LootContext.Builder(player.getWorld()).parameter(LootContextParameters.ORIGIN, player.getPos()).random(RANDOM);
+            builder.parameter(LootContextParameters.THIS_ENTITY, player);
+            List<ItemStack> items = player.getWorld().getServer().getLootManager().getTable(rarity.getLootTable()).generateLoot(builder.build(LootContextTypes.CHEST));
             Collections.shuffle(items);
 
             SimpleGui gui = new SimpleGui(ScreenHandlerType.GENERIC_9X1, player, false) {
@@ -69,7 +78,7 @@ public class MisteryBoxItem extends Item {
                         if (!player.getInventory().insertStack(getSlot(4).getItemStack().copy()))
                             player.getWorld().spawnEntity(new ItemEntity(player.getWorld(), player.getX(), player.getY(), player.getZ(), getSlot(4).getItemStack()));
                     } else {
-                        ItemStack stack = items.get(new Random().nextInt(items.size())).copy();
+                        ItemStack stack = items.get(RANDOM.nextInt(items.size())).copy();
                         if (!player.getInventory().insertStack(stack))
                             player.getWorld().spawnEntity(new ItemEntity(player.getWorld(), player.getX(), player.getY(), player.getZ(), stack));
                     }
@@ -102,11 +111,11 @@ public class MisteryBoxItem extends Item {
 
                         this.setSlot(0, new LoriathAnimatedGuiElement(PANES, 3, true, GuiElementInterface.EMPTY_CALLBACK));
                         this.setSlot(1, new LoriathAnimatedGuiElement(PANES, 3, true, GuiElementInterface.EMPTY_CALLBACK));
-                        this.setSlot(2, new GuiElementBuilder(Items.SOUL_CAMPFIRE).setName(new LiteralText(" ")));
+                        this.setSlot(2, new GuiElementBuilder(Items.SOUL_CAMPFIRE).setName(Text.literal(" ")));
                         this.clearSlot(3);
                         this.setSlot(4, item);
                         this.clearSlot(5);
-                        this.setSlot(6, new GuiElementBuilder(Items.SOUL_CAMPFIRE).setName(new LiteralText(" ")));
+                        this.setSlot(6, new GuiElementBuilder(Items.SOUL_CAMPFIRE).setName(Text.literal(" ")));
                         this.setSlot(7, new LoriathAnimatedGuiElement(PANES, 3, true, GuiElementInterface.EMPTY_CALLBACK));
                         this.setSlot(8, new LoriathAnimatedGuiElement(PANES, 3, true, GuiElementInterface.EMPTY_CALLBACK));
 
@@ -120,10 +129,10 @@ public class MisteryBoxItem extends Item {
             };
 
 
-            gui.setSlot(0, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(new LiteralText(" ")));
-            gui.setSlot(1, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(new LiteralText(" ")));
-            gui.setSlot(7, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(new LiteralText(" ")));
-            gui.setSlot(8, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(new LiteralText(" ")));
+            gui.setSlot(0, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(Text.literal(" ")));
+            gui.setSlot(1, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(Text.literal(" ")));
+            gui.setSlot(7, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(Text.literal(" ")));
+            gui.setSlot(8, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(Text.literal(" ")));
 
             for (int i = 2; i < 7; i++) {
                 gui.setSlot(i, new LoriathAnimatedGuiElement(items.toArray(ItemStack[]::new), 2, false, GuiElementInterface.EMPTY_CALLBACK));

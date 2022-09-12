@@ -7,8 +7,8 @@ import io.github.vicen621.loriath.common.init.ModSoundEvents;
 import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
 import io.github.vicen621.loriath.utils.TimeHelper;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
-import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -28,10 +28,10 @@ public class LoriathMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ModItems.registerModItems();
         ModSoundEvents.registerModSounds();
         ModEnchantments.registerModSounds();
         ModParticles.registerModParticles();
+        ModItems.registerModItems();
 
         new TimeHelper();
         events();
@@ -39,14 +39,15 @@ public class LoriathMod implements ModInitializer {
     }
 
     private void events() {
-        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (id.getPath().contains("chest")) {
-                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withCondition(RandomChanceLootCondition.builder(0.07F).build())
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .conditionally(RandomChanceLootCondition.builder(0.07F).build())
                         .rolls(UniformLootNumberProvider.create(1, 3))
                         .with(ItemEntry.builder(ModItems.MARICOIN));
 
-                table.pool(poolBuilder);
+                tableBuilder.pool(poolBuilder);
             }
         });
         new Dash();

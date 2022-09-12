@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.LiteralTextContent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Language;
@@ -40,7 +40,7 @@ public abstract class AbstractAccessoryItem extends Item implements ExtendableTo
         String[] lines = String.format(Language.getInstance().get(this.getTranslationKey() + ".tooltip"), getTooltipDescriptionArguments().toArray()).split("\n");
 
         for (String line : lines)
-            tooltip.add(new LiteralText(line).formatted(Formatting.GRAY));
+            tooltip.add(Text.literal(line).formatted(Formatting.GRAY));
 
         return tooltip;
     }

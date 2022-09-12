@@ -19,6 +19,9 @@
     ],
     "client": [
       "io.github.vicen621.loriath.client.LoriathModClient"
+    ],
+    "fabric-datagen": [
+      "io.github.vicen621.loriath.datagen.LoriathDataGen"
     ]
   },
   "mixins": [
@@ -26,11 +29,10 @@
   ],
   "accessWidener": "loriath.accesswidener",
   "depends": {
-    "fabricloader": ">=0.14.5",
+    "fabricloader": ">=0.14.9",
     "fabric": "*",
-    "trinkets": ">=3.0.0",
-    "cloth-config": ">=6.2",
-    "minecraft": "1.18.x",
+    "trinkets": ">=3.4.0",
+    "minecraft": "1.19.x",
     "java": ">=17"
   },
   "suggests": {
