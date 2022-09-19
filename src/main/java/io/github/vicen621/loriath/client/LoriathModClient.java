@@ -13,9 +13,12 @@ import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.particle.FlameParticle;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleType;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.screen.PlayerScreenHandler;
 import org.lwjgl.glfw.GLFW;
+import software.bernie.geckolib3.GeckoLib;
 
 public class LoriathModClient implements ClientModInitializer {
 
@@ -24,30 +27,25 @@ public class LoriathModClient implements ClientModInitializer {
         Dash.DASH_KEYBIND = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.loriath.dash", GLFW.GLFW_KEY_Z, "key.categories.movement"));
 
         //phoenix particle
-        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(LoriathMod.id("particle/phoenix"));
-        }));
-        ParticleFactoryRegistry.getInstance().register(ModParticles.PHOENIX, PhoenixParticle.Factory::new);
+        registerParticle(ModParticles.PHOENIX, PhoenixParticle.Factory::new, "phoenix");
 
         //overspeed particle
-        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(LoriathMod.id("particle/overspeed"));
-        }));
-        ParticleFactoryRegistry.getInstance().register(ModParticles.OVERSPEED, FlameParticle.Factory::new);
+        registerParticle(ModParticles.OVERSPEED, FlameParticle.Factory::new, "overspeed");
 
         //second overspeed particle
-        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(LoriathMod.id("particle/second_overspeed"));
-        }));
-        ParticleFactoryRegistry.getInstance().register(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new);
+        registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second_overspeed");
 
         //mistery box particle
-        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(LoriathMod.id("particle/mistery_box"));
-        }));
-        ParticleFactoryRegistry.getInstance().register(ModParticles.MISTERY_BOX, FlameParticle.Factory::new);
+        registerParticle(ModParticles.MISTERY_BOX, FlameParticle.Factory::new, "mistery_box");
 
         ModLayerDefinitions.registerAll();
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new AccessoryRenderers());
+    }
+
+    public <T extends ParticleEffect> void registerParticle(ParticleType<T> type, ParticleFactoryRegistry.PendingParticleFactory<T> factory, String particle) {
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
+            registry.register(LoriathMod.id("particle/" + particle));
+        }));
+        ParticleFactoryRegistry.getInstance().register(type, factory);
     }
 }
