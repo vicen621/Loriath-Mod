@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.block.TorchBlock;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.particle.ParticleEffect;
@@ -18,7 +19,6 @@ import net.minecraft.particle.ParticleType;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.screen.PlayerScreenHandler;
 import org.lwjgl.glfw.GLFW;
-import software.bernie.geckolib3.GeckoLib;
 
 public class LoriathModClient implements ClientModInitializer {
 

@@ -1,6 +1,7 @@
 package io.github.vicen621.loriath.common.init;
 
 import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.common.item.InfiniteTorchItem;
 import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
 import io.github.vicen621.loriath.common.item.accessories.items.cape.InvisibilityCloakItem;
 import io.github.vicen621.loriath.common.item.accessories.items.extra.*;
@@ -40,6 +41,8 @@ public class ModItems {
     public static final Item DIVING_GEAR = register("diving_gear", new DivingGearItem());
     public static final Item FROG_FLIPPER = register("frog_flipper", new FrogFlipperItem());
     public static final Item PANIC_NECKLACE = register("panic_necklace", new PanicNecklaceItem());
+
+    public static final Item INFINITE_TORCH = register("infinite_torch", new InfiniteTorchItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
 
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, LoriathMod.id(name), item);
