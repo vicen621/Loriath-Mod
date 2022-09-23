@@ -5,7 +5,9 @@ import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
 import io.github.vicen621.loriath.utils.TimeHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -29,6 +31,7 @@ public class LoriathMod implements ModInitializer {
         ModSoundEvents.registerModSounds();
         ModEnchantments.registerModEnchantments();
         ModParticles.registerModParticles();
+        ModBlocks.registerModBlocks();
         ModItems.registerModItems();
         ModSoundEvents.registerModSounds();
 

@@ -2,11 +2,13 @@ package io.github.vicen621.loriath.client;
 
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.client.render.accessory.AccessoryRenderers;
+import io.github.vicen621.loriath.common.init.ModBlocks;
 import io.github.vicen621.loriath.common.init.ModLayerDefinitions;
 import io.github.vicen621.loriath.common.init.ModParticles;
 import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
 import io.github.vicen621.loriath.common.particle.PhoenixParticle;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
@@ -14,6 +16,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.block.TorchBlock;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.particle.FlameParticle;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.resource.ResourceType;
@@ -37,6 +40,9 @@ public class LoriathModClient implements ClientModInitializer {
 
         //mistery box particle
         registerParticle(ModParticles.MISTERY_BOX, FlameParticle.Factory::new, "mistery_box");
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_TORCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_WALL_TORCH, RenderLayer.getCutout());
 
         ModLayerDefinitions.registerAll();
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new AccessoryRenderers());
