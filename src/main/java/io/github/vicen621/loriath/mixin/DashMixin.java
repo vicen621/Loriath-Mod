@@ -2,7 +2,7 @@ package io.github.vicen621.loriath.mixin;
 
 import com.mojang.authlib.GameProfile;
 import io.github.vicen621.loriath.LoriathMod;
-import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.Dash;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.network.AbstractClientPlayerEntity;

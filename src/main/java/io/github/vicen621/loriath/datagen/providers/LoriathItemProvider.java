@@ -1,7 +1,7 @@
 package io.github.vicen621.loriath.datagen.providers;
 
 import io.github.vicen621.loriath.LoriathMod;
-import io.github.vicen621.loriath.common.item.accessories.AccessoryRarity;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryRarity;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Item;

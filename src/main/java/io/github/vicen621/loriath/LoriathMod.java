@@ -1,13 +1,11 @@
 package io.github.vicen621.loriath;
 
 import io.github.vicen621.loriath.common.init.*;
-import io.github.vicen621.loriath.common.item.accessories.items.extra.Dash;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.Dash;
 import io.github.vicen621.loriath.utils.TimeHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.minecraft.block.Blocks;
 import net.minecraft.loot.LootPool;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -15,6 +13,7 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//TODO: Hacer todos los sombreros entre angry_hat y bandana
 public class LoriathMod implements ModInitializer {
     public static final String MODID = "loriath";
     public static final Logger LOGGER = LoggerFactory.getLogger("Loriath");

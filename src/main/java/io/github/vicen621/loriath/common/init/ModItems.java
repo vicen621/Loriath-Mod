@@ -2,18 +2,20 @@ package io.github.vicen621.loriath.common.init;
 
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.item.InfiniteTorchItem;
-import io.github.vicen621.loriath.common.item.accessories.AccessoryItem;
-import io.github.vicen621.loriath.common.item.accessories.items.cape.InvisibilityCloakItem;
-import io.github.vicen621.loriath.common.item.accessories.items.extra.*;
-import io.github.vicen621.loriath.common.item.accessories.items.feet.FrogLegItem;
-import io.github.vicen621.loriath.common.item.accessories.items.feet.HermesBootsItem;
-import io.github.vicen621.loriath.common.item.accessories.items.hand.DiggingClawsItem;
-import io.github.vicen621.loriath.common.item.accessories.items.hand.TitanGLoveItem;
-import io.github.vicen621.loriath.common.item.accessories.items.head.DivingGearItem;
-import io.github.vicen621.loriath.common.item.accessories.items.head.FrogFlipperItem;
-import io.github.vicen621.loriath.common.item.accessories.items.necklace.PanicNecklaceItem;
+import io.github.vicen621.loriath.common.item.trinkets.TrinketItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.cape.InvisibilityCloakItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.*;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.feet.FrogLegItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.feet.HermesBootsItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.hand.DiggingClawsItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.hand.TitanGLoveItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.head.DivingGearItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.head.FrogFlipperItem;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.items.necklace.PanicNecklaceItem;
 import io.github.vicen621.loriath.common.item.misteryBoxes.MisteryBoxItem;
 import io.github.vicen621.loriath.common.item.misteryBoxes.MisteryBoxRarity;
+import io.github.vicen621.loriath.common.item.trinkets.hats.HatItem;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -43,6 +45,17 @@ public class ModItems {
     public static final Item PANIC_NECKLACE = register("panic_necklace", new PanicNecklaceItem());
 
     public static final Item INFINITE_TORCH = register("infinite_torch", new InfiniteTorchItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
+
+    public static final Item GLASSES_3D = register("3d_glasses", new HatItem());
+    public static final Item ANGRY_HAT = register("angry_hat", new HatItem());
+    public static final Item ANTLERS = register("antlers", new HatItem());
+    public static final Item ARCHER_HAT = register("archer_hat", new HatItem());
+    public static final Item ARTIST_BERET = register("artist_beret", new HatItem());
+    public static final Item ASH_HAT = register("ash_hat", new HatItem());
+    public static final Item ASTRO = register("astro", new HatItem());
+    public static final Item AVIATOR_HAT = register("aviator_hat", new HatItem());
+    public static final Item AVIATORS = register("aviators", new HatItem());
+    public static final Item BANDANA = register("bandana", new HatItem());
 
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, LoriathMod.id(name), item);
