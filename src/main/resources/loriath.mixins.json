@@ -8,15 +8,17 @@
     "client.render.PlayerEntityRendererMixin",
     "effects.LivingEntityMixin",
     "effects.StatusEffectInstanceMixin",
-    "effects.client.LivingEntityMixin",
-    "effects.client.StatusEffectUtilMixin",
     "enchantments.BlockMixin",
     "events.LivingEntitiesMixin",
     "events.PlayerEntityMixin",
     "events.ServerMixin",
     "nbt.LivingEntityNbtMixin"
   ],
-  "client": [],
+  "client": [
+    "client.render.RenderArmorMixin",
+    "effects.client.LivingEntityMixin",
+    "effects.client.StatusEffectUtilMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

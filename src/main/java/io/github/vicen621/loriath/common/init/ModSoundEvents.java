@@ -15,6 +15,7 @@ public class ModSoundEvents {
     public static final SoundEvent RARE_BOX_THEME = register("item.mistery_box.theme_rare");
     public static final SoundEvent EPIC_BOX_THEME = register("item.mistery_box.theme_epic");
     public static final SoundEvent LEGENDARY_BOX_THEME = register("item.mistery_box.theme_legendary");
+    public static final SoundEvent COSMETIC_BOX_THEME = register("item.mistery_box.theme_cosmetic");
     public static final SoundEvent BOX_FINISH = register("item.mistery_box.finish");
     public static final SoundEvent LEGENDARY_BOX_FINISH = register("item.mistery_box.finish_legendary");
 

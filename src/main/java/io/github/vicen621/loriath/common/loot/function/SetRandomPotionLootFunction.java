@@ -18,7 +18,6 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Stream;
 
 //strong: -1 = No hay strong potions | 0 = Todas las pociones | 1 = Solo Strong potions
 public class SetRandomPotionLootFunction extends ConditionalLootFunction {

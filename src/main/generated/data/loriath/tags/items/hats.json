@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "loriath:3d_glasses",
     "loriath:angry_hat",
     "loriath:antlers",
     "loriath:archer_hat",
@@ -10,8 +9,6 @@
     "loriath:astro",
     "loriath:aviator_hat",
     "loriath:aviators",
-    "loriath:bandana",
-    "loriath:winged",
-    "loriath:ufo_hat"
+    "loriath:bandana"
   ]
 }

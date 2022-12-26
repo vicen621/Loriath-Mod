@@ -9,7 +9,8 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(StatusEffectInstance.class)
 public abstract class StatusEffectInstanceMixin implements StatusEffectInstanceExtensions {
 
-    @Shadow int duration;
+    @Shadow
+    int duration;
 
     @Shadow
     private StatusEffectInstance hiddenEffect;

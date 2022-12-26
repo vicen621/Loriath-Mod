@@ -12,10 +12,11 @@ public enum MisteryBoxRarity {
     RARE(ModSoundEvents.BOX_SWITCH_PLUS, ModSoundEvents.RARE_BOX_THEME), //Cambiar por el tema del final de la comun
     EPIC(ModSoundEvents.BOX_SWITCH_PLUS, ModSoundEvents.EPIC_BOX_THEME),
     LEGENDARY(ModSoundEvents.LEGENDARY_BOX_OPEN, null, ModSoundEvents.BOX_SWITCH_PLUS, ModSoundEvents.LEGENDARY_BOX_THEME),
-    COSMETIC;
+    COSMETIC(ModSoundEvents.BOX_SWITCH, ModSoundEvents.COSMETIC_BOX_THEME);
 
     final Identifier lootTable;
     final SoundEvent openSound, finishSound, switchSound, themeSound;
+
     MisteryBoxRarity() {
         this(ModSoundEvents.BOX_SWITCH, ModSoundEvents.BOX_THEME); //Cambiar por el tema del final de la comun
     }

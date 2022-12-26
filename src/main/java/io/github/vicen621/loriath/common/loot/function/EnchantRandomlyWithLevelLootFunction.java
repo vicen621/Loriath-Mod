@@ -12,7 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.context.LootContext;
-import net.minecraft.loot.function.*;
+import net.minecraft.loot.function.ConditionalLootFunction;
+import net.minecraft.loot.function.LootFunctionType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.random.Random;
@@ -21,7 +22,6 @@ import org.slf4j.Logger;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class EnchantRandomlyWithLevelLootFunction extends ConditionalLootFunction {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -34,6 +34,18 @@ public class EnchantRandomlyWithLevelLootFunction extends ConditionalLootFunctio
         this.enchantments = ImmutableList.copyOf(enchantments);
         this.level = level;
         this.randomSelection = randomSelection;
+    }
+
+    private static ItemStack addEnchantmentToStack(ItemStack stack, Enchantment enchantment, int level) {
+        int i = level == -1 ? enchantment.getMaxLevel() : level;
+        if (stack.isOf(Items.BOOK)) {
+            stack = new ItemStack(Items.ENCHANTED_BOOK);
+            EnchantedBookItem.addEnchantment(stack, new EnchantmentLevelEntry(enchantment, i));
+        } else {
+            stack.addEnchantment(enchantment, i);
+        }
+
+        return stack;
     }
 
     public LootFunctionType getType() {
@@ -61,18 +73,6 @@ public class EnchantRandomlyWithLevelLootFunction extends ConditionalLootFunctio
         }
 
         return addEnchantmentToStack(stack, enchantment, this.level);
-    }
-
-    private static ItemStack addEnchantmentToStack(ItemStack stack, Enchantment enchantment, int level) {
-        int i = level == -1 ? enchantment.getMaxLevel() : level;
-        if (stack.isOf(Items.BOOK)) {
-            stack = new ItemStack(Items.ENCHANTED_BOOK);
-            EnchantedBookItem.addEnchantment(stack, new EnchantmentLevelEntry(enchantment, i));
-        } else {
-            stack.addEnchantment(enchantment, i);
-        }
-
-        return stack;
     }
 
     public static class Serializer extends ConditionalLootFunction.Serializer<EnchantRandomlyWithLevelLootFunction> {

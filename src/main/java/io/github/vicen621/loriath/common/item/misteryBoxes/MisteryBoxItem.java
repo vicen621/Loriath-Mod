@@ -5,7 +5,6 @@ import eu.pb4.sgui.api.elements.GuiElementInterface;
 import eu.pb4.sgui.api.gui.SimpleGui;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.gui.LoriathAnimatedGuiElement;
-import io.github.vicen621.loriath.common.init.ModSoundEvents;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -14,10 +13,12 @@ import net.minecraft.item.Items;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
+import net.minecraft.network.packet.s2c.play.PlaySoundS2CPacket;
+import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.server.command.StopSoundCommand;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -25,7 +26,6 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -82,6 +82,11 @@ public class MisteryBoxItem extends Item {
                         if (!player.getInventory().insertStack(stack))
                             player.getWorld().spawnEntity(new ItemEntity(player.getWorld(), player.getX(), player.getY(), player.getZ(), stack));
                     }
+
+                    StopSoundS2CPacket stopSoundS2CPacket = new StopSoundS2CPacket(rarity.getThemeSound().getId(), SoundCategory.NEUTRAL);
+                    world.getServer().getPlayerManager().sendToAround(null, player.getBlockX(), player.getBlockY(), player.getBlockZ(),
+                            rarity.getThemeSound().getDistanceToTravel(1), world.getRegistryKey(), stopSoundS2CPacket);
+
                     super.onClose();
                 }
 
@@ -132,8 +137,8 @@ public class MisteryBoxItem extends Item {
 
             gui.setSlot(0, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(Text.literal(" ")));
             gui.setSlot(1, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(Text.literal(" ")));
-            gui.setSlot(7, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(Text.literal(" ")));
-            gui.setSlot(8, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(Text.literal(" ")));
+            gui.setSlot(7, new GuiElementBuilder(Items.LIME_STAINED_GLASS_PANE).setName(Text.literal(" ")));
+            gui.setSlot(8, new GuiElementBuilder(Items.LIGHT_BLUE_STAINED_GLASS_PANE).setName(Text.literal(" ")));
 
 
             gui.setSlot(2, new LoriathAnimatedGuiElement(items.toArray(ItemStack[]::new), 2, false, rarity.getSwitchSound(), GuiElementInterface.EMPTY_CALLBACK));

@@ -1,6 +1,7 @@
 package io.github.vicen621.loriath.datagen.providers;
 
 import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.common.init.ModItems;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryRarity;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -16,6 +17,7 @@ public class LoriathItemProvider extends FabricTagProvider<Item> {
     private static final TagKey<Item> RARE_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("rare_accessory"));
     private static final TagKey<Item> EPIC_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("epic_accessory"));
     private static final TagKey<Item> LEGENDARY_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("legendary_accessory"));
+    public static final TagKey<Item> HATS = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("hats"));
     private static final TagKey<Item> CONCRETE_POWDER = TagKey.of(Registry.ITEM_KEY, new Identifier("concrete_powder"));
     private static final TagKey<Item> GLAZED_TERRACOTTA = TagKey.of(Registry.ITEM_KEY, new Identifier("glazed_terracotta"));
 
@@ -66,5 +68,8 @@ public class LoriathItemProvider extends FabricTagProvider<Item> {
                 .add(Items.RED_GLAZED_TERRACOTTA)
                 .add(Items.WHITE_GLAZED_TERRACOTTA)
                 .add(Items.YELLOW_GLAZED_TERRACOTTA);
+
+        getOrCreateTagBuilder(HATS)
+                .add(ModItems.HATS);
     }
 }

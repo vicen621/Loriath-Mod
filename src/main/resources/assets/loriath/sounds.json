@@ -47,6 +47,12 @@
       "loriath:mistery_boxes/theme/theme_legendary"
     ]
   },
+  "item.mistery_box.theme_cosmetic": {
+    "subtitle": "subtitles.item.mistery_box.theme",
+    "sounds": [
+      "loriath:mistery_boxes/theme/theme_cosmetic"
+    ]
+  },
   "item.mistery_box.finish": {
     "subtitle": "subtitles.item.mistery_box.finish",
     "sounds": [
