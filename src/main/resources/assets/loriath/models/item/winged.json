@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench",
 	"textures": {
 		"particle": "loriath:hats/gfx_winged_helmet"
 	},
@@ -183,9 +182,6 @@
 			"rotation": [6, 0, 0],
 			"translation": [0, 7.9, 0.5],
 			"scale": [1.6, 1.6, 1.6]
-		},
-		"fixed": {
-			"translation": [0, 7, 0]
 		}
 	},
 	"groups": [

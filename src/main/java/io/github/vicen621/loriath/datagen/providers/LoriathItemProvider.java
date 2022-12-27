@@ -1,6 +1,7 @@
 package io.github.vicen621.loriath.datagen.providers;
 
 import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.common.init.ModHats;
 import io.github.vicen621.loriath.common.init.ModItems;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryRarity;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -72,6 +73,6 @@ public class LoriathItemProvider extends FabricTagProvider<Item> {
                 .addOptionalTag(ItemTags.DIRT);
 
         getOrCreateTagBuilder(HATS)
-                .add(ModItems.HATS);
+                .add(ModHats.HATS);
     }
 }

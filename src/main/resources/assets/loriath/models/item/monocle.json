@@ -1,0 +1,120 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "loriath:hats/gfx_monocle"
+	},
+	"elements": [
+		{
+			"name": "Element",
+			"from": [5, -5.75, 3],
+			"to": [7, -4.75, 4],
+			"faces": {
+				"north": {"uv": [2, 7, 4, 8], "texture": "#particle"},
+				"east": {"uv": [1, 7, 2, 8], "texture": "#particle"},
+				"south": {"uv": [5, 7, 7, 8], "texture": "#particle"},
+				"west": {"uv": [4, 7, 5, 8], "texture": "#particle"},
+				"up": {"uv": [4, 7, 2, 6], "texture": "#particle"},
+				"down": {"uv": [4, 9, 2, 8], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Element",
+			"from": [7, -4.75, 3],
+			"to": [8, -2.75, 4],
+			"faces": {
+				"north": {"uv": [10, 2, 11, 4], "texture": "#particle"},
+				"east": {"uv": [9, 2, 10, 4], "texture": "#particle"},
+				"south": {"uv": [12, 2, 13, 4], "texture": "#particle"},
+				"west": {"uv": [11, 2, 12, 4], "texture": "#particle"},
+				"up": {"uv": [11, 2, 10, 1], "texture": "#particle"},
+				"down": {"uv": [11, 5, 10, 4], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Element",
+			"from": [3, -9.75, 3.5],
+			"to": [4, -3.75, 3.51],
+			"faces": {
+				"north": {"uv": [9, 7, 10, 13], "texture": "#particle"},
+				"south": {"uv": [10, 7, 9, 13], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Element",
+			"from": [4, -4.75, 3],
+			"to": [5, -2.75, 4],
+			"faces": {
+				"north": {"uv": [2, 12, 3, 14], "texture": "#particle"},
+				"east": {"uv": [1, 12, 2, 14], "texture": "#particle"},
+				"south": {"uv": [4, 12, 5, 14], "texture": "#particle"},
+				"west": {"uv": [3, 12, 4, 14], "texture": "#particle"},
+				"up": {"uv": [3, 12, 2, 11], "texture": "#particle"},
+				"down": {"uv": [3, 15, 2, 14], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Element",
+			"from": [5, -2.75, 3],
+			"to": [7, -1.75, 4],
+			"faces": {
+				"north": {"uv": [2, 2, 4, 3], "texture": "#particle"},
+				"east": {"uv": [1, 2, 2, 3], "texture": "#particle"},
+				"south": {"uv": [5, 2, 7, 3], "texture": "#particle"},
+				"west": {"uv": [4, 2, 5, 3], "texture": "#particle"},
+				"up": {"uv": [4, 2, 2, 1], "texture": "#particle"},
+				"down": {"uv": [4, 4, 2, 3], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Element",
+			"from": [5, -4.75, 3.4688],
+			"to": [7, -2.75, 3.4788],
+			"faces": {
+				"north": {"uv": [12, 7, 14, 9], "texture": "#particle"},
+				"south": {"uv": [14, 7, 12, 9], "texture": "#particle"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 70, 0],
+			"translation": [2.5, 3.5, 7],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 70, 0],
+			"translation": [2.5, 3.5, 7],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 90, 0],
+			"translation": [2, 5.75, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, 0],
+			"translation": [2, 5.75, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [2, 12, 4.5]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [-5.5, 14.75, 0],
+			"scale": [1.18, 1.18, 1.18]
+		},
+		"head": {
+			"translation": [0, 5.4, 0],
+			"scale": [1.6, 1.6, 1.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "monocle",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3, 4, 5]
+		}
+	]
+}

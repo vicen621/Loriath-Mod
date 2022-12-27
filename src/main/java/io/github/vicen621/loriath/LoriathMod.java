@@ -29,6 +29,7 @@ public class LoriathMod implements ModInitializer {
         ModParticles.registerModParticles();
         ModBlocks.registerModBlocks();
         ModItems.registerModItems();
+        ModHats.registerModHats();
         ModSoundEvents.registerModSounds();
 
         new TimeHelper();

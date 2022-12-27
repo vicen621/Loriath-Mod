@@ -1,0 +1,99 @@
+{
+	"textures": {
+		"particle": "loriath:hats/gfx_guard_hat"
+	},
+	"elements": [
+		{
+			"from": [3.01344, -1.24459, 0.32677],
+			"to": [12.98844, -0.24459, 6.32677],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8.00094, 0.75541, 8.51427]},
+			"faces": {
+				"north": {"uv": [6.5, 3.5, 11.5, 4], "texture": "#particle"},
+				"east": {"uv": [15.5, 11, 12.5, 11.5], "texture": "#particle"},
+				"west": {"uv": [12.5, 11, 15.5, 11.5], "texture": "#particle"},
+				"up": {"uv": [11.5, 3.5, 6.5, 0.5], "texture": "#particle"},
+				"down": {"uv": [11.5, 14, 6.5, 11], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [3, -2, 3.775],
+			"to": [13, 7, 13.775],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 7.9625]},
+			"faces": {
+				"north": {"uv": [0.5, 5.5, 5.5, 10], "texture": "#particle"},
+				"east": {"uv": [10.5, 5.5, 5.5, 10], "texture": "#particle"},
+				"south": {"uv": [10.5, 5.5, 15.5, 10], "texture": "#particle"},
+				"west": {"uv": [5.5, 5.5, 10.5, 10], "texture": "#particle"},
+				"up": {"uv": [5.5, 5.5, 0.5, 0.5], "texture": "#particle"},
+				"down": {"uv": [5.5, 15, 0.5, 10], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [4.01344, -1.24459, -0.67323],
+			"to": [11.98844, -0.24459, 0.32677],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8.00094, -0.74459, -0.17323]},
+			"faces": {
+				"north": {"uv": [13, 0.5, 13.5, 4.5], "rotation": 90, "texture": "#particle"},
+				"east": {"uv": [15.5, 1, 15, 0.5], "rotation": 270, "texture": "#particle"},
+				"west": {"uv": [15.5, 1, 15, 0.5], "rotation": 270, "texture": "#particle"},
+				"up": {"uv": [12.5, 0.5, 13, 4.5], "rotation": 270, "texture": "#particle"},
+				"down": {"uv": [13.5, 0.5, 14, 4.5], "rotation": 270, "texture": "#particle"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [22.5, 22.5, 8],
+			"translation": [-0.25, 2.75, -1.5],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [22.5, 22.5, 8],
+			"translation": [-0.25, 2.75, -1.5],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 8, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 8, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 6.5, 0]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, 4.5, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"head": {
+			"translation": [0, 6.4, -0.175],
+			"scale": [1.61, 1.61, 1.61]
+		}
+	},
+	"groups": [
+		{
+			"name": "halloweenbeanie_sel",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "halloweenbeanie_sel",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "guard_hat",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

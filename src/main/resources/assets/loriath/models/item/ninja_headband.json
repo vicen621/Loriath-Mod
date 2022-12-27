@@ -1,0 +1,97 @@
+{
+	"textures": {
+		"particle": "loriath:hats/gfx_bandana_black"
+	},
+	"elements": [
+		{
+			"from": [3, -3, 3],
+			"to": [12, 0, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.5, 6, 3.5]},
+			"faces": {
+				"north": {"uv": [1, 2, 10, 5], "texture": "#particle"},
+				"south": {"uv": [10, 9, 1, 6], "texture": "#particle"},
+				"west": {"uv": [10, 2, 11, 5], "texture": "#particle"},
+				"up": {"uv": [10, 2, 1, 1], "texture": "#particle"},
+				"down": {"uv": [10, 6, 1, 5], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [12, -3, 3],
+			"to": [13, 0, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12.5, 6, 7.5]},
+			"faces": {
+				"north": {"uv": [10, 2, 11, 5], "texture": "#particle"},
+				"east": {"uv": [1, 11, 10, 14], "texture": "#particle"},
+				"west": {"uv": [10, 9, 1, 6], "texture": "#particle"},
+				"up": {"uv": [10, 2, 1, 1], "rotation": 90, "texture": "#particle"},
+				"down": {"uv": [10, 6, 1, 5], "rotation": 270, "texture": "#particle"}
+			}
+		},
+		{
+			"from": [4, -3, 12],
+			"to": [13, 0, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 6, 12.5]},
+			"faces": {
+				"north": {"uv": [10, 9, 1, 6], "texture": "#particle"},
+				"east": {"uv": [10, 2, 11, 5], "texture": "#particle"},
+				"south": {"uv": [1, 11, 10, 14], "texture": "#particle"},
+				"up": {"uv": [10, 2, 1, 1], "rotation": 180, "texture": "#particle"},
+				"down": {"uv": [10, 6, 1, 5], "rotation": 180, "texture": "#particle"}
+			}
+		},
+		{
+			"from": [3, -3, 4],
+			"to": [4, 0, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3.5, 6, 8.5]},
+			"faces": {
+				"east": {"uv": [10, 9, 1, 6], "texture": "#particle"},
+				"south": {"uv": [10, 2, 11, 5], "texture": "#particle"},
+				"west": {"uv": [1, 11, 10, 14], "texture": "#particle"},
+				"up": {"uv": [10, 2, 1, 1], "rotation": 270, "texture": "#particle"},
+				"down": {"uv": [10, 6, 1, 5], "rotation": 90, "texture": "#particle"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 3.5, 6],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 3.5, 6],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 20, 0],
+			"translation": [1, 5.25, 0.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 20, 0],
+			"translation": [1, 5.25, 0.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 8.5, 0]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, 8.25, 0],
+			"scale": [0.9, 0.9, 0.9]
+		},
+		"head": {
+			"translation": [0, 18.5, 0],
+			"scale": [1.6, 1.6, 1.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "ninja_headband",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

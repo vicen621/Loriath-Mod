@@ -5,8 +5,8 @@
 	},
 	"elements": [
 		{
-			"from": [3, -3.5, 4],
-			"to": [4, -0.5, 12],
+			"from": [3, -3, 4],
+			"to": [4, 0, 12],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 12, 8]},
 			"faces": {
 				"north": {"uv": [3, 7, 3.5, 8.5], "texture": "#particle"},
@@ -18,8 +18,8 @@
 			}
 		},
 		{
-			"from": [12, -3.5, 4],
-			"to": [13, -0.5, 12],
+			"from": [12, -3, 4],
+			"to": [13, 0, 12],
 			"rotation": {"angle": 0, "axis": "y", "origin": [16, 12, 8]},
 			"faces": {
 				"north": {"uv": [4, 7, 4.5, 8.5], "texture": "#particle"},
@@ -31,8 +31,8 @@
 			}
 		},
 		{
-			"from": [3, -3.5, 3],
-			"to": [13, -0.5, 4],
+			"from": [3, -3, 3],
+			"to": [13, 0, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 12, 7]},
 			"faces": {
 				"north": {"uv": [0, 3, 5, 4.5], "texture": "#particle"},
@@ -44,8 +44,8 @@
 			}
 		},
 		{
-			"from": [3, -3.5, 12],
-			"to": [13, -0.5, 13],
+			"from": [3, -3, 12],
+			"to": [13, 0, 13],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 12, 16]},
 			"faces": {
 				"north": {"uv": [0, 0, 5, 1.5], "texture": "#particle"},
@@ -79,24 +79,21 @@
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"ground": {
-			"translation": [0, 8.75, 0]
+			"translation": [0, 7.25, 0]
 		},
 		"gui": {
 			"rotation": [30, 225, 0],
-			"translation": [0, 6.75, 0],
+			"translation": [0, 6.25, 0],
 			"scale": [0.8, 0.8, 0.8]
 		},
 		"head": {
 			"translation": [0, 9.5, 0],
 			"scale": [1.6, 1.6, 1.6]
-		},
-		"fixed": {
-			"translation": [0, 10, 0]
 		}
 	},
 	"groups": [
 		{
-			"name": "bandana_old",
+			"name": "bandana",
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [0, 1, 2, 3]

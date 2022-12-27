@@ -6,7 +6,8 @@
       "entries": [
         {
           "type": "minecraft:tag",
-          "name": "loriath:uncommon_accessory"
+          "name": "loriath:uncommon_accessory",
+          "expand": true
         }
       ],
       "conditions": [
@@ -21,7 +22,8 @@
       "entries": [
         {
           "type": "minecraft:tag",
-          "name": "loriath:common_accessory"
+          "name": "loriath:common_accessory",
+          "expand": true
         }
       ],
       "conditions": [

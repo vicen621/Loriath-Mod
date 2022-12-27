@@ -1,0 +1,6 @@
+{
+  "parent": "loriath:item/police_hat",
+  "textures": {
+    "particle": "loriath:hats/gfx_sailor_cap"
+  }
+}

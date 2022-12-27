@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench",
 	"textures": {
 		"particle": "loriath:hats/top_hat"
 	},
@@ -108,6 +107,9 @@
 		"head": {
 			"translation": [0, 4.7, 0],
 			"scale": [1.61, 1.61, 1.61]
+		},
+		"fixed": {
+			"translation": [0, 1, 0]
 		}
 	},
 	"groups": [
