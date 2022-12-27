@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -67,7 +68,8 @@ public class LoriathItemProvider extends FabricTagProvider<Item> {
                 .add(Items.PURPLE_GLAZED_TERRACOTTA)
                 .add(Items.RED_GLAZED_TERRACOTTA)
                 .add(Items.WHITE_GLAZED_TERRACOTTA)
-                .add(Items.YELLOW_GLAZED_TERRACOTTA);
+                .add(Items.YELLOW_GLAZED_TERRACOTTA)
+                .addOptionalTag(ItemTags.DIRT);
 
         getOrCreateTagBuilder(HATS)
                 .add(ModItems.HATS);

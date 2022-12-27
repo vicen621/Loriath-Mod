@@ -26,7 +26,7 @@ public enum MisteryBoxRarity {
     }
 
     MisteryBoxRarity(SoundEvent openSound, SoundEvent finishSound, SoundEvent switchSound, SoundEvent themeSound) {
-        this.lootTable = LoriathMod.id("mistery_boxes/common");// + this.toString().toLowerCase());
+        this.lootTable = LoriathMod.id("mistery_boxes/" + this.toString().toLowerCase());
         this.openSound = openSound;
         this.switchSound = switchSound;
         this.themeSound = themeSound;

@@ -1,19 +1,16 @@
 package io.github.vicen621.loriath;
 
 import io.github.vicen621.loriath.common.init.*;
+import io.github.vicen621.loriath.common.init.loottables.ModLootFunctions;
+import io.github.vicen621.loriath.common.init.loottables.ModLootTables;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.Dash;
 import io.github.vicen621.loriath.utils.TimeHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//TODO: Hacer todos los sombreros entre angry_hat y bandana
 public class LoriathMod implements ModInitializer {
     public static final String MODID = "loriath";
     public static final Logger LOGGER = LoggerFactory.getLogger("Loriath");
@@ -42,14 +39,7 @@ public class LoriathMod implements ModInitializer {
     private void events() {
 
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-            if (id.getPath().contains("chest")) {
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .conditionally(RandomChanceLootCondition.builder(0.07F).build())
-                        .rolls(UniformLootNumberProvider.create(1, 3))
-                        .with(ItemEntry.builder(ModItems.MARICOIN));
-
-                tableBuilder.pool(poolBuilder);
-            }
+            ModLootTables.onLootTableLoad(id, tableBuilder);
         });
         new Dash();
     }

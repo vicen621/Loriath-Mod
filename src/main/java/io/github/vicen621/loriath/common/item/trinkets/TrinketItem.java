@@ -3,18 +3,27 @@ package io.github.vicen621.loriath.common.item.trinkets;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.Trinket;
 import dev.emi.trinkets.api.TrinketsApi;
+import io.github.vicen621.loriath.common.init.ModItems;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class TrinketItem extends AbstractTrinketItem implements Trinket {
+public class TrinketItem extends Item implements Trinket {
 
     public TrinketItem() {
+        this(new FabricItemSettings().group(ModItems.ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
+    }
+
+    public TrinketItem(Settings settings) {
+        super(settings);
         TrinketsApi.registerTrinket(this, this);
     }
 

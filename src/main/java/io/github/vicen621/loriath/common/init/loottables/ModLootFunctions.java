@@ -1,4 +1,4 @@
-package io.github.vicen621.loriath.common.init;
+package io.github.vicen621.loriath.common.init.loottables;
 
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.loot.function.EnchantRandomlyWithLevelLootFunction;

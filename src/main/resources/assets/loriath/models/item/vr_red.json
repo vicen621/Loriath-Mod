@@ -1,0 +1,6 @@
+{
+	"parent": "loriath:item/vr",
+	"textures": {
+		"particle": "loriath:hats/vr_red"
+	}
+}

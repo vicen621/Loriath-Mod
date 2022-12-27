@@ -1,0 +1,9 @@
+// 1.19.2	2022-12-26T20:21:26.0204159	Tags for minecraft:item
+010cf53d19ece15bc67961854e9c9a7f8ba620c1 data\minecraft\tags\items\concrete_powder.json
+f8d635b5dd2163ee640c6a8845b129e67d7bdb05 data\loriath\tags\items\legendary_accessory.json
+996feaa32f537a737be27f832a3601fbefa04747 data\loriath\tags\items\uncommon_accessory.json
+42c4ad87a36c8348f73dba6d6eceb7e302bf7a13 data\minecraft\tags\items\glazed_terracotta.json
+10d7a620db9fa24d4303b96b9b37ad319a6ceac4 data\loriath\tags\items\common_accessory.json
+a70b1ee6c5a91cc1652ccda62ba845ccccaf2e04 data\loriath\tags\items\rare_accessory.json
+4b44bf6ee8f0462347e708d28a2e9dc0bde33662 data\loriath\tags\items\epic_accessory.json
+25b829498572de2c09799b003dc690cd96937434 data\loriath\tags\items\hats.json

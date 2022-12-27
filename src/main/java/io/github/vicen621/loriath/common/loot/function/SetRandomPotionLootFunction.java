@@ -3,7 +3,7 @@ package io.github.vicen621.loriath.common.loot.function;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.gson.*;
-import io.github.vicen621.loriath.common.init.ModLootFunctions;
+import io.github.vicen621.loriath.common.init.loottables.ModLootFunctions;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.context.LootContext;

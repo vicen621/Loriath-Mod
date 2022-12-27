@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.gson.*;
 import com.mojang.logging.LogUtils;
-import io.github.vicen621.loriath.common.init.ModLootFunctions;
+import io.github.vicen621.loriath.common.init.loottables.ModLootFunctions;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.EnchantedBookItem;
