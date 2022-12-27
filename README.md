@@ -16,11 +16,11 @@ Se agregan 3 tipos de items
 * [Mistery Boxes](#mistery-boxes)
 
 ### Hats
-Estos items son puramente decorativos y se pueden encontrar en cofres y [Mistery Boxes](#Mistery_Boxes)
+Estos items son puramente decorativos y se pueden encontrar en cofres y [Mistery Boxes](#mistery-boxes)
 Son 121 en total y estan todos bajo la tag `loriath:hats`
 
 ### Accessories
-Estos items son funcionales, al igual que los [Hats](#Hats) se pueden encontrar en cofres y [Mistery Boxes](#Mistery-Boxes) son 16 y se encuentran bajo 5 tags diferentes
+Estos items son funcionales, al igual que los [Hats](#Hats) se pueden encontrar en cofres y [Mistery Boxes](#mistery-boxes) son 16 y se encuentran bajo 5 tags diferentes
 
 [comment]: <> (Terminar la tabla)
 
