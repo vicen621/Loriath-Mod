@@ -8,10 +8,6 @@
     {
       "name": "alpha",
       "prerelease": true
-    },
-    {
-      "name": "auto-release",
-      "prerelease": true
     }
   ],
   "plugins": [
