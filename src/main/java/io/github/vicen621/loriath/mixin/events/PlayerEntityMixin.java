@@ -11,6 +11,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -46,13 +47,16 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         return LivingEvent.LivingEntityDamageCallback.EVENT.invoker().damage(get(), source, amount);
     }
 
-    /*@ModifyVariable(method = "attack", at = @At(value = "LOAD"), argsOnly = true, ordinal = 2)
+    @ModifyVariable(method = "attack", at = @At(value = "LOAD", ordinal = 1), ordinal = 2)
     private boolean firePlayerAttackEvent(boolean bl3) {
-        if (TrinketsHelper.isEquipped(ModItems.DIGGING_CLAWS, this) && !bl3) {
-
+        if (TrinketsHelper.isEquipped(ModItems.DESTROYER_EMBLEM, this) && !bl3) {
+            if (get().getWorld() instanceof ServerWorld world) {
+                if (world.getRandom().nextDouble() <= 0.08)
+                    return true;
+            }
         }
         return bl3;
-    }*/
+    }
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void playerTick(CallbackInfo info) {

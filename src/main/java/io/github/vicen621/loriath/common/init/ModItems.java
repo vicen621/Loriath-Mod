@@ -3,6 +3,7 @@ package io.github.vicen621.loriath.common.init;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.item.misteryBoxes.MisteryBoxItem;
 import io.github.vicen621.loriath.common.item.misteryBoxes.MisteryBoxRarity;
+import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryItem;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.cape.InvisibilityCloakItem;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.*;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.feet.FrogLegItem;
@@ -29,7 +30,7 @@ public class ModItems {
     public static final Item ADHESIVE_BANDAGE = register("adhesive_bandage", new AdhesiveBandageItem());
     public static final Item BEZOAR = register("bezoar", new BezoarItem());
     //TODO
-    //public static final Item DESTROYER_EMBLEM = register("destroyer_emblem", new AccessoryItem());
+    public static final Item DESTROYER_EMBLEM = register("destroyer_emblem", new AccessoryItem());
     public static final Item CLOAK_OF_INVISIBILITY = register("cloak_of_invisibility", new InvisibilityCloakItem());
     public static final Item FAST_CLOCK = register("fast_clock", new FastClockItem());
     public static final Item LAVA_CHARM = register("lava_charm", new LavaCharmItem());
