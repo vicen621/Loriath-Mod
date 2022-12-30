@@ -42,7 +42,7 @@ public enum AccessoryRarity {
 
     LEGENDARY(new ArrayList<>() {
         {
-            add(ModItems.DESTROYER_EMBLEM);
+            // add(ModItems.DESTROYER_EMBLEM);
             add(ModItems.HERMES_BOOTS);
             add(ModItems.TITAN_GLOVE);
         }

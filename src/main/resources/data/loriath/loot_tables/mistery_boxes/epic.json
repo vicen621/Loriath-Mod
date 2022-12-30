@@ -1,0 +1,215 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 16
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_golden_apple"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shulker_shell",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 16
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_scrap",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:strong_strength"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_carrot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 16
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "functions": [
+            {
+              "function": "loriath:enchant_randomly_with_levels",
+              "levels": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 5,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "functions": [
+            {
+              "function": "loriath:enchant_randomly_with_levels",
+              "levels": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "loriath:legendary_accessory",
+          "expand": true
+        }
+      ]
+    },
+    {
+      "rolls": 8,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "loriath:epic_accessory",
+          "expand": true
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "loriath:rare_accessory",
+          "expand": true
+        }
+      ]
+    },
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "copper_golem:copper_golem"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:trident"
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "loriath:legendary_mistery_box"
+        }
+      ]
+    },
+    {
+      "rolls": 5,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "loriath:cosmetic_mistery_box"
+        }
+      ]
+    }
+  ]
+}

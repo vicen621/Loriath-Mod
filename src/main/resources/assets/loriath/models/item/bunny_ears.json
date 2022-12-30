@@ -1,0 +1,100 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "loriath:hats/bunny_ears"
+	},
+	"elements": [
+		{
+			"from": [3.875, 0, 8],
+			"to": [6.875, 4, 9],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [6.875, 0, 8.5]},
+			"faces": {
+				"north": {"uv": [2, 1, 5, 5], "texture": "#particle"},
+				"east": {"uv": [1, 1, 2, 5], "texture": "#particle"},
+				"south": {"uv": [6, 1, 9, 5], "texture": "#particle"},
+				"west": {"uv": [5, 1, 6, 5], "texture": "#particle"},
+				"up": {"uv": [11, 5, 14, 4], "texture": "#particle"},
+				"down": {"uv": [14, 1, 11, 2], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [9.125, 0, 8],
+			"to": [12.125, 4, 9],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [9.125, 0, 8.5]},
+			"faces": {
+				"north": {"uv": [5, 1, 2, 5], "texture": "#particle"},
+				"east": {"uv": [6, 1, 5, 5], "texture": "#particle"},
+				"south": {"uv": [9, 1, 6, 5], "texture": "#particle"},
+				"west": {"uv": [2, 1, 1, 5], "texture": "#particle"},
+				"up": {"uv": [14, 5, 11, 4], "texture": "#particle"},
+				"down": {"uv": [11, 1, 14, 2], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [2.72888, 2.21063, 7.27344],
+			"to": [5.72888, 5.21063, 8.27344],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [4.06129, 4.20537, 7.79003]},
+			"faces": {
+				"north": {"uv": [2, 7, 5, 10], "texture": "#particle"},
+				"east": {"uv": [1, 7, 2, 10], "texture": "#particle"},
+				"south": {"uv": [6, 7, 9, 10], "texture": "#particle"},
+				"west": {"uv": [5, 7, 6, 10], "texture": "#particle"},
+				"up": {"uv": [14, 8, 11, 7], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [10.27112, 2.21063, 7.27344],
+			"to": [13.27112, 5.21063, 8.27344],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [11.93871, 4.20537, 7.79003]},
+			"faces": {
+				"north": {"uv": [5, 7, 2, 10], "texture": "#particle"},
+				"east": {"uv": [6, 7, 5, 10], "texture": "#particle"},
+				"south": {"uv": [9, 7, 6, 10], "texture": "#particle"},
+				"west": {"uv": [2, 7, 1, 10], "texture": "#particle"},
+				"up": {"uv": [11, 8, 14, 7], "texture": "#particle"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, -35, 0],
+			"translation": [-1.5, 2.25, 3.75],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, -35, 0],
+			"translation": [-1.5, 2.25, 3.75],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -54, 0],
+			"translation": [1.75, 2.5, 0.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -54, 0],
+			"translation": [1.75, 2.5, 0.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 4.25, 0]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, 4, 0]
+		},
+		"head": {
+			"translation": [0, 6.4, 0],
+			"scale": [1.6, 1.6, 1.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "bunny_ears",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

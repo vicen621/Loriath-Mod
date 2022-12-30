@@ -20,10 +20,9 @@ public abstract class RenderArmorMixin<T extends LivingEntity, M extends BipedEn
 	@Inject(method = "renderArmor", at = @At("HEAD"), cancellable = true)
 	private void onRenderArmor(MatrixStack matrices, VertexConsumerProvider vertexConsumers, T entity,
 							   EquipmentSlot armorSlot, int light, A model, CallbackInfo ci) {
-		// if rendering player's armor
-		if (entity instanceof PlayerEntity) {
-			// cancel if rendering client player's armor and in hideYourArmor
-			// or if rendering other player's armor and in hideOtherPlayerArmor
+		// if rendering player's head armor
+		if (entity instanceof PlayerEntity && armorSlot == EquipmentSlot.HEAD) {
+			// cancel if player has an item in hats slot
 			if (TrinketsHelper.isEquipped(item -> item.isIn(LoriathItemProvider.HATS), entity))
 				ci.cancel();
 		}

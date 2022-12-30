@@ -1,0 +1,100 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "loriath:hats/devil_horns"
+	},
+	"elements": [
+		{
+			"from": [2.77583, -2.84568, 7],
+			"to": [4.77583, 1.15432, 9],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [3.77583, 0.15432, 5]},
+			"faces": {
+				"north": {"uv": [3, 1, 5, 5], "texture": "#particle"},
+				"east": {"uv": [1, 1, 3, 5], "texture": "#particle"},
+				"south": {"uv": [7, 1, 9, 5], "texture": "#particle"},
+				"west": {"uv": [5, 1, 7, 5], "texture": "#particle"},
+				"up": {"uv": [3, 9, 1, 7], "texture": "#particle"},
+				"down": {"uv": [7, 7, 5, 9], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [11.22417, -2.84568, 7],
+			"to": [13.22417, 1.15432, 9],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [12.22417, 0.15432, 5]},
+			"faces": {
+				"north": {"uv": [5, 1, 3, 5], "texture": "#particle"},
+				"east": {"uv": [7, 1, 5, 5], "texture": "#particle"},
+				"south": {"uv": [9, 1, 7, 5], "texture": "#particle"},
+				"west": {"uv": [3, 1, 1, 5], "texture": "#particle"},
+				"up": {"uv": [1, 9, 3, 7], "texture": "#particle"},
+				"down": {"uv": [5, 7, 7, 9], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [2.89315, 0.5782, 7.5],
+			"to": [3.89315, 3.5782, 8.5],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [3.39315, 1.0782, 8]},
+			"faces": {
+				"north": {"uv": [12, 1, 13, 4], "texture": "#particle"},
+				"east": {"uv": [11, 1, 12, 4], "texture": "#particle"},
+				"south": {"uv": [14, 1, 15, 4], "texture": "#particle"},
+				"west": {"uv": [13, 1, 14, 4], "texture": "#particle"},
+				"up": {"uv": [12, 7, 11, 6], "texture": "#particle"}
+			}
+		},
+		{
+			"from": [12.10685, 0.5782, 7.5],
+			"to": [13.10685, 3.5782, 8.5],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [12.60685, 1.0782, 8]},
+			"faces": {
+				"north": {"uv": [13, 1, 12, 4], "texture": "#particle"},
+				"east": {"uv": [14, 1, 13, 4], "texture": "#particle"},
+				"south": {"uv": [15, 1, 14, 4], "texture": "#particle"},
+				"west": {"uv": [12, 1, 11, 4], "texture": "#particle"},
+				"up": {"uv": [11, 7, 12, 6], "texture": "#particle"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 121, 0],
+			"translation": [-1.5, 3, 5],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 121, 0],
+			"translation": [-1.5, 3, 5],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 86, 0],
+			"translation": [2.5, 3.25, 0.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 86, 0],
+			"translation": [2.5, 3.25, 0.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 6.5, 0]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, 6.5, 0]
+		},
+		"head": {
+			"translation": [0, 6.4, 0],
+			"scale": [1.6, 1.6, 1.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "devil_horns",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

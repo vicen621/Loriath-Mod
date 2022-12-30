@@ -40,8 +40,8 @@ public class LoriathModClient implements ClientModInitializer {
         //mistery box particle
         registerParticle(ModParticles.MISTERY_BOX, FlameParticle.Factory::new, "mistery_box");
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_TORCH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_WALL_TORCH, RenderLayer.getCutout());
+        // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_TORCH, RenderLayer.getCutout());
+        // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_WALL_TORCH, RenderLayer.getCutout());
 
         ModLayerDefinitions.registerAll();
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new AccessoryRenderers());

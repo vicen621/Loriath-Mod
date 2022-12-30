@@ -46,6 +46,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         return LivingEvent.LivingEntityDamageCallback.EVENT.invoker().damage(get(), source, amount);
     }
 
+    /*@ModifyVariable(method = "attack", at = @At(value = "LOAD"), argsOnly = true, ordinal = 2)
+    private boolean firePlayerAttackEvent(boolean bl3) {
+        if (TrinketsHelper.isEquipped(ModItems.DIGGING_CLAWS, this) && !bl3) {
+
+        }
+        return bl3;
+    }*/
+
     @Inject(method = "tick", at = @At("HEAD"))
     private void playerTick(CallbackInfo info) {
         LivingEvent.LivingEntityUpdateCallback.EVENT.invoker().update(get());

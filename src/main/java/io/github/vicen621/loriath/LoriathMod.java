@@ -12,10 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO Arreglar Infinite torch que rompe los bloques transparentes
-// https://discord.com/channels/@me/1045529136657072138/1057856591199748196 
-
-//TODO Agregar los hats que faltan
-// https://cdn.discordapp.com/attachments/1045529136657072138/1057387840427806720/hats_que_faltan.rar
+// https://discord.com/channels/@me/1045529136657072138/1057856591199748196
 public class LoriathMod implements ModInitializer {
     public static final String MODID = "loriath";
     public static final Logger LOGGER = LoggerFactory.getLogger("Loriath");
@@ -32,7 +29,7 @@ public class LoriathMod implements ModInitializer {
         ModSoundEvents.registerModSounds();
         ModEnchantments.registerModEnchantments();
         ModParticles.registerModParticles();
-        ModBlocks.registerModBlocks();
+        // ModBlocks.registerModBlocks();
         ModItems.registerModItems();
         ModHats.registerModHats();
         ModSoundEvents.registerModSounds();

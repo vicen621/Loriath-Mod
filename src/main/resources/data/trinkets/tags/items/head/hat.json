@@ -3,7 +3,7 @@
   "values": [
     {
       "id": "#loriath:hats",
-      "required": false
+      "required": true
     }
   ]
 }
