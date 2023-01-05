@@ -1,6 +1,7 @@
 package io.github.vicen621.loriath.client;
 
 import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.client.render.AccessoryRender;
 import io.github.vicen621.loriath.client.render.accessory.AccessoryRenderers;
 import io.github.vicen621.loriath.common.init.ModBlocks;
 import io.github.vicen621.loriath.common.init.ModHats;
