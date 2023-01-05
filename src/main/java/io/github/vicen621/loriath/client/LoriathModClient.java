@@ -26,7 +26,7 @@ public class LoriathModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        Dash.DASH_KEYBIND = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.loriath.dash", GLFW.GLFW_KEY_Z, "key.categories.movement"));
+        // Dash.DASH_KEYBIND = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.loriath.dash", GLFW.GLFW_KEY_Z, "key.categories.movement"));
 
         //phoenix particle
         registerParticle(ModParticles.PHOENIX, PhoenixParticle.Factory::new, "phoenix");
