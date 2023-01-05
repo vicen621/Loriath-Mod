@@ -20,24 +20,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Rarity;
 
-public class HatItem extends TrinketItem implements TrinketRenderer {
+public class HatItem extends TrinketItem {
 
     public HatItem() {
         super(new FabricItemSettings().group(ModHats.HATS_ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
-    }
-
-    @Override
-    public void render(ItemStack itemStack, SlotReference slotReference, EntityModel<? extends LivingEntity> entityModel, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        if (entity instanceof AbstractClientPlayerEntity player) {
-            //TODO: Ver si hay alguna manera de auto-arreglar los hats
-            TrinketsHelper.translateToFace(matrixStack, entityModel, player, headYaw, headPitch);
-            matrixStack.scale(-1f,-1f,1f);
-            matrixStack.translate(0,0.7,0.3f);
-            MinecraftClient.getInstance().getItemRenderer().renderItem(itemStack, ModelTransformation.Mode.FIXED, light, OverlayTexture.DEFAULT_UV, matrixStack, vertexConsumerProvider, 0);
-        }
-    }
-
-    public void registerRenderer() {
-        TrinketRendererRegistry.registerRenderer(this, this);
     }
 }

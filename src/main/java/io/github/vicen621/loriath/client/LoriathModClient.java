@@ -52,7 +52,7 @@ public class LoriathModClient implements ClientModInitializer {
         // Register renderer for Hats only on the client
         for (Item item : ModHats.HATS) {
             if (item instanceof HatItem hat)
-                hat.registerRenderer();
+                AccessoryRender.registerRender(hat);
         }
     }
 
