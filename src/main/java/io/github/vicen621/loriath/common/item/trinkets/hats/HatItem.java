@@ -37,7 +37,7 @@ public class HatItem extends TrinketItem implements TrinketRenderer {
         }
     }
 
-    public void registerRender() {
+    public void registerRenderer() {
         TrinketRendererRegistry.registerRenderer(this, this);
     }
 }

@@ -3,6 +3,7 @@ package io.github.vicen621.loriath.client;
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.client.render.accessory.AccessoryRenderers;
 import io.github.vicen621.loriath.common.init.ModBlocks;
+import io.github.vicen621.loriath.common.init.ModHats;
 import io.github.vicen621.loriath.common.init.ModLayerDefinitions;
 import io.github.vicen621.loriath.common.init.ModParticles;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.Dash;
