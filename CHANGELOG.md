@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/vicen621/Loriath-Mod/compare/v1.0.1...v1.0.2) (2023-01-05)
+
+
+### Bug Fixes
+
+* added missing imports ([0276dd8](https://github.com/vicen621/Loriath-Mod/commit/0276dd8166f3af0ba62bdc6fbc1c9a3a5139285b))
+* fixed registering render on server ([bb45d8e](https://github.com/vicen621/Loriath-Mod/commit/bb45d8efcb2bf8d5d02c00be1bd598aff4556ff5))
+
 ## [1.0.1](https://github.com/vicen621/Loriath-Mod/compare/v1.0.0...v1.0.1) (2023-01-05)
 
 
