@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/vicen621/Loriath-Mod/compare/v1.0.0...v1.0.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* removed Dash ([9bfc361](https://github.com/vicen621/Loriath-Mod/commit/9bfc361eae2b3f8fc8462780afcb1f606f721218))
+* removed dash key in ([e8e8788](https://github.com/vicen621/Loriath-Mod/commit/e8e8788407c2ec10a196db6464f429a2f4144b36))
+* removed DashMixin.java [no ci] ([737728f](https://github.com/vicen621/Loriath-Mod/commit/737728f9394035f7a70d5b88faa0bea33f666970))
+
 # 1.0.0 (2023-01-05)
 
 
