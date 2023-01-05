@@ -24,7 +24,6 @@ public class HatItem extends TrinketItem implements TrinketRenderer {
 
     public HatItem() {
         super(new FabricItemSettings().group(ModHats.HATS_ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
-        TrinketRendererRegistry.registerRenderer(this, this);
     }
 
     @Override
@@ -36,5 +35,9 @@ public class HatItem extends TrinketItem implements TrinketRenderer {
             matrixStack.translate(0,0.7,0.3f);
             MinecraftClient.getInstance().getItemRenderer().renderItem(itemStack, ModelTransformation.Mode.FIXED, light, OverlayTexture.DEFAULT_UV, matrixStack, vertexConsumerProvider, 0);
         }
+    }
+
+    public void registerRender() {
+        TrinketRendererRegistry.registerRenderer(this, this);
     }
 }

@@ -6,6 +6,7 @@ import io.github.vicen621.loriath.common.init.ModBlocks;
 import io.github.vicen621.loriath.common.init.ModLayerDefinitions;
 import io.github.vicen621.loriath.common.init.ModParticles;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.Dash;
+import io.github.vicen621.loriath.common.item.trinkets.hats.HatItem;
 import io.github.vicen621.loriath.common.particle.PhoenixParticle;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -16,6 +17,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.resource.ResourceType;
@@ -45,6 +47,12 @@ public class LoriathModClient implements ClientModInitializer {
 
         ModLayerDefinitions.registerAll();
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new AccessoryRenderers());
+
+        // Register renderer for Hats only on the client
+        for (Item item : ModHats.HATS) {
+            if (item instanceof HatItem hat)
+                hat.registerRenderer();
+        }
     }
 
     public <T extends ParticleEffect> void registerParticle(ParticleType<T> type, ParticleFactoryRegistry.PendingParticleFactory<T> factory, String particle) {
