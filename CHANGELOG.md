@@ -1,3 +1,13 @@
+## [1.0.3](https://github.com/vicen621/Loriath-Mod/compare/v1.0.2...v1.0.3) (2023-01-05)
+
+
+### Bug Fixes
+
+* added AccessoryRender import ([a47550d](https://github.com/vicen621/Loriath-Mod/commit/a47550d9bff25a6a53e6af294e66200190f95f45))
+* added HatItem import ([121e181](https://github.com/vicen621/Loriath-Mod/commit/121e181ebc434599a30f72a8d9390e191988ba1e))
+* another fix for AccesoryRender ([dd749f8](https://github.com/vicen621/Loriath-Mod/commit/dd749f8fddc640104d9273f08398e3608156893c))
+* trying to fix Hat renderer ([e750b94](https://github.com/vicen621/Loriath-Mod/commit/e750b94a93932375da96d061a08b8dda12686515))
+
 ## [1.0.2](https://github.com/vicen621/Loriath-Mod/compare/v1.0.1...v1.0.2) (2023-01-05)
 
 
