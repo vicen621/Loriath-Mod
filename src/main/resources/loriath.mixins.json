@@ -4,7 +4,6 @@
   "package": "io.github.vicen621.loriath.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "DashMixin",
     "client.render.PlayerEntityRendererMixin",
     "effects.LivingEntityMixin",
     "effects.StatusEffectInstanceMixin",
@@ -15,6 +14,7 @@
     "nbt.LivingEntityNbtMixin"
   ],
   "client": [
+    "DashMixin",
     "client.render.RenderArmorMixin",
     "effects.client.LivingEntityMixin",
     "effects.client.StatusEffectUtilMixin"
