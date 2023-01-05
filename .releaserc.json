@@ -1,6 +1,6 @@
 {
   "branches": [
-    "1.19",
+    "master",
     {
       "name": "beta",
       "prerelease": true
