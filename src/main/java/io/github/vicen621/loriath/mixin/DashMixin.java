@@ -34,13 +34,13 @@ public abstract class DashMixin extends AbstractClientPlayerEntity {
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/AbstractClientPlayerEntity;tick()V"))
     void dash(CallbackInfo ci) {
-        if (pressedTicks > 0 && !Dash.DASH_KEYBIND.isPressed() && canDash()) {
+        /*if (pressedTicks > 0 && !Dash.DASH_KEYBIND.isPressed() && canDash()) {
             PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
             ClientPlayNetworking.send(LoriathMod.id("dash"), buf);
             this.getItemCooldownManager().set(this.getStackInHand(this.getActiveHand()).getItem(), 50);
             lastDashed = world.getTime();
         }
-        pressedTicks = Dash.DASH_KEYBIND.isPressed() ? pressedTicks + 1 : 0;
+        pressedTicks = Dash.DASH_KEYBIND.isPressed() ? pressedTicks + 1 : 0;*/
     }
 
     private boolean canDash() {
