@@ -36,6 +36,6 @@ public class AccessoryRender implements TrinketRenderer {
     }
 
     public static void registerRender(HatItem item) {
-        TrinketRendererRegistry.registerRenderer(item, this);
+        TrinketRendererRegistry.registerRenderer(item, new AccessoryRender());
     }
 }
