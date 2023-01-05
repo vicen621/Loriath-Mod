@@ -4,6 +4,7 @@ import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import com.mojang.blaze3d.platform.GlStateManager;
 import dev.emi.trinkets.api.SlotReference;
+import io.github.vicen621.loriath.common.item.trinkets.hats.HatItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import io.github.vicen621.loriath.common.init.ModHats;
