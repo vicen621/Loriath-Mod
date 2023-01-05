@@ -1,28 +1,9 @@
 package io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra;
 
-import io.github.vicen621.loriath.LoriathMod;
-import net.fabricmc.fabric.api.networking.v1.PacketSender;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.network.ServerPlayNetworkHandler;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
-
 //TODO Hacerlo un trinket/encantamiento
 public class Dash {
 
-    public static KeyBinding DASH_KEYBIND;
+    /*public static KeyBinding DASH_KEYBIND;
 
     public Dash() {
         ServerPlayNetworking.registerGlobalReceiver(LoriathMod.id("dash"), this::onPacketRecieve);
@@ -63,5 +44,5 @@ public class Dash {
         protected DashEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
             super(weight, type, slotTypes);
         }
-    }
+    }*/
 }
