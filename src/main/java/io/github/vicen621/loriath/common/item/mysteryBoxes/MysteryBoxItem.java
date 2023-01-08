@@ -1,4 +1,4 @@
-package io.github.vicen621.loriath.common.item.misteryBoxes;
+package io.github.vicen621.loriath.common.item.mysteryBoxes;
 
 import eu.pb4.sgui.api.elements.GuiElementBuilder;
 import eu.pb4.sgui.api.elements.GuiElementInterface;
@@ -13,10 +13,8 @@ import net.minecraft.item.Items;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
-import net.minecraft.network.packet.s2c.play.PlaySoundS2CPacket;
 import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
 import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.server.command.StopSoundCommand;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
@@ -47,9 +45,9 @@ public class MisteryBoxItem extends Item {
 
     private final Random RANDOM = Random.create();
 
-    private final MisteryBoxRarity rarity;
+    private final MysteryBoxRarity rarity;
 
-    public MisteryBoxItem(MisteryBoxRarity rarity, Settings settings) {
+    public MisteryBoxItem(MysteryBoxRarity rarity, Settings settings) {
         super(settings);
         this.rarity = rarity;
         Registry.register(Registry.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mistery_box"), this);

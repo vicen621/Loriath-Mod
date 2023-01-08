@@ -6,11 +6,20 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:book",
+          "name": "loriath:cosmetic_mystery_box"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
           "functions": [
             {
-              "function": "loriath:enchant_randomly_with_levels",
-              "level": 2
+              "function": "minecraft:set_nbt",
+              "tag": "{CustomPotionColor:16776960,display:{Name:'[{\"text\":\"Potion of Haste\",\"italic\":false}]'},CustomPotionEffects:[{Id:3,Duration:3600}]}"
             }
           ]
         }
@@ -21,22 +30,110 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:tipped_arrow",
+          "name": "minecraft:potion",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 4
-            },
-            {
-              "function": "loriath:set_random_potion",
-              "strong": -1
+              "function": "minecraft:set_potion",
+              "id": "minecraft:strong_swiftness"
             }
           ]
         }
       ]
     },
     {
-      "rolls": 3,
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tnt_minecart"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:ender_pearl",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bread",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "loriath:vitality": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "functions": [
+            {
+              "function": "loriath:enchant_randomly_with_levels",
+              "level": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 2,
       "entries": [
         {
           "type": "minecraft:item",
@@ -50,163 +147,32 @@
       ]
     },
     {
-      "rolls": 1,
+      "rolls": 3,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:book"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:bone_meal",
+          "name": "minecraft:book",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 8
-              }
+              "function": "loriath:enchant_randomly_with_levels",
+              "level": 2
             }
           ]
         }
       ]
     },
     {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:clock"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
+      "rolls": 4,
       "entries": [
         {
           "type": "minecraft:tag",
-          "name": "minecraft:saplings",
+          "name": "loriath:rare_accessory",
           "expand": true
         }
       ]
     },
     {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:shears"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:potion",
-          "functions": [
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:swiftness"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:shield"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:coal",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 32
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:birch_log",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "minecraft:set_enchantments",
-              "enchantments": {
-                "loriath:incompatibility_curse": 1
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 3,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "loriath:uncommon_mistery_box"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "minecraft:set_enchantments",
-              "enchantments": {
-                "loriath:vitality": 1
-              },
-              "add": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 8,
+      "rolls": 5,
       "entries": [
         {
           "type": "minecraft:tag",
@@ -216,12 +182,39 @@
       ]
     },
     {
-      "rolls": 4,
+      "rolls": 10,
       "entries": [
         {
           "type": "minecraft:tag",
           "name": "loriath:uncommon_accessory",
           "expand": true
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "loriath:rare_mystery_box"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tipped_arrow",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 16
+            },
+            {
+              "function": "loriath:set_random_potion"
+            }
+          ]
         }
       ]
     }

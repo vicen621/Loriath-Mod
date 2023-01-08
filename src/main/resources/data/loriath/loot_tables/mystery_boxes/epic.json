@@ -198,7 +198,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:legendary_mistery_box"
+          "name": "loriath:legendary_mystery_box"
         }
       ]
     },
@@ -207,7 +207,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:cosmetic_mistery_box"
+          "name": "loriath:cosmetic_mystery_box"
         }
       ]
     }

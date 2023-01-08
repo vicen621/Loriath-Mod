@@ -110,7 +110,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:common_mistery_box"
+          "name": "loriath:common_mystery_box"
         }
       ]
     },
@@ -119,7 +119,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:uncommon_mistery_box"
+          "name": "loriath:uncommon_mystery_box"
         }
       ]
     },
@@ -128,7 +128,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:rare_mistery_box"
+          "name": "loriath:rare_mystery_box"
         }
       ]
     },
@@ -137,7 +137,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:epic_mistery_box"
+          "name": "loriath:epic_mystery_box"
         }
       ]
     },
@@ -146,7 +146,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:legendary_mistery_box"
+          "name": "loriath:legendary_mystery_box"
         }
       ]
     },
@@ -155,7 +155,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:cosmetic_mistery_box"
+          "name": "loriath:cosmetic_mystery_box"
         }
       ]
     }

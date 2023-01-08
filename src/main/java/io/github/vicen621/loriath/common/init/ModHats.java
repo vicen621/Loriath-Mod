@@ -41,7 +41,9 @@ public class ModHats {
     public static final Item CACTUS_CAP = register("cactus_cap", new HatItem());
     public static final Item CAKE_HAT = register("cake_hat", new HatItem());
     public static final Item CAT_EARS = register("cat_ears", new HatItem());
+    public static final Item CHICKEN_HAT = register("chicken_hat", new HatItem());
     public static final Item CONSTRUCTION_HELMET = register("construction_helmet", new HatItem());
+    public static final Item COMMUNITYPILLAR = register("communitypillar", new HatItem());
     public static final Item COOKIE_HAT = register("cookie_hat", new HatItem());
     public static final Item COW_HAT = register("cow_hat", new HatItem());
     public static final Item COWBOY_HAT = register("cowboy_hat", new HatItem());
@@ -63,6 +65,7 @@ public class ModHats {
     public static final Item FROG_BUCKET_HAT = register("frog_bucket_hat", new HatItem());
     public static final Item GASMASK = register("gasmask", new HatItem());
     public static final Item GHOST_HAT = register("ghost_hat", new HatItem());
+    public static final Item GNOME = register("gnome", new HatItem());
     public static final Item GRADUATION_CAP = register("graduation_cap", new HatItem());
     public static final Item GUARD_HAT = register("guard_hat", new HatItem());
     public static final Item HALO = register("halo", new HatItem());
@@ -86,6 +89,7 @@ public class ModHats {
     public static final Item PILGRIM_HAT = register("pilgrim_hat", new HatItem());
     public static final Item PINK_BOW = register("pink_bow", new HatItem());
     public static final Item PIRATE_HAT = register("pirate_hat", new HatItem());
+    public static final Item PLAGUE_DOCTOR = register("plague_doctor", new HatItem());
     public static final Item POLICE_HAT = register("police_hat", new HatItem());
     public static final Item POTTER_GLASSES = register("potter_glasses", new HatItem());
     public static final Item RAINBOW_HEADBAND = register("rainbow_headband", new HatItem());
@@ -132,13 +136,13 @@ public class ModHats {
     public static final Item WINGED = register("winged", new HatItem());
     public static final Item[] HATS = {ANGRY_HAT, ANTLERS, ARCHER_HAT, ARTIST_BERET, ASH_HAT, ASTRO, AVIATOR_HAT,
             AVIATORS, BANDANA, BETA_BLUE, BETA_LIGHT_GREEN, BETA_MAGENTA, BETA_ORANGE, BETA_RAINBOW, BETA_RED, BETA_WHITE,
-            BOATER_HAT, BOX_HAT, BUCKET_HAT, BUNNY_EARS, CACTUS_CAP, CAKE_HAT, CAT_EARS, CONSTRUCTION_HELMET, COOKIE_HAT,
+            BOATER_HAT, BOX_HAT, BUCKET_HAT, BUNNY_EARS, CACTUS_CAP, CAKE_HAT, CAT_EARS, CHICKEN_HAT, CONSTRUCTION_HELMET, COMMUNITYPILLAR, COOKIE_HAT,
             COW_HAT, COWBOY_HAT, CROWN, DAISY_CHAIN, DEVIL_HORNS, DINOSAUR_HAT, DISGUISE, DRAGON_HAT_BLACK, DUCK_HAT,
             EARMUFFS, EASTER_BEANIE, ELF, FALL_CROWN, FEATHER_CROWN, FEDORA, FEDORA2, FIREFIGHTER_HELMET, FROG_BUCKET_HAT,
-            GLASSES_3D, BAT_GLASSES, BAT_MASK, BEACH_VISOR, BEAR_HAT, GASMASK, GHOST_HAT, GUARD_HAT, GRADUATION_CAP,
+            GLASSES_3D, BAT_GLASSES, BAT_MASK, BEACH_VISOR, BEAR_HAT, GASMASK, GHOST_HAT, GNOME, GUARD_HAT, GRADUATION_CAP,
             HALO, HAZMAT_MASK, HEADPHONES, HOCKEY_MASK, HYPNO_GOGGLES, JELLYFISH_HAT, JOKER_HAT, LION_HAT,
             MASQUERADE_MASK, MOTORCYCLE_HAT, MONOCLE, MUSHROOM_CAP, MINER_HELMET, NATIVE_HEADBAND, NIGHTVISION_GOGGLES,
-            NINJA_HEADBAND, PILGRIM_HAT, PAINTBALL_MASK, PIRATE_HAT, POLICE_HAT, POTTER_GLASSES, PHARAOH_HEADDRESS, PINK_BOW,
+            NINJA_HEADBAND, PILGRIM_HAT, PAINTBALL_MASK, PIRATE_HAT, PLAGUE_DOCTOR, POLICE_HAT, POTTER_GLASSES, PHARAOH_HEADDRESS, PINK_BOW,
             PUMPKIN_BEANIE, RAM_HAT, RHINO_HAT, RAINBOW_HEADBAND, RAINBOW_SHADES, ROBOCOP_HELMET, SANTA_HAT, SAILOR, SAMURAI_HELMET, SODA_HAT,
             SPIDER_HAT, SCIENCE_GOGGLES, SCUBA, SEUSS, SHARK, SHREK_BEANIE, SKATEBOARD_HELMET, SKULL_MASK, SOMBRERO,
             SPRING_FLOWER_CROWN, SPROUT_HAT, STEAM_GOGGLES, STITCH_HAT, STRAW_HAT, TAX_HAT, TIARA, TOP_HAT, TURTLE_HAT,

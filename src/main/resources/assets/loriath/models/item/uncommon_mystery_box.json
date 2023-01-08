@@ -1,0 +1,10 @@
+{
+  "parent": "loriath:item/mystery_boxes",
+  "textures": {
+    "box": "loriath:item/mystery_boxes/uncommon_box/box",
+    "side": "loriath:item/mystery_boxes/uncommon_box/wrap_side",
+    "top": "loriath:item/mystery_boxes/uncommon_box/wrap_top",
+    "bottom": "loriath:item/mystery_boxes/uncommon_box/wrap_bottom",
+    "particle": "loriath:item/mystery_boxes/uncommon_box/box"
+  }
+}

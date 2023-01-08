@@ -9,7 +9,7 @@ public enum MisteryBoxRarity {
 
     COMMON,
     UNCOMMON,
-    RARE(ModSoundEvents.BOX_SWITCH_PLUS, ModSoundEvents.RARE_BOX_THEME), //Cambiar por el tema del final de la comun
+    RARE(ModSoundEvents.BOX_SWITCH_PLUS, ModSoundEvents.RARE_BOX_THEME), //TODO: Cambiar por el tema del final de la común
     EPIC(ModSoundEvents.BOX_SWITCH_PLUS, ModSoundEvents.EPIC_BOX_THEME),
     LEGENDARY(ModSoundEvents.LEGENDARY_BOX_OPEN, null, ModSoundEvents.BOX_SWITCH_PLUS, ModSoundEvents.LEGENDARY_BOX_THEME),
     COSMETIC(ModSoundEvents.BOX_SWITCH, ModSoundEvents.COSMETIC_BOX_THEME);
