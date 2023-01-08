@@ -41,8 +41,8 @@ public class LoriathModClient implements ClientModInitializer {
         //second overspeed particle
         registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second_overspeed");
 
-        //mistery box particle
-        registerParticle(ModParticles.MISTERY_BOX, FlameParticle.Factory::new, "mistery_box");
+        //mystery box particle
+        registerParticle(ModParticles.MYSTERY_BOX, FlameParticle.Factory::new, "mystery_box");
 
         // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_TORCH, RenderLayer.getCutout());
         // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_WALL_TORCH, RenderLayer.getCutout());

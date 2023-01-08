@@ -1,68 +1,68 @@
 {
-  "item.mistery_box.open": {
-    "subtitle": "subtitles.item.mistery_box.open",
+  "item.mystery_box.open": {
+    "subtitle": "subtitles.item.mystery_box.open",
     "sounds": [
-      "loriath:mistery_boxes/open/open"
+      "loriath:mystery_boxes/open/open"
     ]
   },
-  "item.mistery_box.open_legendary": {
-    "subtitle": "subtitles.item.mistery_box.open",
+  "item.mystery_box.open_legendary": {
+    "subtitle": "subtitles.item.mystery_box.open",
     "sounds": [
-      "loriath:mistery_boxes/open/open_legendary"
+      "loriath:mystery_boxes/open/open_legendary"
     ]
   },
-  "item.mistery_box.switch": {
-    "subtitle": "subtitles.item.mistery_box.switch",
+  "item.mystery_box.switch": {
+    "subtitle": "subtitles.item.mystery_box.switch",
     "sounds": [
-      "loriath:mistery_boxes/switch/switch"
+      "loriath:mystery_boxes/switch/switch"
     ]
   },
-  "item.mistery_box.switch_plus": {
-    "subtitle": "subtitles.item.mistery_box.switch",
+  "item.mystery_box.switch_plus": {
+    "subtitle": "subtitles.item.mystery_box.switch",
     "sounds": [
-      "loriath:mistery_boxes/switch/switch_plus"
+      "loriath:mystery_boxes/switch/switch_plus"
     ]
   },
-  "item.mistery_box.theme": {
-    "subtitle": "subtitles.item.mistery_box.theme",
+  "item.mystery_box.theme": {
+    "subtitle": "subtitles.item.mystery_box.theme",
     "sounds": [
-      "loriath:mistery_boxes/theme/theme"
+      "loriath:mystery_boxes/theme/theme"
     ]
   },
-  "item.mistery_box.theme_rare": {
-    "subtitle": "subtitles.item.mistery_box.theme",
+  "item.mystery_box.theme_rare": {
+    "subtitle": "subtitles.item.mystery_box.theme",
     "sounds": [
-      "loriath:mistery_boxes/theme/theme_rare"
+      "loriath:mystery_boxes/theme/theme_rare"
     ]
   },
-  "item.mistery_box.theme_epic": {
-    "subtitle": "subtitles.item.mistery_box.theme",
+  "item.mystery_box.theme_epic": {
+    "subtitle": "subtitles.item.mystery_box.theme",
     "sounds": [
-      "loriath:mistery_boxes/theme/theme_epic"
+      "loriath:mystery_boxes/theme/theme_epic"
     ]
   },
-  "item.mistery_box.theme_legendary": {
-    "subtitle": "subtitles.item.mistery_box.theme",
+  "item.mystery_box.theme_legendary": {
+    "subtitle": "subtitles.item.mystery_box.theme",
     "sounds": [
-      "loriath:mistery_boxes/theme/theme_legendary"
+      "loriath:mystery_boxes/theme/theme_legendary"
     ]
   },
-  "item.mistery_box.theme_cosmetic": {
-    "subtitle": "subtitles.item.mistery_box.theme",
+  "item.mystery_box.theme_cosmetic": {
+    "subtitle": "subtitles.item.mystery_box.theme",
     "sounds": [
-      "loriath:mistery_boxes/theme/theme_cosmetic"
+      "loriath:mystery_boxes/theme/theme_cosmetic"
     ]
   },
-  "item.mistery_box.finish": {
-    "subtitle": "subtitles.item.mistery_box.finish",
+  "item.mystery_box.finish": {
+    "subtitle": "subtitles.item.mystery_box.finish",
     "sounds": [
-      "loriath:mistery_boxes/finish/finish"
+      "loriath:mystery_boxes/finish/finish"
     ]
   },
-  "item.mistery_box.finish_legendary": {
-    "subtitle": "subtitles.item.mistery_box.finish",
+  "item.mystery_box.finish_legendary": {
+    "subtitle": "subtitles.item.mystery_box.finish",
     "sounds": [
-      "loriath:mistery_boxes/finish/finish_legendary"
+      "loriath:mystery_boxes/finish/finish_legendary"
     ]
   }
 }

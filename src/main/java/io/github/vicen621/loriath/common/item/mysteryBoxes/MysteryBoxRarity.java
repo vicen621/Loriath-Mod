@@ -1,11 +1,11 @@
-package io.github.vicen621.loriath.common.item.misteryBoxes;
+package io.github.vicen621.loriath.common.item.mysteryBoxes;
 
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.init.ModSoundEvents;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
-public enum MisteryBoxRarity {
+public enum MysteryBoxRarity {
 
     COMMON,
     UNCOMMON,
@@ -17,16 +17,16 @@ public enum MisteryBoxRarity {
     final Identifier lootTable;
     final SoundEvent openSound, finishSound, switchSound, themeSound;
 
-    MisteryBoxRarity() {
+    MysteryBoxRarity() {
         this(ModSoundEvents.BOX_SWITCH, ModSoundEvents.BOX_THEME); //Cambiar por el tema del final de la comun
     }
 
-    MisteryBoxRarity(SoundEvent switchSound, SoundEvent themeSound) {
+    MysteryBoxRarity(SoundEvent switchSound, SoundEvent themeSound) {
         this(ModSoundEvents.BOX_OPEN, ModSoundEvents.BOX_FINISH, switchSound, themeSound);
     }
 
-    MisteryBoxRarity(SoundEvent openSound, SoundEvent finishSound, SoundEvent switchSound, SoundEvent themeSound) {
-        this.lootTable = LoriathMod.id("mistery_boxes/" + this.toString().toLowerCase());
+    MysteryBoxRarity(SoundEvent openSound, SoundEvent finishSound, SoundEvent switchSound, SoundEvent themeSound) {
+        this.lootTable = LoriathMod.id("mystery_boxes/" + this.toString().toLowerCase());
         this.openSound = openSound;
         this.switchSound = switchSound;
         this.themeSound = themeSound;

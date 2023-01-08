@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.List;
 
-public class MisteryBoxItem extends Item {
+public class MysteryBoxItem extends Item {
 
     private final ItemStack[] PANES = new ItemStack[]{
             Items.WHITE_STAINED_GLASS_PANE.getDefaultStack(),
@@ -47,10 +47,10 @@ public class MisteryBoxItem extends Item {
 
     private final MysteryBoxRarity rarity;
 
-    public MisteryBoxItem(MysteryBoxRarity rarity, Settings settings) {
+    public MysteryBoxItem(MysteryBoxRarity rarity, Settings settings) {
         super(settings);
         this.rarity = rarity;
-        Registry.register(Registry.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mistery_box"), this);
+        Registry.register(Registry.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mystery_box"), this);
     }
 
     @Override
