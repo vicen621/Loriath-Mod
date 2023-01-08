@@ -13,6 +13,8 @@ import io.github.vicen621.loriath.common.item.trinkets.accessories.items.hand.Ti
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.head.DivingGearItem;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.head.FrogFlipperItem;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.necklace.PanicNecklaceItem;
+import io.github.vicen621.loriath.common.item.tools.CustomAxeItem;
+import io.github.vicen621.loriath.common.item.tools.LastHopeTool;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -44,6 +46,10 @@ public class ModItems {
     public static final Item DIVING_GEAR = register("diving_gear", new DivingGearItem());
     public static final Item FROG_FLIPPER = register("frog_flipper", new FrogFlipperItem());
     public static final Item PANIC_NECKLACE = register("panic_necklace", new PanicNecklaceItem());
+
+    public static final Item LAST_HOPE = register("last_hope",
+            new CustomAxeItem(LastHopeTool.INSTANCE, 11, -3f,
+                    new FabricItemSettings().group(ITEM_GROUP)));
 
     public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
     // public static final Item INFINITE_TORCH = register("infinite_torch", new InfiniteTorchItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
