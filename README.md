@@ -4,7 +4,7 @@ Este mod agrega una variedad de items y mecanicas al juego
 * [Items](#Items)
 	* [Hats](#Hats)
 	* [Accesorios](#Accessories)
-	* [Mistery Boxes](#mistery-boxes)
+	* [Mystery Boxes](#mystery-boxes)
 * [Tags](#Tags)
 * [Enchantments](#Enchantments)
 
@@ -13,14 +13,14 @@ Se agregan 3 tipos de items
 
 * [Hats](#Hats)
 * [Accessories](#Accessories)
-* [Mistery Boxes](#mistery-boxes)
+* [Mystery Boxes](#mystery-boxes)
 
 ### Hats
-Estos items son puramente decorativos y se pueden encontrar en cofres y [Mistery Boxes](#mistery-boxes)
+Estos items son puramente decorativos y se pueden encontrar en cofres y [Mystery Boxes](#mystery-boxes)
 Son 121 en total y estan todos bajo la tag `loriath:hats`
 
 ### Accessories
-Estos items son funcionales, al igual que los [Hats](#Hats) se pueden encontrar en cofres y [Mistery Boxes](#mistery-boxes) son 16 y se encuentran bajo 5 tags diferentes
+Estos items son funcionales, al igual que los [Hats](#Hats) se pueden encontrar en cofres y [Mystery Boxes](#mystery-boxes) son 16 y se encuentran bajo 5 tags diferentes
 
 [comment]: <> (Terminar la tabla)
 
@@ -36,13 +36,13 @@ Estos items son funcionales, al igual que los [Hats](#Hats) se pueden encontrar 
 | epic_accessory      | 3                 | `loriath:lava_charm`, `loriath:digging_claws`, `loriath:frog_flipper`                           |
 | legendary_accessory | 3                 | `loriath:destroyer_emblem`, `loriath:hermes_boots`, `loriath:titan_glove`                                                                                                |
 
-### Mistery Boxes
+### Mystery Boxes
 Estos items son muy especiales, ya que al usarlos giras una ruleta que te da un item de una loot table en especifica que depende de la rareza de la misma. Hay 5 rarezas
-* Common Mistery Box
-* Uncommon Mistery Box
-* Rare Mistery Box
-* Epic Mistery Box
-* Legendary Mistery Box
+* Common Mystery Box
+* Uncommon Mystery Box
+* Rare Mystery Box
+* Epic Mystery Box
+* Legendary Mystery Box
 
 ## Tags
 Ademas de las tags de los accesories y hats este mod agrega dos tags mas
