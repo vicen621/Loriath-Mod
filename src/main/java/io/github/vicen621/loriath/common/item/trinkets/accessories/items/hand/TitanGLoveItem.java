@@ -11,15 +11,15 @@ import net.minecraft.item.ItemStack;
 
 import java.util.UUID;
 
-public class TitanGLoveItem extends AccessoryItem {
+public class TitanGloveItem extends AccessoryItem {
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack,
                                                                            SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid,
-                "loriath:attack_sped", 1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+                "loriath:attack_speed", 0.05, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         modifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(uuid,
-                "loriath:attack_damage", 0.1, EntityAttributeModifier.Operation.ADDITION));
+                "loriath:attack_damage", 0.3, EntityAttributeModifier.Operation.ADDITION));
         return modifiers;
     }
 }
