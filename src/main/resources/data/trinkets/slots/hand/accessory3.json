@@ -1,0 +1,6 @@
+{
+  "icon": "trinkets:gui/slots/ring",
+  "amount": 1,
+  "order": -2048,
+  "tooltip_predicates": "trinkets:none"
+}
