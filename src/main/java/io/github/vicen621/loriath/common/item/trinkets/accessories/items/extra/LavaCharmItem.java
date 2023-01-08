@@ -9,6 +9,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import org.jetbrains.annotations.NotNull;
 
 public class LavaCharmItem extends AccessoryItem {
 
@@ -18,12 +19,12 @@ public class LavaCharmItem extends AccessoryItem {
         LivingEvent.LivingEntityHurtCallback.EVENT.register(this::onHurt);
     }
 
-    private float onHurt(LivingEntity wearer, DamageSource source, float amount) {
+    private float onHurt(@NotNull LivingEntity wearer, DamageSource source, float amount) {
         if (!wearer.world.isClient && amount >= 1 && source == DamageSource.LAVA &&
                 wearer instanceof PlayerEntity player && TrinketsHelper.isEquipped(ModItems.LAVA_CHARM, wearer) &&
                 !player.getItemCooldownManager().isCoolingDown(ModItems.LAVA_CHARM)) {
             wearer.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 140, 0, false, true));
-            player.getItemCooldownManager().set(ModItems.LAVA_CHARM, 100);
+            player.getItemCooldownManager().set(ModItems.LAVA_CHARM, 240);
             return 0;
         }
         return amount;
