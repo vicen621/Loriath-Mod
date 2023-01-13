@@ -104,6 +104,7 @@
   "item.loriath.hypno_goggles": "Hypno goggles",
   "item.loriath.jellyfish_hat": "Jellyfish hat",
   "item.loriath.joker_hat": "Joker hat",
+  "item.loriath.last_hope": "Last Hope",
   "item.loriath.lion_hat": "Lion hat",
   "item.loriath.masquerade_mask": "Masquerade mask",
   "item.loriath.miner_helmet": "Miner helmet",
@@ -172,6 +173,7 @@
   "enchantment.loriath.vitality": "Vitality",
   "enchantment.loriath.incompatibility_curse": "Incompatibility Curse",
   "enchantment.loriath.immortality": "Immortality",
+  "enchantment.loriath.smelter": "Smelter",
   "key.loriath.dash": "Dash",
   "itemGroup.loriath.loriath": "Loriath",
   "itemGroup.loriath.hats": "Loriath Hats",
@@ -179,6 +181,8 @@
   "trinkets.slot.hand.accessory1": "",
   "trinkets.slot.hand.accessory2": "",
   "trinkets.slot.hand.accessory3": "",
-  "subtitles.mystery_box.open": "Mystery box opens",
-  "subtitles.mystery_box.pickup": "Item plops"
+  "subtitles.item.mystery_box.open": "Mystery box unwraps",
+  "subtitles.item.mystery_box.theme": "Mystery box aura",
+  "subtitles.item.mystery_box.switch": "Mystery box rolls",
+  "subtitles.item.mystery_box.pickup": "Item plops"
 }
