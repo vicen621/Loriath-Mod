@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/vicen621/Loriath-Mod/compare/v1.0.3...v1.0.4) (2023-01-13)
+
+
+### Bug Fixes
+
+* modified maricoin_chests.json [no ci] ([3b1c107](https://github.com/vicen621/Loriath-Mod/commit/3b1c107446b90111d313d9fe6675a53d1bc1e592))
+* updated node version ([a15f8c8](https://github.com/vicen621/Loriath-Mod/commit/a15f8c8efedc911a4c1796a51001b595a9fcbfe9))
+
 ## [1.0.3](https://github.com/vicen621/Loriath-Mod/compare/v1.0.2...v1.0.3) (2023-01-05)
 
 
