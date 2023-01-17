@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/vicen621/Loriath-Mod/compare/v1.0.7...v1.0.8) (2023-01-17)
+
+
+### Bug Fixes
+
+* re-enabled code to open mistery boxes ([d46ba30](https://github.com/vicen621/Loriath-Mod/commit/d46ba30887b3cc3d8e09d23081975d096fd9fe1c))
+
 ## [1.0.7](https://github.com/vicen621/Loriath-Mod/compare/v1.0.6...v1.0.7) (2023-01-17)
 
 
