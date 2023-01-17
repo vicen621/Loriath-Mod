@@ -10,7 +10,6 @@
 
 ### Bug Fixes
 
-* fixed error where the loot table is calling the same event in an infinite loop ([ee25bf8](https://github.com/vicen621/Loriath-Mod/commit/ee25bf89d121d978902da236f63018f4f29bcd97))
 * removed last hope ([7bf511b](https://github.com/vicen621/Loriath-Mod/commit/7bf511b705f6873da4458092f79be59fd422ff80))
 
 ## [1.0.4](https://github.com/vicen621/Loriath-Mod/compare/v1.0.3...v1.0.4) (2023-01-13)
