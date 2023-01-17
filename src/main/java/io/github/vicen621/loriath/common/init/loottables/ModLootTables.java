@@ -89,7 +89,7 @@ public class ModLootTables {
             supplier.pool(LootPool.builder().with(getInjectEntry(id)));
         }
 
-        if (id.getPath().contains("chests") || id.getNamespace().equals("structory") || (id.getNamespace().equals("terralith") && !id.getPath().contains("entities"))) {
+        if ((id.getPath().contains("chests") && !id.getNamespace().equals("loriath")) || id.getNamespace().equals("structory") || (id.getNamespace().equals("terralith") && !id.getPath().contains("entities"))) {
             Identifier table = LoriathMod.id("inject/maricoin_chests");
             supplier.pool(LootPool.builder().with(LootTableEntry.builder(table).weight(1)));
         }
