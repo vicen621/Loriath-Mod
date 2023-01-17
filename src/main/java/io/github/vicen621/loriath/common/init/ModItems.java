@@ -47,9 +47,7 @@ public class ModItems {
     public static final Item FROG_FLIPPER = register("frog_flipper", new FrogFlipperItem());
     public static final Item PANIC_NECKLACE = register("panic_necklace", new PanicNecklaceItem());
 
-    public static final Item LAST_HOPE = register("last_hope",
-            new CustomAxeItem(LastHopeTool.INSTANCE, 11, -3f,
-                    new FabricItemSettings().group(ITEM_GROUP)));
+    // public static final Item LAST_HOPE = register("last_hope", new CustomAxeItem(LastHopeTool.INSTANCE, 11, -3f, new FabricItemSettings().group(ITEM_GROUP)));
 
     public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
     // public static final Item INFINITE_TORCH = register("infinite_torch", new InfiniteTorchItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
