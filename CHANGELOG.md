@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/vicen621/Loriath-Mod/compare/v1.0.6...v1.0.7) (2023-01-17)
+
+
+### Bug Fixes
+
+* fixed changelog.md ([b4e480e](https://github.com/vicen621/Loriath-Mod/commit/b4e480e515a5c4ecc1c636cf84ad9ea11b428f78))
+
 ## [1.0.6](https://github.com/vicen621/Loriath-Mod/compare/v1.0.5...v1.0.6) (2023-01-17)
 
 
