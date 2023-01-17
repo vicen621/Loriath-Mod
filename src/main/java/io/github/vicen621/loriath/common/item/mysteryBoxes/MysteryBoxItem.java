@@ -53,7 +53,7 @@ public class MysteryBoxItem extends Item {
         Registry.register(Registry.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mystery_box"), this);
     }
 
-/*  @Override
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (world.isClient) return super.use(world, user, hand);
         if (!(user instanceof ServerPlayerEntity player)) return super.use(world, user, hand);
@@ -156,5 +156,5 @@ public class MysteryBoxItem extends Item {
         }
 
         return super.use(world, user, hand);
-    }*/ //TODO Fix Lag? and Re-enable
+    }
 }
