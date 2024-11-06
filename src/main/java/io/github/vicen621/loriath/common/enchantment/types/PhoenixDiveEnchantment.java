@@ -46,7 +46,7 @@ public class PhoenixDiveEnchantment extends ExtendedEnchantment {
 
             int enchantmentLevel = getPhoenixDiveLevel(attacker);
 
-            if (enchantmentLevel <= 0 || !(attacker.world instanceof ServerWorld world))
+            if (enchantmentLevel <= 0 || !(attacker.getWorld() instanceof ServerWorld world))
                 return true;
 
             for (Entity entity : getEntitiesInRange(attacker, world)) {
@@ -54,8 +54,8 @@ public class PhoenixDiveEnchantment extends ExtendedEnchantment {
                 StringUtils.debug((entity instanceof LivingEntity) + "");
                 if (entity instanceof LivingEntity target) {
                     target.setOnFireFor(SECONDS_ON_FIRE * enchantmentLevel);
-                    target.damage(DamageSource.explosion(attacker), 0);
-                    target.damage(DamageSource.ON_FIRE, (float) Math.sqrt(enchantmentLevel * distance));
+                    target.damage(world.getDamageSources().explosion(target, attacker), 0);
+                    target.damage(world.getDamageSources().onFire(), (float) Math.sqrt(enchantmentLevel * distance));
                 }
             }
 
@@ -65,7 +65,7 @@ public class PhoenixDiveEnchantment extends ExtendedEnchantment {
         });
 
         LivingEvent.LivingEntityUpdateCallback.EVENT.register(player -> {
-            if (getPhoenixDiveLevel(player) <= 0 || !(player.world instanceof ServerWorld world) || (player instanceof ServerPlayerEntity p && p.isSpectator()))
+            if (getPhoenixDiveLevel(player) <= 0 || !(player.getWorld() instanceof ServerWorld world) || (player instanceof ServerPlayerEntity p && p.isSpectator()))
                 return;
 
             if (TimeHelper.hasServerTicksPassed(3))

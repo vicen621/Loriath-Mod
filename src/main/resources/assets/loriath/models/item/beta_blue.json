@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/beta_blue"
+		"particle": "loriath:item/hats/beta_blue"
 	},
 	"elements": [
 		{

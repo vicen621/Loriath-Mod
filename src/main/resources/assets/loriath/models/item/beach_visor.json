@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_beach_visor"
+		"particle": "loriath:item/hats/gfx_beach_visor"
 	},
 	"elements": [
 		{

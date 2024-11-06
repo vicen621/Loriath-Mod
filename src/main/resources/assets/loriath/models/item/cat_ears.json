@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/cat_ears"
+		"particle": "loriath:item/hats/cat_ears"
 	},
 	"elements": [
 		{

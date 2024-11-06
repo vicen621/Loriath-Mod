@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_joker_hat"
+		"particle": "loriath:item/hats/gfx_joker_hat"
 	},
 	"elements": [
 		{

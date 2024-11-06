@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_hypno_goggles"
+		"particle": "loriath:item/hats/gfx_hypno_goggles"
 	},
 	"elements": [
 		{

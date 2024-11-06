@@ -6,7 +6,8 @@ import io.github.vicen621.loriath.common.loot.function.SetRandomPotionLootFuncti
 import net.minecraft.loot.function.LootFunction;
 import net.minecraft.loot.function.LootFunctionType;
 import net.minecraft.util.JsonSerializer;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 public class ModLootFunctions {
 
@@ -14,7 +15,7 @@ public class ModLootFunctions {
     public static final LootFunctionType SET_RANDOM_POTION = register("set_random_potion", new SetRandomPotionLootFunction.Serializer());
 
     private static LootFunctionType register(String id, JsonSerializer<? extends LootFunction> jsonSerializer) {
-        return Registry.register(Registry.LOOT_FUNCTION_TYPE, LoriathMod.id(id), new LootFunctionType(jsonSerializer));
+        return Registry.register(Registries.LOOT_FUNCTION_TYPE, LoriathMod.id(id), new LootFunctionType(jsonSerializer));
     }
 
     public static void registerLootFunctions() {

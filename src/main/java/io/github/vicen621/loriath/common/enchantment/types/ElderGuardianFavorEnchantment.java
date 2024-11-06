@@ -65,7 +65,7 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
     protected void entityUpdate(LivingEntity entity) {
         int counter = entity.loriath$getEGFCounter() - 1;
 
-        if (counter < 0 || !(entity.world instanceof ServerWorld world))
+        if (counter < 0 || !(entity.getWorld() instanceof ServerWorld world))
             return;
 
         entity.loriath$setEGFCounter(counter);
@@ -84,7 +84,7 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
             world.playSound(null, target.getX(), target.getEyeY(), target.getZ(), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.AMBIENT,
                     0.5f, 1.8f
             );
-            target.damage(DamageSource.MAGIC,
+            target.damage(world.getDamageSources().magic(),
                     (float) ((areEntitiesInWater ? this.WATER_MULTIPLIER : 1.0) * this.BEAM_DAMAGE)
             );
             entity.loriath$setEGFLinkedEntityID(0);
@@ -116,7 +116,7 @@ public class ElderGuardianFavorEnchantment extends ExtendedEnchantment {
      */
     protected void connectEntities(LivingEntity attacker, LivingEntity target, int enchantmentLevel) {
 
-        if (attacker.loriath$getEGFLinkedEntityID() > 0 && attacker.world.getEntityById(attacker.loriath$getEGFLinkedEntityID()) == null)
+        if (attacker.loriath$getEGFLinkedEntityID() > 0 && attacker.getWorld().getEntityById(attacker.loriath$getEGFLinkedEntityID()) == null)
             attacker.loriath$setEGFLinkedEntityID(0);
 
         if (attacker.loriath$getEGFLinkedEntityID() > 0 || enchantmentLevel == 0)

@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_bandana_mineclub"
+		"particle": "loriath:item/hats/gfx_bandana_mineclub"
 	},
 	"elements": [
 		{

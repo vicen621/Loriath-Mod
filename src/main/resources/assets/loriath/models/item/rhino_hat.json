@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_rhino_hat"
+		"particle": "loriath:item/hats/gfx_rhino_hat"
 	},
 	"elements": [
 		{

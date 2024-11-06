@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/devil_horns"
+		"particle": "loriath:item/hats/devil_horns"
 	},
 	"elements": [
 		{

@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class TrinketItem extends Item implements Trinket {
 
     public TrinketItem() {
-        this(new FabricItemSettings().group(ModItems.ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
+        this(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE));
     }
 
     public TrinketItem(Settings settings) {

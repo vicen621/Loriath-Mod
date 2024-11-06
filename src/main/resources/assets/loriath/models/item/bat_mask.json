@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_bat_mask"
+		"particle": "loriath:item/hats/gfx_bat_mask"
 	},
 	"elements": [
 		{

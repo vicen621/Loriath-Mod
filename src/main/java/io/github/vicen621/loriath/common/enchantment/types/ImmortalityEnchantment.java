@@ -63,7 +63,7 @@ public class ImmortalityEnchantment extends ExtendedEnchantment {
      * Spawns particles and plays sound when cheating death.
      */
     protected void spawnParticlesAndPlaySounds(LivingEntity livingEntity) {
-        ServerWorld world = (ServerWorld) livingEntity.world;
+        ServerWorld world = (ServerWorld) livingEntity.getWorld();
         world.spawnParticles(ParticleTypes.TOTEM_OF_UNDYING, livingEntity.getX(), livingEntity.getBodyY(0.75), livingEntity.getZ(), 64,
                 0.25, 0.5, 0.25, 0.5
         );

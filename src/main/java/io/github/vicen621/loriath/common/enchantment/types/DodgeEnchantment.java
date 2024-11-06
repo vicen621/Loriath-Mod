@@ -47,7 +47,7 @@ public class DodgeEnchantment extends ExtendedEnchantment {
     }
 
     protected static void spawnParticlesAndPlaySounds(LivingEntity entity) {
-        ServerWorld world = (ServerWorld) entity.world;
+        ServerWorld world = (ServerWorld) entity.getWorld();
         for (double d = 0.0; d < 3.0; d++) {
             Vec3d emitterPosition = new Vec3d(0.0, entity.getHeight() * 0.25 * (d + 1.0), 0.0).add(entity.getPos());
             for (int i = 0; i < 2; i++)
@@ -64,10 +64,10 @@ public class DodgeEnchantment extends ExtendedEnchantment {
         ItemStack pants = user.getEquippedStack(EquipmentSlot.LEGS);
         int dodgeLevel = getEnchantmentLevel(pants);
 
-        if (dodgeLevel <= 0 || !(user.world instanceof ServerWorld))
+        if (dodgeLevel <= 0 || !(user.getWorld() instanceof ServerWorld))
             return amount;
 
-        if (!(user.world.getRandom().nextDouble() <= dodgeLevel * DODGE_CHANCE_PER_LEVEL))
+        if (!(user.getWorld().getRandom().nextDouble() <= dodgeLevel * DODGE_CHANCE_PER_LEVEL))
             return amount;
 
         updateImmunity(user, IMMUNITY_TIME);

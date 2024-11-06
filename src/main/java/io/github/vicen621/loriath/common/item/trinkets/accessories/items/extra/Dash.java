@@ -10,7 +10,7 @@ public class Dash {
     }
 
     private void onPacketRecieve(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender sender) {
-        World world = player.world;
+        World world = player.getWorld();
 
         Random rand = world.random;
         for (int i = 0; i < 3; i++) {

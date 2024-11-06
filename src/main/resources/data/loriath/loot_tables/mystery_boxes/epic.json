@@ -176,15 +176,6 @@
       ]
     },
     {
-      "rolls": 3,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "copper_golem:copper_golem"
-        }
-      ]
-    },
-    {
       "rolls": 1,
       "entries": [
         {

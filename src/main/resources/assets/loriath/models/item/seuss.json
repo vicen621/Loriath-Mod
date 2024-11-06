@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/seuss"
+		"particle": "loriath:item/hats/seuss"
 	},
 	"elements": [
 		{

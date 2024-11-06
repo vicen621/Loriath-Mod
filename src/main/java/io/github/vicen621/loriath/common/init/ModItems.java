@@ -15,19 +15,27 @@ import io.github.vicen621.loriath.common.item.trinkets.accessories.items.head.Fr
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.necklace.PanicNecklaceItem;
 import io.github.vicen621.loriath.common.item.tools.CustomAxeItem;
 import io.github.vicen621.loriath.common.item.tools.LastHopeTool;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 
 
 //TODO Fijarse sailor hat
 public class ModItems {
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(LoriathMod.id("loriath"))
-            .icon(() -> new ItemStack(ModItems.MARICOIN))
-            .build();
+    public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, LoriathMod.id("loriath"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemGroup.loriath.loriath"))
+            .icon(() -> new ItemStack(ModItems.MARICOIN)).entries(((displayContext, entries) -> {
+                for (Item item : ModItems.ITEMS) {
+                    entries.add(() -> new ItemStack(item).getItem());
+                }
+            }))
+            .build());
 
     public static final Item ADHESIVE_BANDAGE = register("adhesive_bandage", new AdhesiveBandageItem());
     public static final Item BEZOAR = register("bezoar", new BezoarItem());
@@ -49,18 +57,44 @@ public class ModItems {
 
     // public static final Item LAST_HOPE = register("last_hope", new CustomAxeItem(LastHopeTool.INSTANCE, 11, -3f, new FabricItemSettings().group(ITEM_GROUP)));
 
-    public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().group(ITEM_GROUP).maxCount(16)));
+    public static final Item MARICOIN = register("maricoin", new Item(new FabricItemSettings().maxCount(16)));
     // public static final Item INFINITE_TORCH = register("infinite_torch", new InfiniteTorchItem(new FabricItemSettings().group(ITEM_GROUP).maxCount(1)));
 
-    public static final Item LEGENDARY_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.LEGENDARY, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item EPIC_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.EPIC, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item RARE_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.RARE, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item UNCOMMON_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.UNCOMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item COMMON_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.COMMON, new FabricItemSettings().group(ITEM_GROUP).maxCount(1));
-    public static final Item COMESTIC_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.COSMETIC, new FabricItemSettings().group(ITEM_GROUP).maxCount(8));
+    public static final Item LEGENDARY_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.LEGENDARY, new FabricItemSettings().maxCount(1));
+    public static final Item EPIC_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.EPIC, new FabricItemSettings().maxCount(1));
+    public static final Item RARE_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.RARE, new FabricItemSettings().maxCount(1));
+    public static final Item UNCOMMON_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.UNCOMMON, new FabricItemSettings().maxCount(1));
+    public static final Item COMMON_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.COMMON, new FabricItemSettings().maxCount(1));
+    public static final Item COMESTIC_MYSTERY_BOX = new MysteryBoxItem(MysteryBoxRarity.COSMETIC, new FabricItemSettings().maxCount(8));
+
+    public static final Item[] ITEMS = new Item[]{
+            ADHESIVE_BANDAGE,
+            BEZOAR,
+            DESTROYER_EMBLEM,
+            CLOAK_OF_INVISIBILITY,
+            FAST_CLOCK,
+            LAVA_CHARM,
+            MEDICATED_BANDAGE,
+            SHACKLE,
+            SHINY_STONE,
+            FROG_LEG,
+            HERMES_BOOTS,
+            DIGGING_CLAWS,
+            TITAN_GLOVE,
+            DIVING_GEAR,
+            FROG_FLIPPER,
+            PANIC_NECKLACE,
+            MARICOIN,
+            LEGENDARY_MYSTERY_BOX,
+            EPIC_MYSTERY_BOX,
+            RARE_MYSTERY_BOX,
+            UNCOMMON_MYSTERY_BOX,
+            COMMON_MYSTERY_BOX,
+            COMESTIC_MYSTERY_BOX
+    };
 
     private static Item register(String name, Item item) {
-        return Registry.register(Registry.ITEM, LoriathMod.id(name), item);
+        return Registry.register(Registries.ITEM, LoriathMod.id(name), item);
     }
 
     public static void registerModItems() {

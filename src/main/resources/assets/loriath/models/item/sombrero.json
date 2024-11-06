@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_sombrero"
+		"particle": "loriath:item/hats/gfx_sombrero"
 	},
 	"elements": [
 		{

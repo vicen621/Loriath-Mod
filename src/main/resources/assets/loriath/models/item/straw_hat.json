@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/straw_hat"
+		"particle": "loriath:item/hats/straw_hat"
 	},
 	"elements": [
 		{

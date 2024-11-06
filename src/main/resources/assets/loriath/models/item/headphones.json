@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_headphones"
+		"particle": "loriath:item/hats/gfx_headphones"
 	},
 	"elements": [
 		{

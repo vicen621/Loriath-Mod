@@ -14,7 +14,8 @@ import net.minecraft.potion.PotionUtil;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 import java.util.Collection;
 import java.util.List;
@@ -39,12 +40,12 @@ public class SetRandomPotionLootFunction extends ConditionalLootFunction {
         Potion potion;
 
         if (this.potions.isEmpty()) {
-            List<Potion> list = Registry.POTION.stream().toList();
+            List<Potion> list = Registries.POTION.stream().toList();
 
             if (strong == -1)
-                list = list.stream().filter(pot -> !Registry.POTION.getId(pot).getPath().contains("strong")).toList();
+                list = list.stream().filter(pot -> !Registries.POTION.getId(pot).getPath().contains("strong")).toList();
             else if (strong == 1)
-                list = list.stream().filter(pot -> Registry.POTION.getId(pot).getPath().contains("strong")).toList();
+                list = list.stream().filter(pot -> Registries.POTION.getId(pot).getPath().contains("strong")).toList();
 
             potion = list.get(random.nextInt(list.size()));
         } else {
@@ -63,7 +64,7 @@ public class SetRandomPotionLootFunction extends ConditionalLootFunction {
                 JsonArray jsonArray = new JsonArray();
 
                 for (Potion potion : setRandomPotionLootFunction.potions) {
-                    Identifier identifier = Registry.POTION.getId(potion);
+                    Identifier identifier = Registries.POTION.getId(potion);
                     jsonArray.add(new JsonPrimitive(identifier.toString()));
                 }
 
@@ -80,7 +81,7 @@ public class SetRandomPotionLootFunction extends ConditionalLootFunction {
 
                 for (JsonElement jsonElement : jsonArray) {
                     String string = JsonHelper.asString(jsonElement, "potion");
-                    Potion potion = Registry.POTION.getOrEmpty(new Identifier(string)).orElseThrow(() -> new JsonSyntaxException("Unknown potion '" + string + "'"));
+                    Potion potion = Registries.POTION.getOrEmpty(new Identifier(string)).orElseThrow(() -> new JsonSyntaxException("Unknown potion '" + string + "'"));
                     list.add(potion);
                 }
             }

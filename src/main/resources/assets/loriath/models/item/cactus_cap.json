@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/gfx_cactus_cap"
+		"particle": "loriath:item/hats/gfx_cactus_cap"
 	},
 	"elements": [
 		{

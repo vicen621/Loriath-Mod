@@ -5,30 +5,35 @@ import io.github.vicen621.loriath.common.init.ModHats;
 import io.github.vicen621.loriath.common.init.ModItems;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryRarity;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.tag.ItemTags;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+
+import java.util.concurrent.CompletableFuture;
 
 public class LoriathItemProvider extends FabricTagProvider<Item> {
-    private static final TagKey<Item> COMMON_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("common_accessory"));
-    private static final TagKey<Item> UNCOMMON_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("uncommon_accessory"));
-    private static final TagKey<Item> RARE_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("rare_accessory"));
-    private static final TagKey<Item> EPIC_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("epic_accessory"));
-    private static final TagKey<Item> LEGENDARY_ACCESSORY = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("legendary_accessory"));
-    public static final TagKey<Item> HATS = TagKey.of(Registry.ITEM_KEY, LoriathMod.id("hats"));
-    private static final TagKey<Item> CONCRETE_POWDER = TagKey.of(Registry.ITEM_KEY, new Identifier("concrete_powder"));
-    private static final TagKey<Item> GLAZED_TERRACOTTA = TagKey.of(Registry.ITEM_KEY, new Identifier("glazed_terracotta"));
+    private static final TagKey<Item> COMMON_ACCESSORY = TagKey.of(Registries.ITEM.getKey(), LoriathMod.id("common_accessory"));
+    private static final TagKey<Item> UNCOMMON_ACCESSORY = TagKey.of(Registries.ITEM.getKey(), LoriathMod.id("uncommon_accessory"));
+    private static final TagKey<Item> RARE_ACCESSORY = TagKey.of(Registries.ITEM.getKey(), LoriathMod.id("rare_accessory"));
+    private static final TagKey<Item> EPIC_ACCESSORY = TagKey.of(Registries.ITEM.getKey(), LoriathMod.id("epic_accessory"));
+    private static final TagKey<Item> LEGENDARY_ACCESSORY = TagKey.of(Registries.ITEM.getKey(), LoriathMod.id("legendary_accessory"));
+    public static final TagKey<Item> HATS = TagKey.of(Registries.ITEM.getKey(), LoriathMod.id("hats"));
+    private static final TagKey<Item> CONCRETE_POWDER = TagKey.of(Registries.ITEM.getKey(), new Identifier("concrete_powder"));
+    private static final TagKey<Item> GLAZED_TERRACOTTA = TagKey.of(Registries.ITEM.getKey(), new Identifier("glazed_terracotta"));
 
-    public LoriathItemProvider(FabricDataGenerator dataGenerator) {
-        super(dataGenerator, Registry.ITEM);
+    public LoriathItemProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> future) {
+        super(dataOutput, RegistryKey.ofRegistry(new Identifier("item")), future);
     }
 
     @Override
-    protected void generateTags() {
+    protected void configure(RegistryWrapper.WrapperLookup lookup) {
         getOrCreateTagBuilder(COMMON_ACCESSORY).add(AccessoryRarity.COMMON.getItems().toArray(Item[]::new));
         getOrCreateTagBuilder(UNCOMMON_ACCESSORY).add(AccessoryRarity.UNCOMMON.getItems().toArray(Item[]::new));
         getOrCreateTagBuilder(RARE_ACCESSORY).add(AccessoryRarity.RARE.getItems().toArray(Item[]::new));

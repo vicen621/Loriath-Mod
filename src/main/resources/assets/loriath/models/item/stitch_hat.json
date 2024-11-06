@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_stitch_hat",
-		"18_particle": "loriath:hats/gfx_stitch_hat"
+		"particle": "loriath:item/hats/gfx_stitch_hat",
+		"18_particle": "loriath:item/hats/gfx_stitch_hat"
 	},
 	"elements": [
 		{

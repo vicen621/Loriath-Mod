@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/fedora2"
+		"particle": "loriath:item/hats/fedora2"
 	},
 	"elements": [
 		{

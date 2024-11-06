@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/gfx_firefighter_helmet",
-		"2_particle": "loriath:hats/gfx_firefighter_helmet"
+		"particle": "loriath:item/hats/gfx_firefighter_helmet",
+		"2_particle": "loriath:item/hats/gfx_firefighter_helmet"
 	},
 	"elements": [
 		{

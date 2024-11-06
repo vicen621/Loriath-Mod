@@ -20,7 +20,7 @@ public class LavaCharmItem extends AccessoryItem {
     }
 
     private float onHurt(@NotNull LivingEntity wearer, DamageSource source, float amount) {
-        if (!wearer.world.isClient && amount >= 1 && source == DamageSource.LAVA &&
+        if (!wearer.getWorld().isClient && amount >= 1 && source == wearer.getWorld().getDamageSources().lava() &&
                 wearer instanceof PlayerEntity player && TrinketsHelper.isEquipped(ModItems.LAVA_CHARM, wearer) &&
                 !player.getItemCooldownManager().isCoolingDown(ModItems.LAVA_CHARM)) {
             wearer.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 140, 0, false, true));

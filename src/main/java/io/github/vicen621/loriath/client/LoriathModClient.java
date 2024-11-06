@@ -14,7 +14,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.particle.FlameParticle;
@@ -22,6 +21,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.screen.PlayerScreenHandler;
 import org.lwjgl.glfw.GLFW;
@@ -33,16 +34,16 @@ public class LoriathModClient implements ClientModInitializer {
         // Dash.DASH_KEYBIND = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.loriath.dash", GLFW.GLFW_KEY_Z, "key.categories.movement"));
 
         //phoenix particle
-        registerParticle(ModParticles.PHOENIX, PhoenixParticle.Factory::new, "phoenix");
+        //registerParticle(ModParticles.PHOENIX, PhoenixParticle.Factory::new, "phoenix");
 
         //overspeed particle
-        registerParticle(ModParticles.OVERSPEED, FlameParticle.Factory::new, "overspeed");
+        //registerParticle(ModParticles.OVERSPEED, FlameParticle.Factory::new, "overspeed");
 
         //second overspeed particle
-        registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second_overspeed");
+        //registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second_overspeed");
 
         //mystery box particle
-        registerParticle(ModParticles.MYSTERY_BOX, FlameParticle.Factory::new, "mystery_box");
+        //registerParticle(ModParticles.MYSTERY_BOX, FlameParticle.Factory::new, "mystery_box");
 
         // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_TORCH, RenderLayer.getCutout());
         // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_WALL_TORCH, RenderLayer.getCutout());
@@ -58,9 +59,7 @@ public class LoriathModClient implements ClientModInitializer {
     }
 
     public <T extends ParticleEffect> void registerParticle(ParticleType<T> type, ParticleFactoryRegistry.PendingParticleFactory<T> factory, String particle) {
-        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(LoriathMod.id("particle/" + particle));
-        }));
+            Registry.register(Registries.PARTICLE_TYPE, LoriathMod.id(particle), type);
         ParticleFactoryRegistry.getInstance().register(type, factory);
     }
 }

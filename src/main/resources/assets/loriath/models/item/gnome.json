@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/gnome"
+		"particle": "loriath:item/hats/gnome"
 	},
 	"elements": [
 		{

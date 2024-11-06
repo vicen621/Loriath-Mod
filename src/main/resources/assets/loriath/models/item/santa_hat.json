@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_santa_hat"
+		"particle": "loriath:item/hats/gfx_santa_hat"
 	},
 	"elements": [
 		{

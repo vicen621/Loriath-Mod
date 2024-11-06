@@ -18,6 +18,7 @@ import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
@@ -31,7 +32,7 @@ public class AccessoryRender implements TrinketRenderer {
             TrinketsHelper.translateToFace(matrixStack, entityModel, player, headYaw, headPitch);
             matrixStack.scale(-1f,-1f,1f);
             matrixStack.translate(0,0.7,0.3f);
-            MinecraftClient.getInstance().getItemRenderer().renderItem(itemStack, ModelTransformation.Mode.FIXED, light, OverlayTexture.DEFAULT_UV, matrixStack, vertexConsumerProvider, 0);
+            MinecraftClient.getInstance().getItemRenderer().renderItem(itemStack, ModelTransformationMode.FIXED, false, matrixStack, vertexConsumerProvider, light, OverlayTexture.DEFAULT_UV, MinecraftClient.getInstance().getItemRenderer().getModel(itemStack, entity.getWorld(), entity, 0));
         }
     }
 

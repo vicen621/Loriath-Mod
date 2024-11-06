@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_spring_flower_crown"
+		"particle": "loriath:item/hats/gfx_spring_flower_crown"
 	},
 	"elements": [
 		{

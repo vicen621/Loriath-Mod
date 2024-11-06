@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_tax_hat"
+		"particle": "loriath:item/hats/gfx_tax_hat"
 	},
 	"elements": [
 		{

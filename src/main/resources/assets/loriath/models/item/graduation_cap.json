@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_graduation_cap"
+		"particle": "loriath:item/hats/gfx_graduation_cap"
 	},
 	"elements": [
 		{

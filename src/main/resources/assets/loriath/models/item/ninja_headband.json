@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_bandana_black"
+		"particle": "loriath:item/hats/gfx_bandana_black"
 	},
 	"elements": [
 		{
