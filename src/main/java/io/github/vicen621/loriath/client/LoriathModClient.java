@@ -34,16 +34,16 @@ public class LoriathModClient implements ClientModInitializer {
         // Dash.DASH_KEYBIND = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.loriath.dash", GLFW.GLFW_KEY_Z, "key.categories.movement"));
 
         //phoenix particle
-        //registerParticle(ModParticles.PHOENIX, PhoenixParticle.Factory::new, "phoenix");
+        registerParticle(ModParticles.PHOENIX, PhoenixParticle.Factory::new, "phoenix");
 
         //overspeed particle
-        //registerParticle(ModParticles.OVERSPEED, FlameParticle.Factory::new, "overspeed");
+        registerParticle(ModParticles.OVERSPEED, FlameParticle.Factory::new, "overspeed");
 
         //second overspeed particle
-        //registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second_overspeed");
+        registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second");
 
         //mystery box particle
-        //registerParticle(ModParticles.MYSTERY_BOX, FlameParticle.Factory::new, "mystery_box");
+        registerParticle(ModParticles.MYSTERY_BOX, FlameParticle.Factory::new, "mystery_box");
 
         // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_TORCH, RenderLayer.getCutout());
         // BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFINITE_WALL_TORCH, RenderLayer.getCutout());
@@ -59,7 +59,6 @@ public class LoriathModClient implements ClientModInitializer {
     }
 
     public <T extends ParticleEffect> void registerParticle(ParticleType<T> type, ParticleFactoryRegistry.PendingParticleFactory<T> factory, String particle) {
-            Registry.register(Registries.PARTICLE_TYPE, LoriathMod.id(particle), type);
         ParticleFactoryRegistry.getInstance().register(type, factory);
     }
 }

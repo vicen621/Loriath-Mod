@@ -20,7 +20,7 @@ public class LoriathMod implements ModInitializer {
     public static final boolean DEBUG = true;
 
     public static Identifier id(String path) {
-        return new Identifier(MODID, path);
+        return Identifier.of(MODID, path);
     }
 
     @Override

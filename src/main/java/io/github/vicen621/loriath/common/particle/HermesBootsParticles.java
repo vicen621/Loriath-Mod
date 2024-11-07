@@ -19,8 +19,12 @@ public class HermesBootsParticles {
         Vec3d vLeft = new Vec3d(-0.2, 0, 0).rotateX(0).rotateY((yBodyRot / -57.295f));
         Vec3d vRight = new Vec3d(0.2, 0, 0).rotateX(0).rotateY((yBodyRot / -57.295f));
 
-        Vec3d right = playerPos.add(vRight).add(new Vec3d(new Vector3f((Vector3fc) entity.getVelocity().multiply(0.01D))));
-        Vec3d left = playerPos.add(vLeft).add(new Vec3d(new Vector3f((Vector3fc) entity.getVelocity().multiply(0.01D))));
+        Vector3f velocity = new Vector3f((float) entity.getVelocity().x, (float) entity.getVelocity().y, (float) entity.getVelocity().z);
+        velocity.mul(0.01f);
+        Vec3d velocityVec = new Vec3d(velocity.x, velocity.y, velocity.z);
+
+        Vec3d right = playerPos.add(vRight).add(velocityVec);
+        Vec3d left = playerPos.add(vLeft).add(velocityVec);
 
         spawnParticles(entity, random, world, left, right);
     }
