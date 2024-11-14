@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_pharaoh_headdress"
+		"particle": "loriath:item/hats/gfx_pharaoh_headdress"
 	},
 	"elements": [
 		{

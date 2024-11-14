@@ -4,7 +4,6 @@ import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.block.InfiniteTorchBlock;
 import io.github.vicen621.loriath.common.block.InfiniteWallTorchBlock;
 import net.minecraft.block.Block;
-import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
 

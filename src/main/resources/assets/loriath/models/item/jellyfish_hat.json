@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_jellyfish_cap"
+		"particle": "loriath:item/hats/gfx_jellyfish_cap"
 	},
 	"elements": [
 		{

@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/aviators"
+		"particle": "loriath:item/hats/aviators"
 	},
 	"elements": [
 		{

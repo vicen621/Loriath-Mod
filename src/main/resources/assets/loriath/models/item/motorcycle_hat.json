@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_motorcycle_helmet"
+		"particle": "loriath:item/hats/gfx_motorcycle_helmet"
 	},
 	"elements": [
 		{

@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/vr"
+		"particle": "loriath:item/hats/vr"
 	},
 	"elements": [
 		{

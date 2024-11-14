@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_shrek_beanie"
+		"particle": "loriath:item/hats/gfx_shrek_beanie"
 	},
 	"elements": [
 		{

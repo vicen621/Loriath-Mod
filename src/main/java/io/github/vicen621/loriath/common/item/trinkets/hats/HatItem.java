@@ -23,6 +23,6 @@ import net.minecraft.util.Rarity;
 public class HatItem extends TrinketItem {
 
     public HatItem() {
-        super(new FabricItemSettings().group(ModHats.HATS_ITEM_GROUP).maxCount(1).rarity(Rarity.RARE));
+        super(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE));
     }
 }

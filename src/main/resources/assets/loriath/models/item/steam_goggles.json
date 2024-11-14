@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "loriath:hats/steam_goggles"
+		"particle": "loriath:item/hats/steam_goggles"
 	},
 	"elements": [
 		{

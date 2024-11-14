@@ -26,7 +26,7 @@ public class HermesBootsItem extends AccessoryItem {
 
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        World world = entity.world;
+        World world = entity.getWorld();
         boolean isSprinting = entity.isSprinting();
         boolean isGrounded = entity.isOnGround();
         PlayerEntity player = (PlayerEntity) entity;

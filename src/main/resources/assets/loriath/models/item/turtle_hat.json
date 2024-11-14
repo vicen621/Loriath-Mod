@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_turtle_hat"
+		"particle": "loriath:item/hats/gfx_turtle_hat"
 	},
 	"elements": [
 		{

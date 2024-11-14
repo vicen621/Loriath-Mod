@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_artist_beret"
+		"particle": "loriath:item/hats/gfx_artist_beret"
 	},
 	"elements": [
 		{

@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"0": "loriath:hats/antlers",
-		"particle": "loriath:hats/antlers"
+		"0": "loriath:item/hats/antlers",
+		"particle": "loriath:item/hats/antlers"
 	},
 	"elements": [
 		{

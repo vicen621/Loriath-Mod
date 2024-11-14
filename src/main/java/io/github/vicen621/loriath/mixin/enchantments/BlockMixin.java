@@ -36,7 +36,7 @@ public abstract class BlockMixin {
         for (ItemStack itemStack : returnValue) {
             Optional<SmeltingRecipe> recipe = world.getRecipeManager().listAllOfType(RecipeType.SMELTING).stream().filter((smeltingRecipe -> smeltingRecipe.getIngredients().get(0).test(itemStack))).findFirst();
             if (recipe.isPresent()) {
-                ItemStack smelted = recipe.get().getOutput();
+                ItemStack smelted = recipe.get().getOutput((world.getRegistryManager()));
                 smelted.setCount(itemStack.getCount());
                 items.add(smelted);
             } else {

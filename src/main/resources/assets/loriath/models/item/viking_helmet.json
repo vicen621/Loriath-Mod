@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_viking_helmet"
+		"particle": "loriath:item/hats/gfx_viking_helmet"
 	},
 	"elements": [
 		{

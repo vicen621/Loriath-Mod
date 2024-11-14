@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_television_head"
+		"particle": "loriath:item/hats/gfx_television_head"
 	},
 	"elements": [
 		{

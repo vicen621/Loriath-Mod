@@ -3,7 +3,8 @@ package io.github.vicen621.loriath.common.init;
 import io.github.vicen621.loriath.LoriathMod;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.DefaultParticleType;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 public class ModParticles {
 
@@ -13,7 +14,7 @@ public class ModParticles {
     public static DefaultParticleType MYSTERY_BOX = register("mystery_box");
 
     private static DefaultParticleType register(String name) {
-        return Registry.register(Registry.PARTICLE_TYPE, LoriathMod.id(name), FabricParticleTypes.simple());
+        return Registry.register(Registries.PARTICLE_TYPE, LoriathMod.id(name), FabricParticleTypes.simple());
     }
 
     public static void registerModParticles() {

@@ -26,7 +26,8 @@ public abstract class LivingEntityMixin {
                 StatusEffectInstance trinketPermEffect = ((AccessoryItem) stack.getItem()).getPermanentEffect();
 
                 if (trinketPermEffect != null && trinketPermEffect.getEffectType() == effect.getEffectType()) {
-                    effect.setPermanent(true);
+                    //TODO: hacer que los AccesoryItem#getPermanentEffect() devuelvan efectos con duracion -1 (permanente)
+                    //effect.setPermanent(true);
                 }
             });
         }

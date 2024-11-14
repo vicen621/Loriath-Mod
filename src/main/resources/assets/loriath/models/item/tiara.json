@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/tiara"
+		"particle": "loriath:item/hats/tiara"
 	},
 	"elements": [
 		{

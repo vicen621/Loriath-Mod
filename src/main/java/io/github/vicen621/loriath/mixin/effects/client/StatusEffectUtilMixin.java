@@ -14,11 +14,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(StatusEffectUtil.class)
 public abstract class StatusEffectUtilMixin {
 
-    @Inject(method = "durationToString", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getDurationText", at = @At("HEAD"), cancellable = true)
     private static void setFromArtifactString(StatusEffectInstance effect, float multiplier, CallbackInfoReturnable<String> info) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
-        if (player != null && effect.isPermanent()) {
+        if (player != null && effect.isInfinite()) {
             TrinketsHelper.getEquippedAccessories(player).forEach(stack -> {
                 StatusEffectInstance trinketEffect = ((AccessoryItem) stack.getItem()).getPermanentEffect();
 

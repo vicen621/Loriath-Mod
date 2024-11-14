@@ -17,7 +17,8 @@ import net.minecraft.loot.function.LootFunctionType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import org.slf4j.Logger;
 
 import java.util.Collection;
@@ -57,7 +58,7 @@ public class EnchantRandomlyWithLevelLootFunction extends ConditionalLootFunctio
         Enchantment enchantment;
         if (this.enchantments.isEmpty()) {
             boolean bl = stack.isOf(Items.BOOK);
-            List<Enchantment> list = Registry.ENCHANTMENT.stream()
+            List<Enchantment> list = Registries.ENCHANTMENT.stream()
                     .filter(ench -> randomSelection == ench.isAvailableForRandomSelection())
                     .filter(ench -> bl || ench.isAcceptableItem(stack))
                     .filter(ench -> this.level != -1 && ench.getMaxLevel() >= this.level).toList();
@@ -83,7 +84,7 @@ public class EnchantRandomlyWithLevelLootFunction extends ConditionalLootFunctio
                 JsonArray jsonArray = new JsonArray();
 
                 for (Enchantment enchantment : enchantRandomlyLootFunction.enchantments) {
-                    Identifier identifier = Registry.ENCHANTMENT.getId(enchantment);
+                    Identifier identifier = Registries.ENCHANTMENT.getId(enchantment);
                     if (identifier == null) {
                         throw new IllegalArgumentException("Don't know how to serialize enchantment " + enchantment);
                     }
@@ -106,7 +107,7 @@ public class EnchantRandomlyWithLevelLootFunction extends ConditionalLootFunctio
 
                 for (JsonElement jsonElement : jsonArray) {
                     String string = JsonHelper.asString(jsonElement, "enchantment");
-                    Enchantment enchantment = Registry.ENCHANTMENT.getOrEmpty(new Identifier(string)).orElseThrow(() -> new JsonSyntaxException("Unknown enchantment '" + string + "'"));
+                    Enchantment enchantment = Registries.ENCHANTMENT.getOrEmpty(new Identifier(string)).orElseThrow(() -> new JsonSyntaxException("Unknown enchantment '" + string + "'"));
                     list.add(enchantment);
                 }
             }

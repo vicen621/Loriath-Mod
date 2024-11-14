@@ -1,7 +1,7 @@
 {
 	"parent": "loriath:item/beta_blue",
 	"textures": {
-		"particle": "loriath:hats/beta_magenta"
+		"particle": "loriath:item/hats/beta_magenta"
 
 	}
 }

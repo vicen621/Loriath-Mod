@@ -16,7 +16,7 @@ public class PanicNecklaceItem extends AccessoryItem {
     }
 
     private float applyEffects(LivingEntity user, DamageSource source, float amount) {
-        if (!user.world.isClient && amount >= 1 && TrinketsHelper.isEquipped(ModItems.PANIC_NECKLACE, user))
+        if (!user.getWorld().isClient && amount >= 1 && TrinketsHelper.isEquipped(ModItems.PANIC_NECKLACE, user))
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 160, 0, false, false));
         return amount;
     }

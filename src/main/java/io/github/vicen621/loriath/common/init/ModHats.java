@@ -2,16 +2,23 @@ package io.github.vicen621.loriath.common.init;
 
 import io.github.vicen621.loriath.LoriathMod;
 import io.github.vicen621.loriath.common.item.trinkets.hats.HatItem;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 
 public class ModHats {
-    public static final ItemGroup HATS_ITEM_GROUP = FabricItemGroupBuilder.create(LoriathMod.id("hats"))
-            .icon(() -> new ItemStack(ModHats.BANDANA))
-            .build();
+    public static final ItemGroup HATS_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, LoriathMod.id("hats"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemGroup.loriath.hats"))
+                    .icon(() -> new ItemStack(ModHats.BANDANA)).entries(((displayContext, entries) -> {
+                        for (Item item : ModHats.HATS) {
+                            entries.add(() -> new ItemStack(item).getItem());
+                        }
+                    }))
+                    .build());
 
     public static final Item GLASSES_3D = register("3d_glasses", new HatItem());
     public static final Item ANGRY_HAT = register("angry_hat", new HatItem());
@@ -146,11 +153,11 @@ public class ModHats {
             PUMPKIN_BEANIE, RAM_HAT, RHINO_HAT, RAINBOW_HEADBAND, RAINBOW_SHADES, ROBOCOP_HELMET, SANTA_HAT, SAILOR, SAMURAI_HELMET, SODA_HAT,
             SPIDER_HAT, SCIENCE_GOGGLES, SCUBA, SEUSS, SHARK, SHREK_BEANIE, SKATEBOARD_HELMET, SKULL_MASK, SOMBRERO,
             SPRING_FLOWER_CROWN, SPROUT_HAT, STEAM_GOGGLES, STITCH_HAT, STRAW_HAT, TAX_HAT, TIARA, TOP_HAT, TURTLE_HAT,
-            TELEVISION_HEAD, TIKI_MASK, TOMATO_CAP, TOP_HAT, TURTLE_HAT, UFO_HAT, UNICORN_HAT, USHANKA, VALKYRIE_HELMET,
+            TELEVISION_HEAD, TIKI_MASK, TOMATO_CAP, UFO_HAT, UNICORN_HAT, USHANKA, VALKYRIE_HELMET,
             VIKING_HELMET, VR, VR_GREEN, VR_ORANGE, VR_PURPLE, VR_RED, WINGED};
 
     private static Item register(String name, Item item) {
-        return Registry.register(Registry.ITEM, LoriathMod.id(name), item);
+        return Registry.register(Registries.ITEM, LoriathMod.id(name), item);
     }
 
     public static void registerModHats() {

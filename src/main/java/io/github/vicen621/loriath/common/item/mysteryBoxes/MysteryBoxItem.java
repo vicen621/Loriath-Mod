@@ -11,17 +11,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.Collections;
@@ -50,7 +53,7 @@ public class MysteryBoxItem extends Item {
     public MysteryBoxItem(MysteryBoxRarity rarity, Settings settings) {
         super(settings);
         this.rarity = rarity;
-        Registry.register(Registry.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mystery_box"), this);
+        Registry.register(Registries.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mystery_box"), this);
     }
 
     @Override
@@ -61,9 +64,13 @@ public class MysteryBoxItem extends Item {
         ItemStack stack = player.getStackInHand(hand);
 
         try {
-            LootContext.Builder builder = new LootContext.Builder(player.getWorld()).parameter(LootContextParameters.ORIGIN, player.getPos()).random(RANDOM);
-            builder.parameter(LootContextParameters.THIS_ENTITY, player);
-            List<ItemStack> items = player.getWorld().getServer().getLootManager().getTable(rarity.getLootTable()).generateLoot(builder.build(LootContextTypes.CHEST));
+            LootContextParameterSet parameterSet = new LootContextParameterSet.Builder((ServerWorld) player.getWorld())
+                    .add(LootContextParameters.ORIGIN, player.getPos())
+                    .add(LootContextParameters.THIS_ENTITY, player)
+                    .build(LootContextTypes.CHEST);
+            LootContext.Builder builder = new LootContext.Builder(parameterSet)
+                    .random(RANDOM.nextLong());
+            List<ItemStack> items = player.getWorld().getServer().getLootManager().getLootTable(rarity.getLootTable()).generateLoot(parameterSet);
             Collections.shuffle(items);
 
             SimpleGui gui = new SimpleGui(ScreenHandlerType.GENERIC_9X1, player, false) {

@@ -14,7 +14,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.particle.FlameParticle;
@@ -22,6 +21,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.screen.PlayerScreenHandler;
 import org.lwjgl.glfw.GLFW;
@@ -39,7 +40,7 @@ public class LoriathModClient implements ClientModInitializer {
         registerParticle(ModParticles.OVERSPEED, FlameParticle.Factory::new, "overspeed");
 
         //second overspeed particle
-        registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second_overspeed");
+        registerParticle(ModParticles.SECOND_OVERSPEED, FlameParticle.Factory::new, "second");
 
         //mystery box particle
         registerParticle(ModParticles.MYSTERY_BOX, FlameParticle.Factory::new, "mystery_box");
@@ -58,9 +59,6 @@ public class LoriathModClient implements ClientModInitializer {
     }
 
     public <T extends ParticleEffect> void registerParticle(ParticleType<T> type, ParticleFactoryRegistry.PendingParticleFactory<T> factory, String particle) {
-        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(LoriathMod.id("particle/" + particle));
-        }));
         ParticleFactoryRegistry.getInstance().register(type, factory);
     }
 }

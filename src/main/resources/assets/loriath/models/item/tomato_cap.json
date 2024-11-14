@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"particle": "loriath:hats/gfx_tomato_cap"
+		"particle": "loriath:item/hats/gfx_tomato_cap"
 	},
 	"elements": [
 		{
