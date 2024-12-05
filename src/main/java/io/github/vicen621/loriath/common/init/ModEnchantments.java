@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.init;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import io.github.vicen621.loriath.common.enchantment.ExtendedEnchantment;
 import io.github.vicen621.loriath.common.enchantment.types.*;
 import io.github.vicen621.loriath.common.enchantment.types.curses.IncompatibilityCurseEnchantment;
@@ -20,10 +20,10 @@ public class ModEnchantments {
     public static Enchantment INCOMPATIBILITY_CURSE = register(new IncompatibilityCurseEnchantment());
 
     private static Enchantment register(ExtendedEnchantment ench) {
-        return Registry.register(Registries.ENCHANTMENT, LoriathMod.id(ench.getRegisterName()), ench);
+        return Registry.register(Registries.ENCHANTMENT, Loriath.id(ench.getRegisterName()), ench);
     }
 
     public static void registerModEnchantments() {
-        LoriathMod.LOGGER.info("Registering Enchantments for " + LoriathMod.MODID);
+        Loriath.LOGGER.info("Registering Enchantments for " + Loriath.MODID);
     }
 }

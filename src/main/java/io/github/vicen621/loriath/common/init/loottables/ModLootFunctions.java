@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.init.loottables;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import io.github.vicen621.loriath.common.loot.function.EnchantRandomlyWithLevelLootFunction;
 import io.github.vicen621.loriath.common.loot.function.SetRandomPotionLootFunction;
 import net.minecraft.loot.function.LootFunction;
@@ -15,10 +15,10 @@ public class ModLootFunctions {
     public static final LootFunctionType SET_RANDOM_POTION = register("set_random_potion", new SetRandomPotionLootFunction.Serializer());
 
     private static LootFunctionType register(String id, JsonSerializer<? extends LootFunction> jsonSerializer) {
-        return Registry.register(Registries.LOOT_FUNCTION_TYPE, LoriathMod.id(id), new LootFunctionType(jsonSerializer));
+        return Registry.register(Registries.LOOT_FUNCTION_TYPE, Loriath.id(id), new LootFunctionType(jsonSerializer));
     }
 
     public static void registerLootFunctions() {
-        LoriathMod.LOGGER.info("Registering Loot Functions for " + LoriathMod.MODID);
+        Loriath.LOGGER.info("Registering Loot Functions for " + Loriath.MODID);
     }
 }

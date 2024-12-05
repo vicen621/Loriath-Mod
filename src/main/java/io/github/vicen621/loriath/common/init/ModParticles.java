@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.init;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.registry.Registries;
@@ -14,10 +14,10 @@ public class ModParticles {
     public static DefaultParticleType MYSTERY_BOX = register("mystery_box");
 
     private static DefaultParticleType register(String name) {
-        return Registry.register(Registries.PARTICLE_TYPE, LoriathMod.id(name), FabricParticleTypes.simple());
+        return Registry.register(Registries.PARTICLE_TYPE, Loriath.id(name), FabricParticleTypes.simple());
     }
 
     public static void registerModParticles() {
-        LoriathMod.LOGGER.info("Registering particles for " + LoriathMod.MODID);
+        Loriath.LOGGER.info("Registering particles for " + Loriath.MODID);
     }
 }

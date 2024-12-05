@@ -3,7 +3,7 @@ package io.github.vicen621.loriath.common.item.mysteryBoxes;
 import eu.pb4.sgui.api.elements.GuiElementBuilder;
 import eu.pb4.sgui.api.elements.GuiElementInterface;
 import eu.pb4.sgui.api.gui.SimpleGui;
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import io.github.vicen621.loriath.common.gui.LoriathAnimatedGuiElement;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -53,7 +53,7 @@ public class MysteryBoxItem extends Item {
     public MysteryBoxItem(MysteryBoxRarity rarity, Settings settings) {
         super(settings);
         this.rarity = rarity;
-        Registry.register(Registries.ITEM, LoriathMod.id(rarity.toString().toLowerCase() + "_mystery_box"), this);
+        Registry.register(Registries.ITEM, Loriath.id(rarity.toString().toLowerCase() + "_mystery_box"), this);
     }
 
     @Override

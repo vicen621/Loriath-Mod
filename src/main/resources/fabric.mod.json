@@ -1,51 +1,47 @@
 {
-  "schemaVersion": 1,
-  "id": "loriath",
-  "version": "1.0",
-  "name": "Loriath",
-  "description": "Fabric mod for Loriath server",
-  "authors": [
-    "Vicen621"
-  ],
-  "contact": {
-    "sources": "https://github.com/Vicen621/loriath-mod"
-  },
-  "license": "CC0-1.0",
-  "icon": "assets/loriath/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "io.github.vicen621.loriath.LoriathMod"
-    ],
-    "client": [
-      "io.github.vicen621.loriath.client.LoriathModClient"
-    ],
-    "fabric-datagen": [
-      "io.github.vicen621.loriath.datagen.LoriathDataGen"
-    ]
-  },
-  "mixins": [
-    "loriath.mixins.json"
-  ],
-  "accessWidener": "loriath.accesswidener",
-  "depends": {
-    "fabricloader": ">=0.15.11",
-    "fabric": "*",
-    "trinkets": ">=3.4.0",
-    "minecraft": "1.20.x",
-    "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
-  },
-  "custom": {
-    "loom:injected_interfaces": {
-      "net/minecraft/class_1293": [
-        "io/github/vicen621/loriath/extensions/StatusEffectInstanceExtensions"
-      ],
-      "net/minecraft/class_1309": [
-        "io/github/vicen621/loriath/extensions/LivingEntityExtensions"
-      ]
-    }
-  }
+	"schemaVersion": 1,
+	"id": "loriath",
+	"version": "${version}",
+	"name": "Loriath",
+	"description": "Fabric mod for Loriath server",
+	"authors": [
+		"Vicen621"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/loriath/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.vicen621.loriath.Loriath"
+		],
+		"client": [
+			"io.github.vicen621.loriath.LoriathClient"
+		],
+		"fabric-datagen": [
+			"io.github.vicen621.loriath.LoriathDataGenerator"
+		]
+	},
+	"mixins": [
+		"loriath.mixins.json",
+		{
+			"config": "loriath.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	},
+	"custom": {
+		"loom:injected_interfaces": {
+			"net/minecraft/class_1309": [
+				"io/github/vicen621/loriath/extensions/LivingEntityExtensions"
+			]
+		}
+	}
 }

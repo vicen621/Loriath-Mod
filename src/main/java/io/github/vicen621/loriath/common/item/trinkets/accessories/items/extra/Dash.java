@@ -6,7 +6,7 @@ public class Dash {
     /*public static KeyBinding DASH_KEYBIND;
 
     public Dash() {
-        ServerPlayNetworking.registerGlobalReceiver(LoriathMod.id("dash"), this::onPacketRecieve);
+        ServerPlayNetworking.registerGlobalReceiver(Loriath.id("dash"), this::onPacketRecieve);
     }
 
     private void onPacketRecieve(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender sender) {

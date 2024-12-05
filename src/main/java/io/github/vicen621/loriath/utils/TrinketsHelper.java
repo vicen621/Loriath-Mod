@@ -3,16 +3,10 @@ package io.github.vicen621.loriath.utils;
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryItem;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.PlayerEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Pair;
-import net.minecraft.util.math.RotationAxis;
-import org.joml.Vector3f;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,15 +45,14 @@ public class TrinketsHelper {
                 .collect(Collectors.toList());
     }
 
-    public static void translateToFace(MatrixStack matrices, EntityModel<? extends LivingEntity> model,
+    /*public static void translateToFace(MatrixStack matrices, EntityModel<? extends LivingEntity> model,
                                        LivingEntity entity, float headYaw, float headPitch) {
 
         if (entity.isInSwimmingPose() || entity.isFallFlying()) {
-            if(model instanceof PlayerEntityModel)
-            {
-                PlayerEntityModel<AbstractClientPlayerEntity> ctx = (PlayerEntityModel<AbstractClientPlayerEntity>) model;
-                matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(ctx.head.roll));
+            if (model instanceof PlayerEntityModel<? extends LivingEntity> playerEntityModel) {
+                matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(playerEntityModel.head.roll));
             }
+
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(headYaw));
             matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-45.0F));
         } else {
@@ -71,5 +64,5 @@ public class TrinketsHelper {
             matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(headPitch));
         }
         matrices.translate(0.0F, -0.25F, -0.3F);
-    }
+    }*/
 }

@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.init;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registries;
@@ -21,11 +21,11 @@ public class ModSoundEvents {
     public static final SoundEvent LEGENDARY_BOX_FINISH = register("item.mystery_box.finish_legendary");
 
     private static SoundEvent register(String name) {
-        Identifier id = LoriathMod.id(name);
+        Identifier id = Loriath.id(name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 
     public static void registerModSounds() {
-        LoriathMod.LOGGER.info("Registering Sounds for " + LoriathMod.MODID);
+        Loriath.LOGGER.info("Registering Sounds for " + Loriath.MODID);
     }
 }

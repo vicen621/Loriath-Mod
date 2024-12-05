@@ -8,6 +8,6 @@ public class InvisibilityCloakItem extends AccessoryItem {
 
     @Override
     public StatusEffectInstance getPermanentEffect() {
-        return new StatusEffectInstance(StatusEffects.INVISIBILITY, 20, 0, true, false);
+        return new StatusEffectInstance(StatusEffects.INVISIBILITY, -1, 0, true, false);
     }
 }

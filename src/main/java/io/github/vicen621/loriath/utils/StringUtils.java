@@ -1,15 +1,15 @@
 package io.github.vicen621.loriath.utils;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 
 public class StringUtils {
 
     public static void log(String s) {
-        LoriathMod.LOGGER.info(s);
+        Loriath.LOGGER.info(s);
     }
 
     public static void debug(String s) {
-        if (LoriathMod.DEBUG)
+        if (Loriath.DEBUG)
             log(s);
     }
 }

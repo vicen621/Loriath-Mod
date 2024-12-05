@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.item.mysteryBoxes;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import io.github.vicen621.loriath.common.init.ModSoundEvents;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -26,7 +26,7 @@ public enum MysteryBoxRarity {
     }
 
     MysteryBoxRarity(SoundEvent openSound, SoundEvent finishSound, SoundEvent switchSound, SoundEvent themeSound) {
-        this.lootTable = LoriathMod.id("mystery_boxes/" + this.toString().toLowerCase());
+        this.lootTable = Loriath.id("mystery_boxes/" + this.toString().toLowerCase());
         this.openSound = openSound;
         this.switchSound = switchSound;
         this.themeSound = themeSound;

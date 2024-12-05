@@ -1,17 +1,5 @@
 package io.github.vicen621.loriath.common.item;
 
-import io.github.vicen621.loriath.common.init.ModBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.TorchBlock;
-import net.minecraft.block.WallTorchBlock;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 
 //TODO Hacer el TorchBlock direccionable :)
 public class InfiniteTorchItem /* extends BlockItem*/ {

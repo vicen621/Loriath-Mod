@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.init.loottables;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.LootPoolEntry;
@@ -90,13 +90,13 @@ public class ModLootTables {
         }
 
         if ((id.getPath().contains("chests") && !id.getNamespace().equals("loriath")) || id.getNamespace().equals("structory") || (id.getNamespace().equals("terralith") && !id.getPath().contains("entities"))) {
-            Identifier table = LoriathMod.id("inject/maricoin_chests");
+            Identifier table = Loriath.id("inject/maricoin_chests");
             supplier.pool(LootPool.builder().with(LootTableEntry.builder(table).weight(1)));
         }
     }
 
     private static LootPoolEntry.Builder<?> getInjectEntry(Identifier id) {
-        Identifier table = LoriathMod.id("inject/" + id.getNamespace() + "/" + id.getPath());
+        Identifier table = Loriath.id("inject/" + id.getNamespace() + "/" + id.getPath());
         return LootTableEntry.builder(table).weight(1);
     }
 }

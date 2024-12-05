@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
 
 public class ShinyStoneItem extends AccessoryItem {
 
@@ -21,7 +22,8 @@ public class ShinyStoneItem extends AccessoryItem {
 
         int ticks = tag.getInt("shinyStoneTicks");
 
-        if (entity.getVelocity().x == 0 && entity.getVelocity().z == 0 && entity.isOnGround()) {
+        // FIXME: Este trinket no funciona, hay que ver una manera en la cual se pueda identificar que el jugador se esta moviendo
+        if (entity.getMovementSpeed() > 0 && entity.isOnGround()) {
             ticks++;
             tag.putInt("shinyStoneTicks", ticks);
             if (ticks >= 60) //3 secs

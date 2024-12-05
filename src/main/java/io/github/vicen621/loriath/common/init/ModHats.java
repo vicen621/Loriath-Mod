@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.init;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import io.github.vicen621.loriath.common.item.trinkets.hats.HatItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.Item;
@@ -11,7 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 
 public class ModHats {
-    public static final ItemGroup HATS_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, LoriathMod.id("hats"),
+    public static final ItemGroup HATS_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, Loriath.id("hats"),
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.loriath.hats"))
                     .icon(() -> new ItemStack(ModHats.BANDANA)).entries(((displayContext, entries) -> {
                         for (Item item : ModHats.HATS) {
@@ -157,10 +157,10 @@ public class ModHats {
             VIKING_HELMET, VR, VR_GREEN, VR_ORANGE, VR_PURPLE, VR_RED, WINGED};
 
     private static Item register(String name, Item item) {
-        return Registry.register(Registries.ITEM, LoriathMod.id(name), item);
+        return Registry.register(Registries.ITEM, Loriath.id(name), item);
     }
 
     public static void registerModHats() {
-        LoriathMod.LOGGER.info("Registering Hats for " + LoriathMod.MODID);
+        Loriath.LOGGER.info("Registering Hats for " + Loriath.MODID);
     }
 }

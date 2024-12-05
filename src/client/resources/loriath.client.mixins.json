@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "io.github.vicen621.loriath.mixin.client",
+	"compatibilityLevel": "JAVA_17",
+	"client": [
+		"renderer.PlayerEntityRendererMixin",
+		"renderer.RenderArmorMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"mixins": [
+		"effects.StatusEffectUtilMixin"
+	]
+}

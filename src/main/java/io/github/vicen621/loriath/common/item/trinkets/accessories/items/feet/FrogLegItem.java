@@ -7,6 +7,6 @@ import net.minecraft.entity.effect.StatusEffects;
 public class FrogLegItem extends AccessoryItem {
     @Override
     public StatusEffectInstance getPermanentEffect() {
-        return new StatusEffectInstance(StatusEffects.JUMP_BOOST, 20, 1, true, false);
+        return new StatusEffectInstance(StatusEffects.JUMP_BOOST, -1, 1, true, false);
     }
 }

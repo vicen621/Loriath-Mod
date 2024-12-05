@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.common.init;
 
-import io.github.vicen621.loriath.LoriathMod;
+import io.github.vicen621.loriath.Loriath;
 import io.github.vicen621.loriath.common.item.mysteryBoxes.MysteryBoxItem;
 import io.github.vicen621.loriath.common.item.mysteryBoxes.MysteryBoxRarity;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryItem;
@@ -13,11 +13,8 @@ import io.github.vicen621.loriath.common.item.trinkets.accessories.items.hand.Ti
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.head.DivingGearItem;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.head.FrogFlipperItem;
 import io.github.vicen621.loriath.common.item.trinkets.accessories.items.necklace.PanicNecklaceItem;
-import io.github.vicen621.loriath.common.item.tools.CustomAxeItem;
-import io.github.vicen621.loriath.common.item.tools.LastHopeTool;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -28,7 +25,7 @@ import net.minecraft.text.Text;
 
 //TODO Fijarse sailor hat
 public class ModItems {
-    public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, LoriathMod.id("loriath"),
+    public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, Loriath.id("loriath"),
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.loriath.loriath"))
             .icon(() -> new ItemStack(ModItems.MARICOIN)).entries(((displayContext, entries) -> {
                 for (Item item : ModItems.ITEMS) {
@@ -94,10 +91,10 @@ public class ModItems {
     };
 
     private static Item register(String name, Item item) {
-        return Registry.register(Registries.ITEM, LoriathMod.id(name), item);
+        return Registry.register(Registries.ITEM, Loriath.id(name), item);
     }
 
     public static void registerModItems() {
-        LoriathMod.LOGGER.info("Registering Items for " + LoriathMod.MODID);
+        Loriath.LOGGER.info("Registering Items for " + Loriath.MODID);
     }
 }

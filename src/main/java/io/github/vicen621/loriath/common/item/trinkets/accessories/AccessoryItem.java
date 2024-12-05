@@ -1,9 +1,9 @@
 package io.github.vicen621.loriath.common.item.trinkets.accessories;
 
+import dev.emi.trinkets.api.SlotReference;
 import io.github.vicen621.loriath.common.item.trinkets.TrinketItem;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AccessoryItem extends TrinketItem implements ExtendableTooltipProvider{
+public class AccessoryItem extends TrinketItem implements ExtendableTooltipProvider {
 
     /**
      * Used to give a Trinket a permanent status effect while wearing it.
-     * The StatusEffectInstance is applied every 15 ticks so a duration greater than that is required.
+     * The StatusEffectInstance have to be permanent or it will be removed once the time is over
      *
      * @return The {@link StatusEffectInstance} to be applied while wearing this artifact
      */
@@ -28,9 +28,15 @@ public class AccessoryItem extends TrinketItem implements ExtendableTooltipProvi
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext flags) {
-        append(tooltip);
+    public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if (hasPermanentEffect())
+            entity.addStatusEffect(getPermanentEffect());
+    }
+
+    @Override
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if (hasPermanentEffect())
+            entity.removeStatusEffect(getPermanentEffect().getEffectType());
     }
 
     @Override
@@ -42,6 +48,10 @@ public class AccessoryItem extends TrinketItem implements ExtendableTooltipProvi
             tooltip.add(Text.literal(line).formatted(Formatting.GRAY));
 
         return tooltip;
+    }
+
+    public boolean hasPermanentEffect() {
+        return this.getPermanentEffect() != null;
     }
 
     protected List<String> getTooltipDescriptionArguments() {
