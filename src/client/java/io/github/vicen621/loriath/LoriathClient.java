@@ -1,12 +1,12 @@
 package io.github.vicen621.loriath;
 
-import io.github.vicen621.loriath.common.item.trinkets.accessories.ExtendableTooltipProvider;
+import io.github.vicen621.loriath.item.trinkets.accessories.ExtendableTooltipProvider;
 import io.github.vicen621.loriath.particle.PhoenixParticle;
 import io.github.vicen621.loriath.render.AccessoryRender;
 import io.github.vicen621.loriath.render.accessory.AccessoryRenderers;
-import io.github.vicen621.loriath.common.init.ModHats;
-import io.github.vicen621.loriath.common.init.ModParticles;
-import io.github.vicen621.loriath.common.item.trinkets.hats.HatItem;
+import io.github.vicen621.loriath.init.ModHats;
+import io.github.vicen621.loriath.init.ModParticles;
+import io.github.vicen621.loriath.item.trinkets.hats.HatItem;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;

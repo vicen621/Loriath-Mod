@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.utils;
 
-import io.github.vicen621.loriath.common.events.TickEvents;
+import io.github.vicen621.loriath.events.TickEvents;
 
 public class TimeHelper {
     private static long serverCounter = 1L;

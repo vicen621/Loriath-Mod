@@ -1,9 +1,9 @@
 package io.github.vicen621.loriath;
 
-import io.github.vicen621.loriath.common.init.*;
-import io.github.vicen621.loriath.common.init.loottables.ModLootFunctions;
-import io.github.vicen621.loriath.common.init.loottables.ModLootTables;
-import io.github.vicen621.loriath.common.item.trinkets.accessories.items.extra.Dash;
+import io.github.vicen621.loriath.init.*;
+import io.github.vicen621.loriath.init.loottables.ModLootFunctions;
+import io.github.vicen621.loriath.init.loottables.ModLootTables;
+import io.github.vicen621.loriath.item.trinkets.accessories.items.extra.Dash;
 import io.github.vicen621.loriath.utils.TimeHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;

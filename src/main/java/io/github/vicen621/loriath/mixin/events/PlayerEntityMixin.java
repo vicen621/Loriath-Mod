@@ -1,8 +1,8 @@
 package io.github.vicen621.loriath.mixin.events;
 
-import io.github.vicen621.loriath.common.events.LivingEvent;
-import io.github.vicen621.loriath.common.init.ModItems;
-import io.github.vicen621.loriath.common.item.trinkets.accessories.items.hand.DiggingClawsItem;
+import io.github.vicen621.loriath.events.LivingEvent;
+import io.github.vicen621.loriath.init.ModItems;
+import io.github.vicen621.loriath.item.trinkets.accessories.items.hand.DiggingClawsItem;
 import io.github.vicen621.loriath.utils.TrinketsHelper;
 import net.fabricmc.fabric.api.mininglevel.v1.MiningLevelManager;
 import net.minecraft.block.BlockState;

@@ -2,7 +2,7 @@ package io.github.vicen621.loriath.render.accessory;
 
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import io.github.vicen621.loriath.Loriath;
-import io.github.vicen621.loriath.common.init.ModItems;
+import io.github.vicen621.loriath.init.ModItems;
 import io.github.vicen621.loriath.render.accessory.model.ArmsModel;
 import io.github.vicen621.loriath.render.accessory.model.HeadModel;
 import io.github.vicen621.loriath.render.accessory.model.NecklaceModel;

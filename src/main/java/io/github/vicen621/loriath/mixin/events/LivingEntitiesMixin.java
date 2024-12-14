@@ -1,6 +1,7 @@
 package io.github.vicen621.loriath.mixin.events;
 
-import io.github.vicen621.loriath.common.events.LivingEvent;
+import com.llamalad7.mixinextras.sugar.Local;
+import io.github.vicen621.loriath.events.LivingEvent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -16,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Map;
 
@@ -62,9 +62,9 @@ public abstract class LivingEntitiesMixin extends Entity {
     }
 
     @Inject(method = "getEquipmentChanges", at = @At(value = "INVOKE",
-            target = "Ljava/util/Map;put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"),
-            locals = LocalCapture.CAPTURE_FAILHARD)
-    private void onItemEquip(CallbackInfoReturnable<Map<EquipmentSlot, ItemStack>> cir, Map<EquipmentSlot, ItemStack> map, EquipmentSlot[] var2, int var3, int var4, EquipmentSlot equipmentSlot, ItemStack itemStack, ItemStack itemStack2) {
+            target = "Ljava/util/Map;put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;")
+    )
+    private void onItemEquip(CallbackInfoReturnable<Map<EquipmentSlot, ItemStack>> cir, @Local EquipmentSlot equipmentSlot, @Local(ordinal = 0) ItemStack itemStack, @Local(ordinal = 1) ItemStack itemStack2) {
         LivingEvent.LivingEntityEquipmentChangeCallback.EVENT.invoker().changeEquipment(get(), equipmentSlot, itemStack, itemStack2);
     }
 }

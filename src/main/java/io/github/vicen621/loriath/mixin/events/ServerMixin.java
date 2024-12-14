@@ -1,6 +1,6 @@
 package io.github.vicen621.loriath.mixin.events;
 
-import io.github.vicen621.loriath.common.events.TickEvents;
+import io.github.vicen621.loriath.events.TickEvents;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

@@ -2,7 +2,7 @@ package io.github.vicen621.loriath.utils;
 
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
-import io.github.vicen621.loriath.common.item.trinkets.accessories.AccessoryItem;
+import io.github.vicen621.loriath.item.trinkets.accessories.AccessoryItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
