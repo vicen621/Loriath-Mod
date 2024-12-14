@@ -81,7 +81,7 @@ public class ModLootTables {
             new Identifier("structory", "ruin/swamp/loot"),
             new Identifier("structory", "ruin/taiga/illager_treasure"),
             new Identifier("structory", "ruin/taiga/loot"),
-            new Identifier("erralith", "underground/chest")
+            new Identifier("terralith", "underground/chest")
     );
 
     public static void onLootTableLoad(Identifier id, LootTable.Builder supplier) {
