@@ -497,7 +497,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecells:prision_torch",
+          "name": "minecells:prison_torch",
           "functions": [
             {
               "function": "minecraft:set_count",

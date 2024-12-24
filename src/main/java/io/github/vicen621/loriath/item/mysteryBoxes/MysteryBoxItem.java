@@ -64,6 +64,7 @@ public class MysteryBoxItem extends Item {
 
         player.getWorld().playSound(null, player.getBlockPos(), rarity.getFinishSound(), SoundCategory.NEUTRAL, 1, 1);
         stack.decrement(1);
+        return super.use(world, user, hand);
 
         /*try {
             LootContextParameterSet parameterSet = new LootContextParameterSet.Builder((ServerWorld) player.getWorld())
@@ -161,6 +162,5 @@ public class MysteryBoxItem extends Item {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-        return super.use(world, user, hand);
     }
 }

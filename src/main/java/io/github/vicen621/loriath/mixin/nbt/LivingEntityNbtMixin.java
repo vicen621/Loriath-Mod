@@ -21,6 +21,8 @@ public abstract class LivingEntityNbtMixin extends Entity implements LivingEntit
     private int loriath$EGFCounter;
     @Unique
     private int loriath$KBImmunityCounter;
+    @Unique
+    private boolean loriath$canUseEnchants;
 
     public LivingEntityNbtMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -31,6 +33,7 @@ public abstract class LivingEntityNbtMixin extends Entity implements LivingEntit
         tag.putInt("loriath$EGFLinkedEntityID", this.loriath$EGFLinkedEntityID);
         tag.putInt("loriath$EGFCounter", this.loriath$EGFCounter);
         tag.putInt("loriath$KBImmunityCounter", this.loriath$KBImmunityCounter);
+        tag.putBoolean("loriath$canUseEnchants", this.loriath$canUseEnchants);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
@@ -38,6 +41,7 @@ public abstract class LivingEntityNbtMixin extends Entity implements LivingEntit
         this.loriath$EGFLinkedEntityID = tag.getInt("loriath$EGFLinkedEntityID");
         this.loriath$EGFCounter = tag.getInt("loriath$EGFCounter");
         this.loriath$KBImmunityCounter = tag.getInt("loriath$KBImmunityCounter");
+        this.loriath$canUseEnchants = tag.getBoolean("loriath$canUseEnchants");
     }
 
     @Unique
@@ -74,5 +78,17 @@ public abstract class LivingEntityNbtMixin extends Entity implements LivingEntit
     @Override
     public void loriath$setKbImmunityCounter(int counter) {
         this.loriath$KBImmunityCounter = counter;
+    }
+
+    @Unique
+    @Override
+    public boolean loriath$canUseEnchants() {
+        return loriath$canUseEnchants;
+    }
+
+    @Unique
+    @Override
+    public void loriath$setCanUseEnchants(boolean value) {
+        this.loriath$canUseEnchants = value;
     }
 }

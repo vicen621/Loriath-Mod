@@ -13,4 +13,8 @@ public interface LivingEntityExtensions {
     int loriath$getKbImmunityCounter();
 
     void loriath$setKbImmunityCounter(int counter);
+
+    boolean loriath$canUseEnchants();
+
+    void loriath$setCanUseEnchants(boolean value);
 }
