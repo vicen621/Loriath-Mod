@@ -6,13 +6,43 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "loriath:digging_claws"
+          "name": "loriath:legendary_mystery_box"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:random_chance",
           "chance": 0.1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "loriath:epic_mystery_box"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.2
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "loriath:common_mystery_box"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.8
         }
       ]
     },
@@ -28,7 +58,7 @@
       "conditions": [
         {
           "condition": "minecraft:random_chance",
-          "chance": 0.1
+          "chance": 0.3
         }
       ]
     },
@@ -44,7 +74,7 @@
       "conditions": [
         {
           "condition": "minecraft:random_chance",
-          "chance": 0.2
+          "chance": 0.1
         }
       ]
     },
@@ -59,7 +89,7 @@
       "conditions": [
         {
           "condition": "minecraft:random_chance",
-          "chance": 0.25
+          "chance": 0.4
         }
       ]
     },
@@ -72,18 +102,43 @@
         {
           "type": "minecraft:item",
           "weight": 3,
-          "name": "loriath:common_mystery_box"
+          "name": "loriath:uncommon_mystery_box"
         },
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "loriath:uncommon_mystery_box"
+          "name": "loriath:rare_mystery_box"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:random_chance",
           "chance": 0.5
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 1,
+        "max": 2
+      },
+      "bonus_rolls": {
+        "min": 1,
+        "max": {
+          "min": 3,
+          "max": 3
+        }
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "loriath:maricoin",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
         }
       ]
     }

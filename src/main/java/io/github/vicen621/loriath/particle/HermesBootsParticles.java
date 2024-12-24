@@ -33,8 +33,8 @@ public class HermesBootsParticles {
         if (!entity.isSubmergedInWater() && !isSneaking) {
             for (int i = 0; i < 10; i++) {
                 world.addParticle(ModParticles.OVERSPEED, left.x, left.y + 0.1D, left.z, random, 0.0D, random);
-                world.addParticle(ModParticles.SECOND_OVERSPEED, left.x, left.y + 0.1D, left.z, random, 0.0D, random);
                 world.addParticle(ModParticles.OVERSPEED, right.x, right.y, right.z + 0.1D, random, 0.0D, random);
+                world.addParticle(ModParticles.SECOND_OVERSPEED, left.x, left.y + 0.1D, left.z, random, 0.0D, random);
                 world.addParticle(ModParticles.SECOND_OVERSPEED, right.x, right.y + 0.1D, right.z, random, 0.0D, random);
             }
         } else {

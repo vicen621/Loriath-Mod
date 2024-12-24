@@ -23,6 +23,11 @@ repositories {
 	}
 	// sgui repository
 	maven { url 'https://maven.nucleoid.xyz' }
+	// LibGui repository
+	maven {
+		name = "CottonMC"
+		url = "https://server.bbkr.space/artifactory/libs-release"
+	}
 }
 
 loom {
@@ -56,6 +61,8 @@ dependencies {
 	modImplementation include("eu.pb4:sgui:${project.sgui_version}")
 
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
+
+	modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
 }
 
 processResources {

@@ -33,24 +33,6 @@ public class HermesBootsItem extends AccessoryItem {
             resetTimer();
         }
 
-/*      if (timer >= 50 && timer < 100) {
-            value = 1.04;
-        } else if (timer >= 100 && timer < 150) {
-            value = 1.08;
-        } else if (timer >= 150 && timer < 200) {
-            value = 1.12;
-        } else if (timer >= 200 && timer < 250) {
-            value = 1.14;
-        } else if (timer >= 250 && timer < 300) {
-            value = 1.16;
-        } else if (timer >= 300 && timer < 350) {
-            value = 1.18;
-        } else if (timer >= 350) {
-            value = 1.20;
-        } else {
-            value = DefaultValue;
-        }*/
-
         if (timer % 20 == 0) {
             value = (((timer-14)/((timer+217)*1.4))+0.9);
             if (value < 1) {

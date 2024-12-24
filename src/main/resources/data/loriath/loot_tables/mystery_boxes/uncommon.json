@@ -6,6 +6,15 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "gigeresque:surgery_kit"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "name": "loriath:cosmetic_mystery_box"
         }
       ]
@@ -95,67 +104,6 @@
             {
               "function": "minecraft:set_count",
               "count": 24
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 2,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "minecraft:set_enchantments",
-              "enchantments": {
-                "loriath:vitality": 1
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "loriath:enchant_randomly_with_levels",
-              "level": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 2,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "loriath:enchant_randomly_with_levels"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 3,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "loriath:enchant_randomly_with_levels",
-              "level": 2
             }
           ]
         }

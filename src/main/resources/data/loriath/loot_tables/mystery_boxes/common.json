@@ -6,13 +6,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "loriath:enchant_randomly_with_levels",
-              "level": 2
-            }
-          ]
+          "name": "minecells:health_flask",
+          "functions": []
         }
       ]
     },
@@ -30,20 +25,6 @@
             {
               "function": "loriath:set_random_potion",
               "strong": -1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 3,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "loriath:enchant_randomly_with_levels"
             }
           ]
         }
@@ -162,46 +143,11 @@
       ]
     },
     {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "minecraft:set_enchantments",
-              "enchantments": {
-                "loriath:incompatibility_curse": 1
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "rolls": 3,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "loriath:uncommon_mystery_box"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "minecraft:set_enchantments",
-              "enchantments": {
-                "loriath:vitality": 1
-              },
-              "add": true
-            }
-          ]
         }
       ]
     },

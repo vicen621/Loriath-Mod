@@ -6,6 +6,15 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "fromanotherworld:assimilation_liquid"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "name": "minecraft:golden_apple",
           "functions": [
             {
@@ -110,36 +119,6 @@
                 "min": 4,
                 "max": 16
               }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 2,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "loriath:enchant_randomly_with_levels",
-              "levels": 5
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 5,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:book",
-          "functions": [
-            {
-              "function": "loriath:enchant_randomly_with_levels",
-              "levels": 4
             }
           ]
         }
