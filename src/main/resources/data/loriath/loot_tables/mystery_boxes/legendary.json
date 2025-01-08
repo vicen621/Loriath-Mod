@@ -30,7 +30,22 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "fromanotherworld:assimilation_liquid",
+          "name": "soulstone-guns:loriathbless",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "soulstone-guns:loriathsblood",
           "functions": [
             {
               "function": "minecraft:set_count",
